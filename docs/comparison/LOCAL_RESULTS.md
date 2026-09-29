@@ -60,6 +60,8 @@ n=128; ten verified square proofs per row. The query count changes with rho; the
 
 At these measured parameters, rho=1/4 has the smallest mean online proving time; rho=1/8 has the smallest mean verification time and a larger proof payload. Lower code rate does not uniformly reduce every cost.
 
+A separate one-run n=2048 sweep over the same three code rates finds the online-prover minimum at rho=1/2; see [code-rate trade-off analysis](CODE_RATE_TRADEOFF_KO.md). Keep its single-run measurements separate from this ten-run n=128 table.
+
 ![LAMP code rates](results_20260929/lamp_code_rates.png)
 
 ## Accounting, interruption and remaining scope

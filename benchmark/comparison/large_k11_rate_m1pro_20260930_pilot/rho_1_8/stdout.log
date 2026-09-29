@@ -1,0 +1,21 @@
+🔥 [LAMP ZK Protocol] logK=11, K=2048, N=16384, L=155, linker=qa_link, merkle=multi
+   ✅ Matrix Compute Time: 30.63 s
+=== Circuit Setup & Prove ===
+04:37:29 INF compiling circuit
+04:37:29 INF parsed circuit inputs nbPublic=161 nbSecret=1008081
+04:37:34 INF building constraint builder nbConstraints=1490212
+=== 3. Generating Proof ===
+04:40:08 DBG constraint system solver done nbConstraints=1490212 took=3915.689125
+04:40:17 DBG prover done acceleration=none backend=groth16 curve=bn254 nbConstraints=1490212 took=8384.768
+   ✅ Prove Time: 12.30s
+=== Generating Off-line Proofs ===
+=== Verifying All Proofs ===
+04:40:17 DBG verifier done backend=groth16 curve=bn254 took=3.981292
+   ✅ Verify Time: 0.09s
+✅ ALL BLINDED ZK PROOFS VERIFIED SUCCESSFULLY!
+04:40:17 DBG verifier done backend=groth16 curve=bn254 took=3.167666
+📊 Proof Sizes -> Groth16: 292 B, Merkle: 77760 B, CPLink: 128 B | Total: 78180 B
+💾 Result saved to CSV: LAMP Protocol: logK=11, rho=1/8, linker=qa_link, merkle=multi, L=155, constraints=1490212
+
+
+🎉 All LAMP ZK tasks finished!

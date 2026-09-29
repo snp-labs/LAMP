@@ -74,6 +74,8 @@ n=128, 조건별 10회. rho는 LAMP 고유의 설정이며 zkMatrix에 같은 �
 
 측정한 중에는 rho=1/4의 평균 proving 시간이 가장 짧고, rho=1/8의 평균 verification 시간이 가장 짧다. rho=1/8에서는 proof가 더 크므로 모든 비용이 함께 개선되지는 않는다. 이 두 설정의 n=128 proving 시간도 zkMatrix의 단일 square 평균 1.347초보다는 크다.
 
+n=2048에서는 같은 논문 sampling 목표로 `rho=1/2,1/4,1/8`을 각각 1회씩 추가 측정했다. Commitment 포함 online proving은 차례로 **60.67, 69.37, 118.56초**였으므로, 큰 행렬의 1회 파일럿에서는 `rho=1/2`가 가장 빨랐다. 하지만 setup을 매번 수행하면 `rho=1/4`의 더 작은 회로가 전체 실행 시간을 낮췄다. Key 재사용 횟수와 검증·proof 크기에 따라 최적 rate가 달라진다. 논문 Appendix F Table 7과 단계별 원자료는 [ECC rate 절충 분석](CODE_RATE_TRADEOFF_KO.md)에 정리했다.
+
 ## 7. zkMaP 재현 문제
 
 ### 7.1 논문의 특정 등식에 대한 직접 반례
@@ -121,6 +123,7 @@ n=8192 및 논문 §7의 공통 Linux 호스트 반복 실험, sequence-1024 GPT
 
 - [유효한 proof 300회, SD, 측정 조건과 그림](LOCAL_RESULTS.md)
 - [n=2048·4096 검증된 1회 대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)
+- [ECC rate와 commitment·Groth16 절충](CODE_RATE_TRADEOFF_KO.md)
 - [square manifest](../../benchmark/comparison/published_20260929/manifests/squares_k7_k10_m1pro_20260929_run1.json)
 - [batch 완료 manifest](../../benchmark/comparison/published_20260929/manifests/batch_q1_q10_m1pro_20260929_resume1.json)
 - [수치 summary](results_20260929/compact_summary.json)

@@ -27,6 +27,8 @@ q=2 online prove는 LAMP가 zkMatrix보다 **2.37배 짧았다**. q=1→2에서 
 
 n=4096에서 LAMP online prove는 zkMatrix보다 **7.00배 짧았다**. LAMP 온라인 **162.30초** 중 행렬 commitment가 **89.11초**, solver와 Groth16 prover 합계가 **60.49초**였다. Solver는 **18.63초**, Groth16 prover는 **41.86초**다. n=2048에 비해 행렬 commitment가 훨씬 빠르게 증가해, 이 크기에서는 Groth16 backend만 바꾸는 전략의 효과가 더 제한된다. Groth16 prover만 비용이 0이 되어도 동일한 나머지 단계만으로 약 **120.44초**가 걸리는 산술상 한계가 있다. Solver까지 비용이 0이 되는 비현실적인 가정에서도 약 **101.82초**가 남는다. 실제 backend 교체에는 새 비용이 생기므로 이는 성능 예측이 아니라 병목을 설명하는 상한이다. 회로는 **5,214,878 constraints**였다.
 
+n=2048의 별도 rate 실험에서는 같은 논문 sampling 목표의 `ρ=1/4,L=189`가 online 69.37초, `ρ=1/8,L=155`가 118.56초로 이 표의 `ρ=1/2,L=309` 60.67초보다 길었다. 낮은 rate가 Groth16 시간을 줄여도 commitment 증가가 더 컸다. Setup을 매번 포함하면 `ρ=1/4`가 유리할 수 있으므로 비용 목표와 key 재사용 횟수를 분리해서 선택해야 한다. [ECC rate 분석](CODE_RATE_TRADEOFF_KO.md)에 논문 Table 7과 로컬 원자료를 함께 설명한다.
+
 작은 행렬에서의 batch q=10 결과는 zkMatrix에 유리했으므로, n=2048 q=1만으로 큰 행렬의 모든 batch 크기에서 LAMP가 빠르다고 일반화하지 않는다. 반면 단일 행렬 결과는 기존 n=1024의 LAMP 22.10초 대 zkMatrix 66.60초(약 3.01배)에 이어 큰 n에서 차이가 커지는 방향을 보인 **예비 관찰**이다. 두 측정은 서로 다른 소스 revision의 별도 실험이므로 하나의 통계 회귀나 논문 표로 합치지 않는다.
 
 zkMatrix의 verifier와 proof payload는 n=4096에서도 작다. LAMP는 큰 행렬의 prover 시간, zkMatrix는 verifier·통신량 및 setup 시간에 장점이 있다. 측정한 zkMatrix setup SRS는 n=2048에서 8,396,804 G1 points(압축 추정 268,697,920 B), n=4096에서 33,570,820 points(1,074,266,432 B)다. LAMP와 zkMatrix의 setup 모델 및 재사용 범위가 다르므로 setup 시간을 online prove에 더해 하나의 우열 수치로 해석하지 않는다. 이 1회 실행의 전체 프로세스 경과 시간은 LAMP 약 1,012초, zkMatrix 약 1,693초였다. 행렬곱 계산과 setup, 추가 직렬화 재검증을 포함한 값이다.
