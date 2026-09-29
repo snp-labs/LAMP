@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-09-30T07:46:49+09:00",
+  "hostname": "HYUNOK-MacBook-Pro-M1.local",
+  "os": "darwin",
+  "arch": "arm64",
+  "goVersion": "go1.26.2",
+  "cpuModel": "Apple M1 Pro",
+  "logicalCores": 10,
+  "totalMemoryBytes": 34359738368,
+  "totalMemory": "32.00 GiB"
+}

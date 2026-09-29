@@ -31,6 +31,8 @@ n=2048의 별도 rate 실험에서는 같은 논문 sampling 목표의 `ρ=1/4,L
 
 작은 행렬에서의 batch q=10 결과는 zkMatrix에 유리했으므로, n=2048 q=1만으로 큰 행렬의 모든 batch 크기에서 LAMP가 빠르다고 일반화하지 않는다. 반면 단일 행렬 결과는 기존 n=1024의 LAMP 22.10초 대 zkMatrix 66.60초(약 3.01배)에 이어 큰 n에서 차이가 커지는 방향을 보인 **예비 관찰**이다. 두 측정은 서로 다른 소스 revision의 별도 실험이므로 하나의 통계 회귀나 논문 표로 합치지 않는다.
 
+추가 [n=1024 독립 행렬곱 배치 파일럿](BATCH_K10_PILOT_KO.md)에서는 q=1,2,3에서 LAMP가 빠르고 q=4,10에서 zkMatrix가 빨랐다. q=10의 온라인 시간은 LAMP 248.08초, zkMatrix 85.00초였다. 이는 단일 행렬의 크기와 batch 크기가 서로 다른 성능 축임을 보여주는 로컬 1회 관찰이다.
+
 zkMatrix의 verifier와 proof payload는 n=4096에서도 작다. LAMP는 큰 행렬의 prover 시간, zkMatrix는 verifier·통신량 및 setup 시간에 장점이 있다. 측정한 zkMatrix setup SRS는 n=2048에서 8,396,804 G1 points(압축 추정 268,697,920 B), n=4096에서 33,570,820 points(1,074,266,432 B)다. LAMP와 zkMatrix의 setup 모델 및 재사용 범위가 다르므로 setup 시간을 online prove에 더해 하나의 우열 수치로 해석하지 않는다. 이 1회 실행의 전체 프로세스 경과 시간은 LAMP 약 1,012초, zkMatrix 약 1,693초였다. 행렬곱 계산과 setup, 추가 직렬화 재검증을 포함한 값이다.
 
 ## 재현성과 한계

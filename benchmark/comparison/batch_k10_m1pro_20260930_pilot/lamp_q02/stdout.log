@@ -1,0 +1,21 @@
+🔥 [LAMPBATCH Protocol] logK=10, K=1024, N=2048, L=309, batch=2, linker=qa_link, merkle=multi
+   ✅ Matrix Compute Time: 7.93 s
+=== Circuit Setup & Prove ===
+07:39:37 INF compiling circuit
+07:39:37 INF parsed circuit inputs nbPublic=316 nbSecret=1912020
+07:39:44 INF building constraint builder nbConstraints=2588182
+=== 3. Generating Proof ===
+07:44:39 DBG constraint system solver done nbConstraints=2588182 took=7988.955542
+07:45:02 DBG prover done acceleration=none backend=groth16 curve=bn254 nbConstraints=2588182 took=23102.050792
+   ✅ Prove Time: 31.09s
+=== Generating Off-line Proofs ===
+=== Verifying All Proofs ===
+07:45:03 DBG verifier done backend=groth16 curve=bn254 took=29.006709
+   ✅ Verify Time: 0.22s
+✅ ALL LAMPBATCH PROOFS VERIFIED SUCCESSFULLY!
+07:45:03 DBG verifier done backend=groth16 curve=bn254 took=36.792125
+📊 Proof Sizes -> Groth16: 292 B, Merkle: 81344 B, CPLink: 128 B | Total: 81764 B
+💾 Result saved to CSV: LAMPBATCH Protocol: logK=10, rho=1/2, linker=qa_link, merkle=multi, L=309, batch=2, constraints=2588182
+
+
+🎉 All LAMPBATCH tasks finished!

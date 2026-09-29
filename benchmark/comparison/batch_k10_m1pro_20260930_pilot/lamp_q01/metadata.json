@@ -1,0 +1,32 @@
+{
+  "case": "lamp_q01",
+  "command": [
+    "/Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/large_k11_m1pro_20260930_pilot/bin/lamp_batch",
+    "-K",
+    "10",
+    "-rho",
+    "1/2",
+    "-L",
+    "309",
+    "-batch",
+    "1",
+    "-all=false",
+    "-compile=false",
+    "-OnlyCompile=false",
+    "-batch-range=false"
+  ],
+  "binary_sha256": "90a5f28484de5938c87d1070b130376acd0b53cd39e4689f9897213f109f7346",
+  "git_head": "4601bd680500def62657b72c2cf00e1e68bb9abc",
+  "go": "go version go1.26.2 darwin/arm64",
+  "host": "Apple M1 Pro 10cpu 32GiB macOS",
+  "started_utc": "2026-09-29T22:34:06.467339+00:00",
+  "rss_ceiling_kib": 16777216,
+  "timeout_seconds": 2400,
+  "status": "completed",
+  "exit_code": 0,
+  "limit_hit": null,
+  "elapsed_seconds": 185.60184558294713,
+  "peak_polled_rss_kib": 2974720,
+  "finished_utc": "2026-09-29T22:37:11.991937+00:00",
+  "peak_resident_bytes_time_l": 3712450560
+}

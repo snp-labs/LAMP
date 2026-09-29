@@ -117,12 +117,15 @@ Claude Haiku 4.5로 Appendix의 연산을 구현하고 검토·수정했다. 정
 
 n=2048의 단일 행렬과 q=2 배치, n=4096 단일 행렬을 추가로 각 1회씩 측정하고 검증했다. Commitment 포함 온라인 증명은 n=2048 단일에서 LAMP 60.67초 대 zkMatrix 261.69초(4.31배), q=2에서 LAMP 115.65초 대 zkMatrix 273.67초(2.37배), n=4096 단일에서 LAMP 162.30초 대 zkMatrix 1,136.64초(7.00배)였다. 공유 M1 Pro의 **1회 파일럿**이므로 위 300회 반복 결과와 통계적으로 합치거나 논문용 우열로 제시하지 않는다. 이 크기에서 LAMP의 verifier·proof payload는 여전히 zkMatrix보다 크다. n=4096 LAMP 온라인 시간에서는 행렬 commitment 89.11초가 Groth16 prover 41.86초보다 길어, Groth16만 교체하는 최적화로 전체 병목을 해결할 수 없다. 원자료와 단계별 시간은 [대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)에 있다.
 
+추가로 n=1024의 **독립 행렬곱 배치**를 q=1,2,3,4,10에서 각 방식 1회씩 측정했다. Commitment 포함 전체 배치 온라인 증명 시간은 순서대로 LAMP **25.16, 46.94, 56.92, 87.10, 248.08초**, zkMatrix **60.96, 67.41, 72.87, 72.98, 85.00초**였다. 이 호스트에서는 q≤3에서 LAMP가, q=4와 q=10에서 zkMatrix가 빨랐다. q=10은 zkMatrix가 약 2.92배 빠르다. LAMP q=10 회로는 12,837,854 constraints이고 setup만 1,502.88초였으며, zkMatrix의 setup은 17.27초였다. LAMP의 증명 payload와 검증 시간도 zkMatrix보다 컸다. 이 결과는 기능이 같은 **독립 claim 배치**에 대한 비교이며, GPT-2 계산 그래프 전체 인증의 비교는 아니다. q=5..9와 통계적 반복은 아직 없다. [n=1024 배치 파일럿](BATCH_K10_PILOT_KO.md)에 방법·원자료·한계를 정리했다.
+
 n=8192 및 논문 §7의 공통 Linux 호스트 반복 실험, sequence-1024 GPT-2 전체 비교는 아직 수행하지 않았다. n=4096은 로컬 1회 파일럿만 있다. zkMatrix의 GPT-2 보조 CLI는 36개 matrix product claim의 baseline이며, cross-claim wiring이나 공개 입출력 binding까지 인증하는 LAMP와 동등한 전체 graph certificate는 아니다. 기존 300회 실험의 setup은 LAMP가 각 proof 프로세스에서 수행하고 zkMatrix는 10회에 걸쳐 공유한다. 기록한 RSS는 setup·입력 생성이 포함된 프로세스 전체 값이므로 prover 자체의 메모리 우열로 읽어서는 안 된다.
 
 ## 10. 원자료와 상세 문서
 
 - [유효한 proof 300회, SD, 측정 조건과 그림](LOCAL_RESULTS.md)
 - [n=2048·4096 검증된 1회 대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)
+- [n=1024 독립 행렬곱 배치 q=1,2,3,4,10 파일럿](BATCH_K10_PILOT_KO.md)
 - [ECC rate와 commitment·Groth16 절충](CODE_RATE_TRADEOFF_KO.md)
 - [square manifest](../../benchmark/comparison/published_20260929/manifests/squares_k7_k10_m1pro_20260929_run1.json)
 - [batch 완료 manifest](../../benchmark/comparison/published_20260929/manifests/batch_q1_q10_m1pro_20260929_resume1.json)
