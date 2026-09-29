@@ -4,7 +4,7 @@
 
 ## 1. 공유용 요약
 
-LAMP의 공식 코드에 비교 측정을 위한 선택적 계측을 추가하고, zkMatrix 논문을 바탕으로 독립적인 Go 구현을 작성했다. 현재 완료한 실험은 같은 M1 Pro 데스크톱에서 수행한 BN254 비교다. 단일 정사각형 행렬은 n=128, 256, 512, 1024, 독립 행렬 곱 batching은 n=128에서 q=1..10을 측정했다. 각 조건을 10회 반복했고, 추가 LAMP code-rate 실험을 포함해 총 300개의 증명을 생성했다. 기록된 증명은 검증에 성공했으며 직렬화 후 다시 decode한 증명도 검증했다. 이 기능 검증은 독립 구현에 대한 형식적 보안 증명을 의미하지 않는다.
+LAMP의 공식 코드에 비교 측정을 위한 선택적 계측을 추가하고, zkMatrix 논문을 바탕으로 독립적인 Go 구현을 작성했다. 현재 완료한 실험은 같은 M1 Pro 데스크톱에서 수행한 BN254 비교다. 최초 반복 실험에서는 단일 정사각형 행렬 n=128, 256, 512, 1024와 독립 행렬 곱 batching n=128, q=1..10을 각 조건 10회 측정했다. 추가 LAMP code-rate 실험까지 총 300개의 증명을 생성했다. 이어서 n=2048 단일·q=2와 n=4096 단일 행렬을 각 방식 1회씩 별도 파일럿으로 측정했다. 기록된 증명은 검증에 성공했으며 직렬화 후 다시 decode한 증명도 검증했다. 이 기능 검증은 독립 구현에 대한 형식적 보안 증명을 의미하지 않는다.
 
 결과는 일률적인 우열이 아니다. 단일 행렬의 proving에서는 n=128은 zkMatrix가 빠르고, n=256부터는 LAMP의 평균 시간이 더 작았다. 특히 n=512에서 LAMP는 약 1.87배, n=1024에서 약 3.01배 빠르게 증명했다. 반면 모든 측정 크기에서 zkMatrix의 verifier가 빠르고 proof payload가 작았다. n=1024에서 LAMP는 proving 22.10초, verification 171.59ms, proof 약 60.74kB였고, zkMatrix는 66.60초, 11.30ms, 5.44kB였다. 따라서 큰 단일 행렬의 prover 비용에서는 LAMP의 장점이 확인됐지만, verifier 비용과 통신량에서는 zkMatrix가 유리했다.
 
@@ -113,14 +113,14 @@ Claude Haiku 4.5로 Appendix의 연산을 구현하고 검토·수정했다. 정
 
 저자나 shepherd에게 문의를 보내지는 않았다. 문안은 [문의 초안](AUTHOR_CLARIFICATION_DRAFTS.md)에 있다. 저자의 수정된 명세나 코드가 제공되면 그에 따라 다시 검증해야 한다.
 
-n=2048의 단일 행렬과 q=2 배치는 추가로 각 1회씩 측정하고 검증했다. Commitment 포함 온라인 증명은 단일 행렬에서 LAMP 60.67초 대 zkMatrix 261.69초(4.31배), q=2에서 LAMP 115.65초 대 zkMatrix 273.67초(2.37배)였다. 공유 M1 Pro의 **1회 파일럿**이므로 위 300회 반복 결과와 통계적으로 합치거나 논문용 우열로 제시하지 않는다. 이 크기에서 LAMP의 verifier·proof payload는 여전히 zkMatrix보다 크다. 원자료와 단계별 시간은 [대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)에 있다.
+n=2048의 단일 행렬과 q=2 배치, n=4096 단일 행렬을 추가로 각 1회씩 측정하고 검증했다. Commitment 포함 온라인 증명은 n=2048 단일에서 LAMP 60.67초 대 zkMatrix 261.69초(4.31배), q=2에서 LAMP 115.65초 대 zkMatrix 273.67초(2.37배), n=4096 단일에서 LAMP 162.30초 대 zkMatrix 1,136.64초(7.00배)였다. 공유 M1 Pro의 **1회 파일럿**이므로 위 300회 반복 결과와 통계적으로 합치거나 논문용 우열로 제시하지 않는다. 이 크기에서 LAMP의 verifier·proof payload는 여전히 zkMatrix보다 크다. n=4096 LAMP 온라인 시간에서는 행렬 commitment 89.11초가 Groth16 prover 41.86초보다 길어, Groth16만 교체하는 최적화로 전체 병목을 해결할 수 없다. 원자료와 단계별 시간은 [대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)에 있다.
 
-n=4096..8192 및 논문 §7의 공통 Linux 호스트 반복 실험, sequence-1024 GPT-2 전체 비교는 아직 수행하지 않았다. zkMatrix의 GPT-2 보조 CLI는 36개 matrix product claim의 baseline이며, cross-claim wiring이나 공개 입출력 binding까지 인증하는 LAMP와 동등한 전체 graph certificate는 아니다. 기존 300회 실험의 setup은 LAMP가 각 proof 프로세스에서 수행하고 zkMatrix는 10회에 걸쳐 공유한다. 기록한 RSS는 setup·입력 생성이 포함된 프로세스 전체 값이므로 prover 자체의 메모리 우열로 읽어서는 안 된다.
+n=8192 및 논문 §7의 공통 Linux 호스트 반복 실험, sequence-1024 GPT-2 전체 비교는 아직 수행하지 않았다. n=4096은 로컬 1회 파일럿만 있다. zkMatrix의 GPT-2 보조 CLI는 36개 matrix product claim의 baseline이며, cross-claim wiring이나 공개 입출력 binding까지 인증하는 LAMP와 동등한 전체 graph certificate는 아니다. 기존 300회 실험의 setup은 LAMP가 각 proof 프로세스에서 수행하고 zkMatrix는 10회에 걸쳐 공유한다. 기록한 RSS는 setup·입력 생성이 포함된 프로세스 전체 값이므로 prover 자체의 메모리 우열로 읽어서는 안 된다.
 
 ## 10. 원자료와 상세 문서
 
 - [유효한 proof 300회, SD, 측정 조건과 그림](LOCAL_RESULTS.md)
-- [n=2048 검증된 1회 대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)
+- [n=2048·4096 검증된 1회 대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)
 - [square manifest](../../benchmark/comparison/published_20260929/manifests/squares_k7_k10_m1pro_20260929_run1.json)
 - [batch 완료 manifest](../../benchmark/comparison/published_20260929/manifests/batch_q1_q10_m1pro_20260929_resume1.json)
 - [수치 summary](results_20260929/compact_summary.json)
