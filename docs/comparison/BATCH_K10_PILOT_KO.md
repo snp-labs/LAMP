@@ -8,6 +8,10 @@
 
 `online prove`는 matrix commitment 시작부터 proof 생성 완료까지이며 C=AB, circuit compile, setup을 제외한다. zkMatrix의 CSV `totalprove_seconds`, LAMP JSONL `full_online_prove`를 사용한다. `commit`은 이 온라인 시간의 일부다. Setup은 별도 측정치이며 두 방식에서 key의 구조·재사용 범위가 다르다. Verification은 CLI의 proof verification 구간이며 별도 decode/reverification의 시간을 포함하지 않는다. `proof B`는 압축 직렬화한 proof payload만이다. LAMP의 64 B public statement, zkMatrix의 commitment·public data, setup key는 포함하지 않는다.
 
+### 무엇을 같은 기능으로 비교하는가
+
+주 비교 대상은 공개된 행렬을 재계산하는 알고리즘이 아니라, **행렬 원소를 검증자에게 주지 않고 commitment에 묶인 A·B=C를 증명·검증하는 프로토콜 전체**다. LAMP의 Groth16 회로는 행렬곱의 모든 원소를 직접 곱하는 회로가 아니다. 샘플된 부호화 열의 선형 결합, 접힌 벡터의 일치, RS 인코딩과 공개 commitment 관련 관계를 검사한다. Merkle multiproof와 QA-link가 회로 내부 값과 외부 행렬 commitment를 연결한다. 따라서 Groth16을 제거하고 검증자가 A·B=C를 직접 계산하거나 공개 행렬에 Freivalds 검사를 하면 공개 입력, 통신량, 영지식 성질과 검증 비용이 달라져 이 표의 LAMP와 같은 프로토콜이 아니다. Groth16 없이 동일한 committed-matrix statement를 검증하는 전용 LAMP 변형은 가능성이 있는 연구·최적화 방향이지만, 필요한 opening/consistency 증명과 영지식·soundness 분석을 갖춘 새 구현을 별도 baseline으로 측정해야 한다. 이 표에서 Groth16 비용만 빼서 그 변형의 시간을 추정하지 않는다.
+
 ## 검증된 1회 결과
 
 | q | 방식 | online prove (s) | matrix commit (s) | setup (s) | verify (ms) | proof (B) |

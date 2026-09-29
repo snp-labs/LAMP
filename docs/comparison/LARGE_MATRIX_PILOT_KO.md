@@ -8,6 +8,8 @@ LAMP의 공식 프로토콜 기준은 `e2d1cae15988779b0c65c7e492eb1dc4df2dd032`
 
 온라인 시간은 행렬 commitment 시작부터 proof 생성 완료까지이며, 입력 생성, `C=AB`, circuit compile, setup을 제외한다. Commitment를 제외한 시간을 별도 보인다. 검증 시간은 serialize/decode와 추가 재검증을 제외한다. Proof payload 크기는 압축 직렬화된 proof만으로, public statement와 setup key는 제외한다. LAMP는 `rho=1/2`, `L=309`, 공식 복원추출 sampler이고 zkMatrix는 accelerated verifier다.
 
+이 표는 검증자에게 A/B/C 원소를 공개하지 않는 committed matrix-product 증명 프로토콜 전체를 비교한다. LAMP의 Groth16 회로는 전체 A·B를 다시 계산하는 것이 아니라 sampled fold, RS 인코딩과 commitment 관련 관계를 증명한다. Groth16 없이 공개 행렬을 직접 검산하거나 Freivalds 검사를 수행하면 검증자 입력과 영지식 성질이 바뀐다. 별도 전용 LAMP 검증기를 설계할 수는 있지만, commitment opening과 회로가 담당하던 관계에 대한 대체 증명·보안 분석이 필요하므로 현재 Groth16 시간만 제거한 값을 유효한 protocol benchmark로 제시하지 않는다. 자세한 비교 범위는 [n=1024 배치 파일럿](BATCH_K10_PILOT_KO.md)에 적었다.
+
 ## 검증된 측정값
 
 | workload | 방식 | online prove (s) | matrix commitment (s) | commitment 제외 online (s) | setup (s) | verify (ms) | compressed proof (B) |
