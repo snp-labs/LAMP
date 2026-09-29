@@ -3,3 +3,8 @@
 benchmark/**/*.csv
 benchmark/**/system_info.json
 paper/
+
+# Local Python bytecode and generated benchmark binaries
+__pycache__/
+*.pyc
+benchmark/comparison/*/bin/

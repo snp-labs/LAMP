@@ -2,10 +2,13 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
+	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 
@@ -187,7 +190,53 @@ func main() {
 	fromFlag := flag.Int("from", config.GetInt("LAMP_GPT2_SEQ_FROM", 0), "First log2 sequence length when range mode is enabled")
 	toFlag := flag.Int("to", config.GetInt("LAMP_GPT2_SEQ_TO", 4), "Last log2 sequence length when range mode is enabled")
 	compileFlag := flag.Bool("compile", config.GetBool("LAMP_GPT2_ONLY_COMPILE", false), "Only compile the circuit to get constraints")
+	baselineFlag := flag.String("baseline", "lamp", "Baseline mode: lamp (default) or zkmatrix_grouped_matmul_claims_only")
+	baselinePlanFlag := flag.Bool("baseline-plan", false, "Emit a shape-only zkMatrix GPT-2 baseline plan; no tensor generation or SRS setup")
+	baselineRepsFlag := flag.Int("repetitions", 10, "zkMatrix baseline proof repetitions, sharing setup across repetitions")
+	baselineThreadsFlag := flag.Int("threads", runtime.NumCPU(), "zkMatrix baseline GOMAXPROCS")
+	baselineOutputFlag := flag.String("baseline-output", "", "optional new JSON baseline manifest path (default stdout)")
 	flag.Parse()
+	if *baselineFlag != "lamp" && *baselineFlag != "zkmatrix_grouped_matmul_claims_only" {
+		log.Fatalf("unsupported baseline %q", *baselineFlag)
+	}
+	if *baselinePlanFlag || *baselineFlag == "zkmatrix_grouped_matmul_claims_only" {
+		if *allFlag || *rangeFlag || *compileFlag {
+			log.Fatal("the zkMatrix claims-only baseline accepts one sequence length and does not compile LAMP")
+		}
+		seqLen, err := gpt2SequenceLength(*seqFlag)
+		if err != nil {
+			log.Fatal(err)
+		}
+		var report gpt2BaselineReport
+		if *baselinePlanFlag {
+			report, err = planGPT2ZKMatrixBaseline(seqLen)
+		} else {
+			report, err = runGPT2ZKMatrixBaseline(seqLen, *baselineRepsFlag, *baselineThreadsFlag)
+		}
+		if err != nil {
+			log.Fatalf("zkMatrix GPT-2 claims-only baseline failed: %v", err)
+		}
+		encoded, err := json.MarshalIndent(report, "", "  ")
+		if err != nil {
+			log.Fatalf("encode baseline report: %v", err)
+		}
+		if *baselineOutputFlag != "" {
+			f, err := os.OpenFile(*baselineOutputFlag, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0644)
+			if err != nil {
+				log.Fatalf("create baseline manifest without overwrite: %v", err)
+			}
+			if _, err = f.Write(append(encoded, '\n')); err != nil {
+				_ = f.Close()
+				log.Fatalf("write baseline manifest: %v", err)
+			}
+			if err = f.Close(); err != nil {
+				log.Fatalf("close baseline manifest: %v", err)
+			}
+		} else {
+			fmt.Println(string(encoded))
+		}
+		return
+	}
 
 	outputDir := config.OutputDir("LAMP_GPT2_OUTPUT_DIR", filepath.Join("benchmark", "lamp_gpt2"))
 	if err := benchmark.EnsureDir(outputDir); err != nil {

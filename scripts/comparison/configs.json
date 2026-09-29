@@ -1,0 +1,188 @@
+{
+  "development": {
+    "label": "official_revision_development",
+    "log_k": 7,
+    "rho": "1/2",
+    "queries": 128,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [
+      1,
+      2
+    ],
+    "lamp_batch_q": [
+      2
+    ],
+    "timeout_seconds": 86400
+  },
+  "original_exact": {
+    "gated": true,
+    "reason": "Original author revision and exact Table 3 configuration have not been supplied."
+  },
+  "official_paper_parameters": {
+    "label": "official_revision_paper_constraints",
+    "log_k": 7,
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [
+      1
+    ],
+    "lamp_batch_q": [
+      2
+    ],
+    "timeout_seconds": 86400,
+    "protocol_fidelity": "official_revision_e2d1cae",
+    "note": "Current official source at e2d1cae; K7, rho=1/2, L=309 compile is verified at 167065 constraints. This configuration is not a complete paper or benchmark reproduction."
+  },
+  "server_square_k7_k13": {
+    "label": "server_square_resource_plan",
+    "log_k": 7,
+    "log_k_range": [
+      7,
+      13
+    ],
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 32,
+    "timeout_seconds": 86400,
+    "zkmatrix_batch_q": [],
+    "lamp_batch_q": [],
+    "max_matrix_elements": 67108864,
+    "resource_plan": "Execute K=7..13 sequentially on a nominal 256 GiB host with at least 32 logical CPUs and 240 GiB usable memory; ten repetitions at 32 threads. Plan mode does not require the host.",
+    "include_square": true
+  },
+  "server_batch_q1_q10": {
+    "label": "server_batch_resource_plan",
+    "log_k": 7,
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 32,
+    "timeout_seconds": 86400,
+    "zkmatrix_batch_q": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "lamp_batch_q": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "max_matrix_elements": 1048576,
+    "resource_plan": "Execute zkMatrix and LAMP batch q=1..10 at K=7, ten repetitions and 32 threads on a host with at least 32 logical CPUs. Plan mode does not require the host.",
+    "include_square": false
+  },
+  "official_squares_local": {
+    "label": "official_revision_k7_square_local",
+    "log_k": 7,
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [],
+    "lamp_batch_q": [],
+    "timeout_seconds": 86400,
+    "include_square": true,
+    "max_matrix_elements": 1048576
+  },
+  "official_batch_local": {
+    "label": "official_revision_k7_batch_q1_q10_local",
+    "log_k": 7,
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "lamp_batch_q": [
+      2
+    ],
+    "timeout_seconds": 86400,
+    "include_square": false,
+    "max_matrix_elements": 1048576,
+    "resource_plan": "Local K7 matrix batches q=1..10 plus LAMP batch q=2; ten repetitions at ten threads; each matrix remains under the default 1<<20 element cap."
+  },
+  "official_squares_k7_k10_local": {
+    "label": "official_revision_k7_k10_square_local",
+    "log_k": 7,
+    "log_k_range": [7, 10],
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [],
+    "lamp_batch_q": [],
+    "timeout_seconds": 86400,
+    "include_square": true,
+    "max_matrix_elements": 1048576,
+    "resource_plan": "Local K7..K10 square grid, ten repetitions at ten threads, with per-matrix 1<<20 element cap. K11+ remains server guarded."
+  },
+  "official_batch_q1_q10_local": {
+    "label": "official_revision_batch_q1_q10_local",
+    "log_k": 7,
+    "rho": "1/2",
+    "queries": 309,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "lamp_batch_q": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "timeout_seconds": 86400,
+    "include_square": false,
+    "max_matrix_elements": 1048576,
+    "resource_plan": "Local K7 batch q=1..10 for both zkMatrix and LAMP, ten repetitions at ten threads; each matrix remains under the 1<<20 element cap."
+  },
+  "official_square_rho_1_4_local": {
+    "label": "official_revision_k7_square_rho_1_4_local",
+    "log_k": 7,
+    "rho": "1/4",
+    "queries": 189,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [],
+    "lamp_batch_q": [],
+    "timeout_seconds": 86400,
+    "include_square": true,
+    "max_matrix_elements": 1048576
+  },
+  "official_square_rho_1_8_local": {
+    "label": "official_revision_k7_square_rho_1_8_local",
+    "log_k": 7,
+    "rho": "1/8",
+    "queries": 155,
+    "repetitions": 10,
+    "threads": 10,
+    "zkmatrix_batch_q": [],
+    "lamp_batch_q": [],
+    "timeout_seconds": 86400,
+    "include_square": true,
+    "max_matrix_elements": 1048576
+  }
+}

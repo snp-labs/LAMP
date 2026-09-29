@@ -1,0 +1,35 @@
+{
+  "head": "e2d1cae15988779b0c65c7e492eb1dc4df2dd032",
+  "tracked_diff_sha256": "6d1e5767f24ad0397b48175701114558e0e4c151fcd84cea111c7612cd12b516",
+  "source_tree_sha256": "c34bd62bee6f07a879d7e4b48d8b9c17e0ca48c34e796425e2bec93ed74e6f93",
+  "source_files_hashed": 784,
+  "working_tree_status": [
+    " M README.md",
+    " M cmd/lamp/main.go",
+    " M cmd/lamp_batch/main.go",
+    " M cmd/lamp_gpt2/main.go",
+    " M cmd/lamp_gpt2/main_test.go",
+    "?? benchmark/comparison/",
+    "?? benchmark/comparison_raw.go",
+    "?? benchmark/comparison_raw_test.go",
+    "?? benchmark/lamp_wire.go",
+    "?? benchmark/lamp_wire_test.go",
+    "?? cmd/lamp_gpt2/zkmatrix_baseline.go",
+    "?? cmd/zkmap_audit/",
+    "?? cmd/zkmatrix/",
+    "?? crypto/zkmap_audit/",
+    "?? crypto/zkmatrix/",
+    "?? docs/",
+    "?? scripts/comparison/"
+  ],
+  "scope": "Go source and Go module files, including lib/gnark, plus comparison runner/config; no docs, env files, or outputs",
+  "host": {
+    "cpu_count": 10,
+    "memory_bytes": 34359738368,
+    "os": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "processor": "Apple M1 Pro",
+    "platform_processor": "arm"
+  },
+  "frozen_unix": 1790662601.078356,
+  "go": "go version go1.26.2 darwin/arm64"
+}
