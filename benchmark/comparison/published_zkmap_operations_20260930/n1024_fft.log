@@ -1,0 +1,85 @@
+zkmap_provisional: n=1024, repetitions=10, mode=fft, threads=10
+Output: /Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/zkmap_operations_20260930_run1/n1024_fft.jsonl
+
+Preparing prover (setup and preprocessing)...
+Setup/preprocessing complete: 9.053s
+
+Attempt 1/10...
+  Attempt 1 complete. Online: 1.920s, Total: 6.784s
+    Challenge Y: efa44ce9587d56af (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 2/10...
+  Attempt 2 complete. Online: 1.887s, Total: 6.406s
+    Challenge Y: 83a16be955ca892a (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 3/10...
+  Attempt 3 complete. Online: 1.885s, Total: 6.336s
+    Challenge Y: c322e34134451a79 (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 4/10...
+  Attempt 4 complete. Online: 1.912s, Total: 6.499s
+    Challenge Y: b69d87b666f9b03c (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 5/10...
+  Attempt 5 complete. Online: 1.841s, Total: 6.315s
+    Challenge Y: c7cea36bc4b26198 (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 6/10...
+  Attempt 6 complete. Online: 1.876s, Total: 6.770s
+    Challenge Y: 6328992964af7928 (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 7/10...
+  Attempt 7 complete. Online: 1.920s, Total: 6.382s
+    Challenge Y: d0137aba82ad021f (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 8/10...
+  Attempt 8 complete. Online: 1.833s, Total: 6.304s
+    Challenge Y: b7b1079d365b32ff (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 9/10...
+  Attempt 9 complete. Online: 1.864s, Total: 6.400s
+    Challenge Y: 752666145b61633d (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 10/10...
+  Attempt 10 complete. Online: 1.924s, Total: 6.548s
+    Challenge Y: 1a86d6caf6951ac6 (first 16 chars)
+    Mode: fft, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Results: 10/10 successful attempts written to /Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/zkmap_operations_20260930_run1/n1024_fft.jsonl
+       73.82 real       482.38 user         6.52 sys
+           609189888  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               59750  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+               19872  signals received
+               11761  voluntary context switches
+             1048583  involuntary context switches
+       4037230048077  instructions retired
+       1405883679834  cycles elapsed
+           596362176  peak memory footprint

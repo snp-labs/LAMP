@@ -56,3 +56,7 @@ and tiny decoded-proof checks passed. Its source hash is
 `0c004f987e5b6e3dfb08242edbd3ed7f1bf0c19d815ecf0f779e4695d034aa83`;
 it is distinct from the measured c34 archive. No future-source paper-size run
 has been substituted into the local result tables.
+
+## 2026-09-30 provisional operation estimate
+
+Claude Haiku 4.5 implemented a separate zkMaP Appendix E operation workload, followed by root review/corrections. [80 measured operation attempts and limitations](ZKMAP_PROVISIONAL_TIMING.md) are published. Both node assumptions have nonzero remainders in all attempts; zero valid witnesses. This completes the requested provisional estimate, not the sound zkMaP baseline or full Linux Section 7 reproduction.
