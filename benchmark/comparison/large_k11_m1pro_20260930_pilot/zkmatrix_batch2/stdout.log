@@ -1,0 +1,2 @@
+run 1/1: 2048x2048x2048 q=2 verified, proof=6984 bytes, totalprove=273.671187s
+CSV: /Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/large_k11_m1pro_20260930_pilot/zkmatrix_batch2/zk.csv

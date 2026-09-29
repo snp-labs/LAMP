@@ -1,6 +1,6 @@
 # LAMP–zkMatrix 비교와 zkMaP 재현 분석: 공저자 공유용
 
-작성일: 2026-09-30. 이 문서는 완료된 로컬 실험과 아직 남은 shepherd 대응을 구분한다. 상세 수치·표준편차는 [LOCAL_RESULTS.md](LOCAL_RESULTS.md), 원자료는 아래 원자료 링크에 있다.
+작성일: 2026-09-30. 이 문서는 완료된 로컬 실험과 아직 남은 shepherd 대응을 구분한다. 상세 수치·표준편차는 [LOCAL_RESULTS.md](LOCAL_RESULTS.md), 추가 대형 행렬 1회 파일럿은 [LARGE_MATRIX_PILOT_KO.md](LARGE_MATRIX_PILOT_KO.md), 원자료는 아래 원자료 링크에 있다.
 
 ## 1. 공유용 요약
 
@@ -113,11 +113,14 @@ Claude Haiku 4.5로 Appendix의 연산을 구현하고 검토·수정했다. 정
 
 저자나 shepherd에게 문의를 보내지는 않았다. 문안은 [문의 초안](AUTHOR_CLARIFICATION_DRAFTS.md)에 있다. 저자의 수정된 명세나 코드가 제공되면 그에 따라 다시 검증해야 한다.
 
-n=2048..8192 및 논문 §7의 공통 Linux 호스트 실험, sequence-1024 GPT-2 전체 비교는 아직 수행하지 않았다. zkMatrix의 GPT-2 보조 CLI는 36개 matrix product claim의 baseline이며, cross-claim wiring이나 공개 입출력 binding까지 인증하는 LAMP와 동등한 전체 graph certificate는 아니다. Setup은 LAMP가 각 proof 프로세스에서 수행하고 zkMatrix는 10회에 걸쳐 공유한다. 기록한 RSS는 setup·입력 생성이 포함된 프로세스 전체 값이므로 prover 자체의 메모리 우열로 읽어서는 안 된다.
+n=2048의 단일 행렬과 q=2 배치는 추가로 각 1회씩 측정하고 검증했다. Commitment 포함 온라인 증명은 단일 행렬에서 LAMP 60.67초 대 zkMatrix 261.69초(4.31배), q=2에서 LAMP 115.65초 대 zkMatrix 273.67초(2.37배)였다. 공유 M1 Pro의 **1회 파일럿**이므로 위 300회 반복 결과와 통계적으로 합치거나 논문용 우열로 제시하지 않는다. 이 크기에서 LAMP의 verifier·proof payload는 여전히 zkMatrix보다 크다. 원자료와 단계별 시간은 [대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)에 있다.
+
+n=4096..8192 및 논문 §7의 공통 Linux 호스트 반복 실험, sequence-1024 GPT-2 전체 비교는 아직 수행하지 않았다. zkMatrix의 GPT-2 보조 CLI는 36개 matrix product claim의 baseline이며, cross-claim wiring이나 공개 입출력 binding까지 인증하는 LAMP와 동등한 전체 graph certificate는 아니다. 기존 300회 실험의 setup은 LAMP가 각 proof 프로세스에서 수행하고 zkMatrix는 10회에 걸쳐 공유한다. 기록한 RSS는 setup·입력 생성이 포함된 프로세스 전체 값이므로 prover 자체의 메모리 우열로 읽어서는 안 된다.
 
 ## 10. 원자료와 상세 문서
 
 - [유효한 proof 300회, SD, 측정 조건과 그림](LOCAL_RESULTS.md)
+- [n=2048 검증된 1회 대형 행렬 파일럿](LARGE_MATRIX_PILOT_KO.md)
 - [square manifest](../../benchmark/comparison/published_20260929/manifests/squares_k7_k10_m1pro_20260929_run1.json)
 - [batch 완료 manifest](../../benchmark/comparison/published_20260929/manifests/batch_q1_q10_m1pro_20260929_resume1.json)
 - [수치 summary](results_20260929/compact_summary.json)
