@@ -43,7 +43,7 @@ type result struct {
 	PedersenRoot        string  `json:"pedersen_root"`
 	HashRoot            string  `json:"hash_root"`
 	HashStoredBytes     int     `json:"hash_stored_bytes"`
-	HashDisclosedBytes  int     `json:"hash_disclosed_bytes"`
+	HashOpeningBytes    int     `json:"hash_opening_bytes"`
 	HashOpeningVerified bool    `json:"hash_opening_verified"`
 	Timings             timings `json:"timings"`
 }
@@ -79,8 +79,8 @@ func main() {
 			log.Fatal(err)
 		}
 	} else {
-		fmt.Printf("K=%d N=%d, Pedersen+Merkle %.3fs, hash+Merkle %.3fs, hash public opening %d bytes\n",
-			r.K, r.N, r.Timings.PedersenMerkleSeconds, r.Timings.HashMerkleSeconds, r.HashDisclosedBytes)
+		fmt.Printf("K=%d N=%d, Pedersen+Merkle %.3fs, hash+Merkle %.3fs, hash opening data %d bytes\n",
+			r.K, r.N, r.Timings.PedersenMerkleSeconds, r.Timings.HashMerkleSeconds, r.HashOpeningBytes)
 	}
 }
 
@@ -99,7 +99,7 @@ func deterministicMatrix(k int, rng *rand.Rand) [][]fr.Element {
 
 func run(k, n int, rho string, seed int64, queryCount int) (result, error) {
 	r := result{
-		Schema: "lamp_commit_probe_v1", Scope: "component_only_not_zero_knowledge",
+		Schema: "lamp_commit_probe_v2", Scope: "component_only_non_zk_inner",
 		K: k, N: n, Rho: rho, Seed: seed, Queries: queryCount,
 		GoVersion: runtime.Version(), OS: runtime.GOOS, Arch: runtime.GOARCH,
 	}
@@ -176,7 +176,7 @@ func run(k, n int, rho string, seed int64, queryCount int) (result, error) {
 		return r, err
 	}
 	r.Timings.HashOpenSeconds = time.Since(start).Seconds()
-	r.HashDisclosedBytes = opening.DisclosedBytes(k)
+	r.HashOpeningBytes = opening.OpeningBytes(k)
 	openA, openB, openC := selectABC(a, b, c, opening.Indices)
 	start = time.Now()
 	r.HashOpeningVerified = crypto.VerifyHashABCOpening(hashTree.Root(), n, opening, openA, openB, openC)

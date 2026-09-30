@@ -8,7 +8,7 @@ func TestProbeVerifiesBothCommitments(t *testing.T) {
 		t.Fatal(err)
 	}
 	if !r.HashOpeningVerified || r.DistinctQueries == 0 || r.PedersenRoot == "" ||
-		r.HashRoot == "" || r.HashDisclosedBytes <= 0 {
+		r.HashRoot == "" || r.HashOpeningBytes <= 0 {
 		t.Fatalf("probe did not verify a complete opening: %+v", r)
 	}
 }

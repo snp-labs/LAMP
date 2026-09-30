@@ -1,7 +1,7 @@
 package crypto
 
-// This package only measures a hash oracle commitment. Its openings disclose
-// entire encoded columns, so it is not a zero-knowledge LAMP backend.
+// This package only measures a hash oracle commitment. A standalone verifier
+// needs entire encoded columns; a wrapping ZK proof could keep them private.
 
 import (
 	"crypto/rand"
@@ -158,7 +158,7 @@ func (o *HashABCOracle) Open(indices []int) (HashABCOpening, error) {
 }
 
 // VerifyHashABCOpening checks Merkle authentication only. A/B/C columns are
-// disclosed to the verifier by this opening.
+// inputs to this verifier. A wrapping proof may hold them as private witness.
 func VerifyHashABCOpening(root [32]byte, n int, opening HashABCOpening, a, b, c [][]fr.Element) bool {
 	if n <= 0 || n&(n-1) != 0 || len(opening.Indices) == 0 ||
 		len(opening.Indices) != len(opening.Salts) ||
@@ -208,6 +208,6 @@ func VerifyHashABCOpening(root [32]byte, n int, opening HashABCOpening, a, b, c 
 	return pos == len(opening.Siblings) && len(current) == 1 && current[0] == root
 }
 
-func (o HashABCOpening) DisclosedBytes(k int) int {
+func (o HashABCOpening) OpeningBytes(k int) int {
 	return 32 * (len(o.Siblings) + len(o.Salts) + len(o.Indices)*3*k)
 }
