@@ -1,0 +1,7 @@
+16:32:13 INF compiling circuit
+16:32:13 INF parsed circuit inputs nbPublic=179 nbSecret=2278
+16:32:13 INF building constraint builder nbConstraints=100301
+16:32:19 DBG constraint system solver done nbConstraints=100301 took=171.578375
+16:32:20 DBG prover done acceleration=none backend=groth16 curve=bn254 nbConstraints=100301 took=521.471958
+16:32:20 DBG verifier done backend=groth16 curve=bn254 took=2.69575
+{"K":8,"N":16,"column_indices":[9,10],"constraints":100301,"fri_payload_estimate_bytes":42496,"go_version":"go1.26.2","goarch":"arm64","goos":"darwin","groth16_proof_bytes":228,"queries":2,"repetitions":43,"row_indices":[38,50,21,45,45,29,31,30,36,26,17,2,62,34,25,10,26,36,2,28,62,31,31,10,22,31,14,63,7,55,28,19,6,51,32,10,17,32,14,35,43,2,34],"schema":"lamp_sparse_fri_full_B_research_v1","scope":"research_only_not_main_lamp","statement_bytes":2048,"statement_definition":"A/C FRI roots plus B/XYZ leaf hashes; excludes dimensions","timings_seconds":{"b_column_hash_all_columns":0.000350459,"circuit_compile":0.241607458,"fri_native_verify":0.004508909000000001,"fri_proximity_commit_all_columns":0.001465,"fri_sparse_openings":0.0047473409999999995,"groth16_setup":6.3157675,"groth16_verify":0.002768792,"groth16_witness_and_prove":0.694039209,"online_preparation_including_native_checks":0.0238215,"pilot_online_prover_excluding_native_checks":0.7133518000000001},"verified":true,"vertical_M":64,"workers":10}

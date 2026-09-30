@@ -64,3 +64,7 @@ Claude Haiku 4.5 implemented a separate zkMaP Appendix E operation workload, fol
 ## 2026-09-30 sparse-column research correction
 
 The intended LAMP optimization is to replace each full sampled ABC column in Groth16 with a few authenticated vertical RS evaluations, not to replace LAMP with a row-KZG matrix protocol. The isolated `research/sparse-column-openings` branch records the precise [soundness and implementation gaps](SPARSE_COLUMN_LAMP_GAP_KO.md). A constructive test shows that fewer than K vertical evaluations cannot determine the generic `xᵀB` term, even if low degree is perfectly established. The default LAMP implementation and paper comparison are unchanged.
+
+## 2026-09-30 sparse FRI/Groth16 research pilot
+
+The isolated branch now contains a KZG-free [hybrid prototype](SPARSE_FRI_GROTH16_PILOT_KO.md): sparse native FRI openings for sampled A/C columns, full authenticated B columns for generic inner products, and a Groth16 circuit preserving LAMP's sampled folds and horizontal RS checks. In-process proofs verified at K=4,8,256,1024; a deliberately corrupted C row failed proving. The large runs use only one vertical and one horizontal query, so neither their timing nor their proof size is comparable to the secure LAMP/zkMatrix table. A formal FRI/composition soundness analysis and a standalone proof codec are outstanding. The official LAMP implementation and published comparison remain unchanged.

@@ -1,0 +1,5 @@
+16:33:40 INF compiling circuit
+16:33:40 INF parsed circuit inputs nbPublic=10 nbSecret=95
+16:33:40 INF building constraint builder nbConstraints=6307
+16:33:41 ERR error="constraint #7 is not satisfied: 1 ⋅ 4145238859352496063864796326849349691841445133787288704017769703790696434713 != 4145238859352496063864796326849349691841445133787288704017769703790696434714" nbConstraints=6307
+{"K":4,"N":8,"constraints":6307,"queries":1,"repetitions":3,"schema":"lamp_sparse_fri_full_B_research_v1","scope":"research_only_not_main_lamp","tampered_c_rejected":true}
