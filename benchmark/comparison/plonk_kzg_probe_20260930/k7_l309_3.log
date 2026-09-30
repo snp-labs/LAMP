@@ -1,0 +1,40 @@
+🔬 COMPONENT-ONLY PLONK Backend Probe (test-only, not a production replacement)
+
+🔍 [PLONK Probe] logK=7, K=128, N=256, L=309
+  ⚠️  COMPONENT-ONLY PROBE — not a production or full LAMP replacement
+  Matrix computation and encoding...
+  Distinct query indices: 177/309
+  Circuit compilation...
+09:27:08 INF compiling circuit
+09:27:08 INF parsed circuit inputs nbPublic=315 nbSecret=120735
+09:27:08 INF building constraint builder nbConstraints=456614
+  KZG SRS setup (test-only)...
+09:27:08 DBG fetching SRS from mem cache curve=bn254 key=kzgsrs-bn254-524291 package=kzgsrs size=524291
+09:27:08 DBG SRS not found in mem cache curve=bn254 package=kzgsrs size=524291
+09:27:08 DBG SRS not found in cache, generating curve=bn254 package=kzgsrs size=524291
+  PLONK setup...
+  Proving...
+09:27:24 DBG constraint system solver done nbConstraints=456614 took=498.741875
+09:27:35 DBG prover done backend=plonk curve=bn254 nbConstraints=456614 took=11611.3295
+  Verifying...
+09:27:35 DBG verifier done backend=plonk curve=bn254 took=2.238375
+  ✅ Verification passed
+
+  📊 PLONK Probe Results:
+    Constraints: 456614
+    Compile: 0.172 s
+    KZG SRS: 11.804 s
+    Setup: 3.288 s
+    Prove: 11.611 s
+    Verify: 0.002 s
+    Proof size: 776 B
+    Verification: true
+PLONK_PROBE_JSON={"LogK":7,"Rho":"1/2","N":256,"NumQueries":309,"DistinctQueries":177,"Constraints":456614,"CompileTime":0.172248208,"MatrixComputeTime":0.019746,"DataCommitTime":0.199904834,"EncodingTime":0.007968499,"KZGSRSTime":11.804345083,"SetupTime":3.28796725,"ProveTime":11.611404709,"VerifyTime":0.002291792,"ProofSizeBytes":776,"VerificationOK":true,"PeakMemoryBytes":1445052416,"HostGoOS":"darwin","HostGoArch":"arm64","HostGoVersion":"go1.26.2","HostNumCPU":10}
+
+✅ PLONK Probe Complete
+  LogK=7, Rho=1/2, N=256, L=309
+  Constraints: 456614
+  Compile: 0.172 s, KZG SRS: 11.804 s, Setup: 3.288 s
+  Prove: 11.611 s, Verify: 0.002 s
+  Proof size: 776 B
+  Verification: true

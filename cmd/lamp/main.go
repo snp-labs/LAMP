@@ -52,9 +52,24 @@ func main() {
 	toFlag := flag.Int("to", config.GetInt("LAMP_LOG_K_TO", 20), "Last logK when -all is enabled")
 	compileFlag := flag.Bool("compile", config.GetBool("LAMP_ONLY_COMPILE", false), "Only compile the circuit to get constraints")
 	onlyCompileFlag := flag.Bool("OnlyCompile", config.GetBool("LAMP_ONLY_COMPILE", false), "Alias for -compile")
+	plonkProbeFlag := flag.Bool("plonk-probe", config.GetBool("LAMP_PLONK_PROBE", false), "Run COMPONENT-ONLY KZG/PLONK backend probe (test-only)")
 	flag.Parse()
 
 	onlyCompile := *compileFlag || *onlyCompileFlag
+
+	if *plonkProbeFlag {
+		fmt.Println("🔬 COMPONENT-ONLY PLONK Backend Probe (test-only, not a production replacement)")
+		result := runPLONKProbe(*logKFlag, *rhoFlag, *LFlag)
+		fmt.Printf("\n✅ PLONK Probe Complete\n")
+		fmt.Printf("  LogK=%d, Rho=%s, N=%d, L=%d\n", result.LogK, result.Rho, result.N, result.NumQueries)
+		fmt.Printf("  Constraints: %d\n", result.Constraints)
+		fmt.Printf("  Compile: %.3f s, KZG SRS: %.3f s, Setup: %.3f s\n", result.CompileTime, result.KZGSRSTime, result.SetupTime)
+		fmt.Printf("  Prove: %.3f s, Verify: %.3f s\n", result.ProveTime, result.VerifyTime)
+		fmt.Printf("  Proof size: %d B\n", result.ProofSizeBytes)
+		fmt.Printf("  Verification: %v\n", result.VerificationOK)
+		return
+	}
+
 	outputDir := config.OutputDir("LAMP_OUTPUT_DIR", filepath.Join("benchmark", "lamp"))
 	if err := benchmark.EnsureDir(outputDir); err != nil {
 		log.Fatalf("failed to create output directory: %v", err)
