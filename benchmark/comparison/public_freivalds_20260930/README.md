@@ -1,0 +1,7 @@
+# Public Freivalds reference, not a ZK protocol
+
+Host: Apple M1 Pro, macOS arm64, 10 logical CPUs, Go 1.26.2. Date: 2026-09-30 Asia/Seoul. Source base `ae3674f`; binary SHA-256 `d2a142957f49b60e4110d778050ad81ad07a0a092289191d0a7ddd4e5d5f6628`, built with `go build -o /tmp/lamp-public-freivalds-batch ./cmd/public_freivalds` and default Go optimization. Each `results.jsonl` row is one independently generated run. Inputs are random dense BN254 field matrices, with `C=AB` computed by the repository's `matrix.MatMul`. q products are generated and verified sequentially. The verifier uses an independently sampled random row vector per claim. The first claim's C is modified after a successful check to confirm rejection; this second check is excluded from `verification_seconds`.
+
+Commands: `/tmp/lamp-public-freivalds-batch -n 1024 -q 1`, `-n 1024 -q 4`, `-n 1024 -q 10`, and `-n 2048 -q 1`. `generation_seconds` and `product_seconds` are excluded from `verification_seconds`. Public input bytes count three full matrices at 32 bytes per field element; serialization and network transfer are excluded. No prover, proof, hiding, commitment binding, or zero knowledge is supplied. This is an intentionally separate reference for the cost of direct checking with fully disclosed matrices.
+
+See [`docs/comparison/GROTH16_FREE_BACKENDS_KO.md`](../../../docs/comparison/GROTH16_FREE_BACKENDS_KO.md) for comparison limits.

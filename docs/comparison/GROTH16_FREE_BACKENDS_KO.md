@@ -1,0 +1,81 @@
+# Groth16 없는 LAMP 비교와 대체 백엔드 조사 (2026-09-30)
+
+## LAMP의 핵심과 구현체의 경계
+
+LAMP의 핵심은 **선형 ECC로 행렬의 행을 부호화한 뒤, Freivalds형 무작위 접힘과 사후 표본 질의로 `AB=C`를 확인하는 방식**이다. 부호화된 행렬 열과 중간 codeword를 질의 전에 고정하고, 표본 위치에서 fold 등식과 중간 벡터의 codeword 일관성을 검사해야 한다. 이 순서와 soundness 목표가 유지되면 Pedersen leaf, Merkle tree, Groth16, CP-link는 다른 구현으로 교체할 수 있다. 논문 §5.1–5.5의 composite relation은 산술 검사와 commitment/opening 검사를 분리해 서술한다.
+
+현재의 Merkle+Pedersen+Groth16+CP-link는 그 composite relation을 만족시키는 **한 가지 구성**이다. `Groth16` 호출만 다른 SNARK로 바꿀 수 없다는 아래 설명은 현행 *코드의 인터페이스*에 관한 것이며, LAMP의 ECC sampling 원리가 Groth16을 요구한다는 뜻이 아니다. 새로운 commitment/IOP로 sampled opening과 관계 증명을 함께 구성하면 CP-link 자체가 필요 없을 수 있다.
+
+## 결론과 비교 범위
+
+현재 **완전한 LAMP 증명을 Groth16 없이 생성·검증하는 구현은 없다.** 따라서 기존 LAMP 측정값에서 Groth16 시간만 빼서 zkMatrix와 비교할 수 없다. 그 숫자는 회로가 맡았던 관계의 증명 비용을 누락한다. Groth16이 없는 완전한 committed-matrix 증명으로 검증된 것은 [zkMatrix 독립 구현](ZKMATRIX_FIDELITY_CHECKLIST.md)이며, LAMP와의 같은 매개변수 전체 프로토콜 비교는 [대형 행렬](LARGE_MATRIX_PILOT_KO.md)과 [배치](BATCH_K10_PILOT_KO.md)에 있다.
+
+이번 조사는 기존 LAMP 회로를 **수정하지 않고** gnark PLONK/KZG에 넣어 보는 구성요소 실험을 추가했다. 정직한 입력에서도 간헐적으로 검증이 실패했고 외부 Pedersen/Merkle commitment와 회로 witness를 잇는 QA-link가 없다. 성공한 PLONK 실행은 기술적 가능성을 보이는 진단값일 뿐, LAMP 대체 프로토콜이나 zkMatrix와 비교 가능한 proof가 아니다.
+
+이미 완료된 같은 호스트의 **전체 프로토콜** 측정에서는 n=128에서 LAMP 2.066초, IPA 기반 zkMatrix 1.347초, n=256에서 LAMP 4.136초, zkMatrix 4.621초였다(각 10회 평균; [원자료·조건](LOCAL_RESULTS.md)). 새 PLONK/KZG의 성공 사례는 n=128에서 회로 proof만 5.95–11.61초(3회), n=256에서 13.28초(1회)였고, 불완전한 proof이므로 이 숫자로 대체 후의 승패를 판정하지 않는다. n=2048의 기존 전체 프로토콜 파일럿은 LAMP 60.666초, zkMatrix 261.695초였지만 그것 역시 Groth16을 제거한 LAMP 수치는 아니다.
+
+## 왜 단순 교체가 불가능한가
+
+LAMP 회로의 세 번의 `frontend.Committer.Commit`은 sampled A/B/C 열, sampled 접힘 값, RS 메시지와 codeword를 묶는다. 현재 증명기는 gnark Groth16의 내부 BSB22 commitment와 blinding을 추출하고, `CK2`를 사용하는 QA-link로 회로 witness를 외부 Pedersen 열 commitment에 연결한다 (`protocol/prover.go`, `crypto/cpLink.go`, vendored `lib/gnark/backend/groth16/bn254/prove.go`). PLONK의 내부 BSB22 commitment는 KZG polynomial digest이고 commitment key와 masking 방법이 다르다 (`lib/gnark/backend/plonk/bn254/prove.go`). 기존 QA-link를 그대로 호출할 수 없다. Merkle opening 검증, challenge 순서, ZK masking, proof codec도 새 backend와 함께 검증해야 한다.
+
+| 후보 | 현재 실험 가능성 | 같은 LAMP 명제를 완성하려면 |
+|---|---|---|
+| KZG 기반 ECC sampling | gnark PLONK/KZG로 **현행 회로만** 증명하는 진단 코드를 작성했으며 작은 사례의 검증 실패가 재현된다. 이 진단은 전용 KZG 구성의 측정이 아니다. | 부호화 행렬과 중간 codeword를 KZG에 묶고 sampled opening·fold·RS 관계를 직접 검증하는 전용 구성을 설계할 수 있다. 현행 Groth16을 유지한다면 별도 witness-link가 필요하고, 전용 구성이라면 이를 함께 설계해 CP-link를 없앨 수 있다. Hiding, SRS, batched opening 비용을 포함한다. |
+| IPA 기반 ECC sampling | zkMatrix는 IPA 기반의 **행렬곱 전용** 증명으로 실제 전체 비교를 완료했다. | Pedersen 계열 commitment의 선형 opening/inner-product 증명으로 sampled fold를 직접 처리하고, RS 일관성과 사전 commitment binding을 증명하는 LAMP 전용 구성이 가능하다. Proof/verifier 비용과 zero knowledge를 재야 한다. |
+| Merkle + FRI | LAMP의 RS codeword 일관성 검사와 구조적으로 맞닿아 있지만 아직 완전한 LAMP 변형은 없다. | FRI의 저차수 근접성 검사에 sampled fold, 행렬곱 등식, 사전 commitment binding과 ZK masking을 결합해야 한다. FRI도 Merkle opening을 쓰므로 proof 크기는 별도로 재야 한다. |
+| Brakedown류 | Hash/code 기반의 R1CS SNARK 또는 PCS를 참고할 수 있다. | Brakedown의 자체 error-correcting code와 LAMP ECC sampling의 관계를 다시 설계해야 한다. 기본 구성이 LAMP의 zero knowledge를 자동으로 제공하지 않으므로 ZK 구성 비용도 포함해야 한다. |
+| Sumcheck 기반 | 다항식 관계를 새로 표현하면 RS·fold 검사를 batch하기에 유망하다. | multilinear witness commitment, lookup/hash 관계, Fiat–Shamir, ZK masking, 공개 commitment 연결을 모두 설계해야 한다. Sumcheck 단독으로는 숨겨진 witness를 묶지 않는다. |
+| GKR 기반 | 층 구조가 규칙적인 연산에서는 후보가 된다. | LAMP 회로를 layered arithmetic circuit으로 다시 만들고 입력 commitment와 GKR 출력을 연결해야 한다. 일반 gnark GKR API가 현재 LAMP Groth16 proof의 drop-in backend인 것은 아니다. |
+
+LAMP의 실제 비용 구조상 SNARK만 빨라져도 전체가 같은 비율로 빨라지지 않는다. 예를 들어 기존 n=2048, q=1 실행에서 online 60.67초 중 solver 10.76초와 Groth16 prover 19.45초, 행렬 인코딩·commitment 23.96초였다. n=4096에서는 online 162.30초 중 행렬 commitment 89.11초, solver 18.63초, Groth16 prover 41.86초였다. 이 수치는 [원자료와 회계 정의](LARGE_MATRIX_PILOT_KO.md)를 따른다. 새 backend가 회로·link 비용을 0으로 만든다는 추정은 성립하지 않는다.
+
+## 실제 구성요소 측정
+
+Apple M1 Pro, macOS arm64, 10 logical CPUs, Go 1.26.2, BN254. `K=128`은 행렬 한 변, `N=256`, `rho=1/2`, `L=309`는 공식 sampler의 복원추출 질의 수다. `go build` 기본 최적화 빌드. PLONK은 `scs.NewBuilder`, `plonk.Setup/Prove/Verify`, gnark의 **시험용** `unsafekzg.NewSRS`를 사용했다. 원래 `circuit.LAMPCircuit` 정의를 변경하지 않았다. 원자료와 명령은 [`benchmark/comparison/plonk_kzg_probe_20260930`](../../benchmark/comparison/plonk_kzg_probe_20260930)에 있다.
+
+| 실행 | 회로 제약 수 | proof 생성 | 검증 | proof bytes | 범위 |
+|---|---:|---:|---:|---:|---|
+| 기존 LAMP Groth16, K=128 | R1CS 167,065 | 회로 1.68초; 전체 proof 단계 2.02초 | 전체 0.17초 | 전체 44,324 | QA-link·Merkle 포함, 검증 성공 |
+| PLONK/KZG, K=128, 실행 1 | SCS 456,614 | 9.77초 | 1.94ms | 776 | 회로 proof만, QA-link·Merkle 제외, 검증 성공 |
+| PLONK/KZG, K=128, 실행 2 | SCS 456,614 | 5.95초 | 2.04ms | 776 | 회로 proof만, QA-link·Merkle 제외, 검증 성공 |
+| PLONK/KZG, K=128, 실행 3 | SCS 456,614 | 11.61초 | 2.29ms | 776 | 회로 proof만, QA-link·Merkle 제외, 검증 성공 |
+| 기존 LAMP Groth16, K=256 | R1CS 329,378 | 회로 3.58초; 전체 proof 단계 4.36초 | 전체 0.17초 | 전체 52,132 | QA-link·Merkle 포함, 검증 성공 |
+| PLONK/KZG, K=256, 실행 1 | SCS 904,230 | 13.28초 | 1.77ms | 776 | 회로 proof만, QA-link·Merkle 제외, 검증 성공 |
+
+서로 다른 constraint 시스템이고 PLONK 수치에는 외부 commitment를 연결하는 proof가 빠져 있다. 실행이 공유 데스크톱에서 겹친 구간도 있으므로 시간의 비율은 성능 결론으로 사용하지 않는다. K=128 Groth16 전체 proof 크기 44,324 B 중 43,904 B는 Merkle proof다. PLONK 776 B와 이 전체 크기를 직접 비교하면 필수 구성요소를 누락한다. K=128 PLONK KZG SRS 생성 약 7.4–11.8초, PLONK setup 약 1.4–3.3초는 온라인 proving 값에 포함되지 않는다. K=256 실행에서는 SRS 생성 24.13초, setup 2.55초였다.
+
+**재현된 정확성 문제:** 동일한 원래 회로에서 `K=16, N=64, L=5, rho=1/4`의 정직한 행렬 20개를 각각 새로 생성하자 PLONK `Prove`는 20회 모두 반환했지만 `Verify`가 2회 `algebraic relation does not hold`로 실패했다. 로그는 `k4_l5_15.log`, `k4_l5_18.log`다. 중복 query가 없는 실패도 관측됐다. 원인 분석과 수정 전에는 PLONK 측정을 논문 비교 표에 넣지 않는다. 이 실패를 회로의 잘못, gnark 버그 또는 프로토콜 결함 중 하나로 단정하지 않는다.
+
+## Groth16 없는 직접 검증의 의미
+
+검증자에게 A/B/C 및 중간값을 공개해 Freivalds 또는 직접 행렬곱을 검사하면 Groth16 없이 빠른 기준값을 얻을 수 있지만 공개 정보와 검증 비용이 달라진다. 아래 **100.7 MB는 A/B/C 세 행렬 전체를 보내는 별도 기준값**이다. LAMP의 commitment와 opening 통신량을 뜻하지 않는다. sampled encoded columns를 공개하는 방식도 LAMP의 행렬 비공개 보장을 유지하지 않는다. 따라서 이런 실행은 **public-input reference**로만 보고, committed-matrix ZK protocol의 같은 보안 목표를 만족하는 zkMatrix와 한 열에 놓지 않는다. Groth16 없는 실제 전체 protocol 비교를 원하면 먼저 새 backend의 cross-commitment link와 ZK 증명을 완성해야 한다.
+
+예컨대 n=1024, `rho=1/2`, `L=309`에서 LAMP의 sampled A/B/C encoded columns 값을 Pedersen commitment의 **일반적인 공개 opening**으로 내보내면 값만 `309 × 3 × 1024 × 32 = 30,375,936`바이트(약 30.4 MB)다. RS 관계까지 검증자가 직접 확인하도록 세 fold 메시지와 세 codeword의 모든 field 값을 공개하면 `(3×1024 + 3×2048)×32 = 294,912`바이트가 추가된다. blinding, Merkle authentication, commitment group points, 인덱스 등의 통신은 별도다. 중복 질의를 합치면 sampled column 값의 수를 줄일 수 있지만, 이것도 **실측 proof 크기가 아니라 한 가지 공개 opening 설계의 원시 값 크기 계산**이다. Pedersen opening은 값을 노출하므로 zero knowledge가 깨진다. 값은 숨기고 compact IPA/KZG opening proof만 보내려면 해당 fold, RS, lookup, 외부 commitment 관계를 증명하는 새 프로토콜이 필요하다.
+
+이를 수치로 확인하기 위해 `cmd/public_freivalds`는 검증자가 **세 행렬 전체**를 입력받아 임의의 field 벡터 `r`로 `rᵀAB = rᵀC`를 확인한다. 거짓 곱에 대한 한 라운드의 수용 확률은 최대 `1/|Fr|`다. 프로그램은 정직한 곱을 확인하고 C의 한 원소를 바꾼 음성 사례도 거부한다. 입력 생성과 `C=AB` 계산은 검증 시간에서 분리했다. 전송·직렬화 시간은 제외했다. 입력 크기는 field element당 32바이트로 계산했다. 독립된 q개 행렬곱을 순차 검증하며 별도 proof나 setup은 없다.
+
+| 공개 행렬 기준 | 검증 시간 (초) | 공개 입력 (MB, 10진) | 같은 크기의 기존 ZK protocol verifier (참고) |
+|---|---:|---:|---|
+| n=1024, q=1 | 0.201 | 100.7 | LAMP 190ms, zkMatrix 11ms |
+| n=1024, q=4 | 0.849 | 402.7 | LAMP 172ms, zkMatrix 19ms |
+| n=1024, q=10 | 2.167 | 1,006.6 | LAMP 232ms, zkMatrix 31ms |
+| n=2048, q=1 | 1.487 | 402.7 | LAMP 170ms, zkMatrix 12ms |
+
+공개 입력을 받는 기준값은 verifier 계산만 봐도 q에 따라 증가한다. 반면 [기존 배치 파일럿](BATCH_K10_PILOT_KO.md)의 ZK verifier는 proof와 짧은 공개 statement를 받는다. 같은 표의 검증 시간은 수치적 규모를 가늠하기 위한 참고값이며 보안·통신 요구가 다른 방식을 같은 protocol로 평가하지 않는다.
+
+## 우선순위
+
+1. 논문 §5의 ECC sampling relation을 backend 독립적인 명세와 테스트로 분리한다. 특히 commitment가 먼저 고정되고 challenge와 표본이 나중에 정해지는 순서, 중간 codeword 일관성, 같은 값에 대한 opening, hiding을 유지한다.
+2. **동일한 ECC sampling relation**을 증명하는 세 계열을 비교한다: (a) 전역 또는 다항식 KZG commitment와 batched opening/관계 증명, (b) Merkle oracle와 FRI 또는 Brakedown류 code-based IOP, (c) Pedersen/IPA 기반 선형 관계 증명. 각 계열에서 외부 입력 binding과 zero knowledge가 완성되기 전에는 전체 LAMP 성능으로 부르지 않는다.
+3. 현행 PLONK 구성요소의 간헐적 verifier 실패는 별도로 재현·수정한다. 이는 KZG 기반 LAMP의 가능성 자체를 부정하지 않으며, 현재 코드 경로의 실측값을 유효한 전체 프로토콜로 사용할 수 없다는 의미다.
+4. n=1024/2048/4096, q=1 및 배치 q>1에서 setup, 입력 commitment, online proof, verification, memory, 전체 proof 크기를 같은 보안 목표와 sampling parameter로 잰다. 행렬 크기와 배치 수 모두에서 병목이 바뀌므로 둘 다 필요하다.
+
+### 1차 자료
+
+- [gnark 공식 저장소와 PLONK backend](https://github.com/Consensys/gnark/tree/master/backend/plonk)
+- [Spartan: sumcheck를 쓰는 범용 zkSNARK](https://www.microsoft.com/en-us/research/publication/spartan-efficient-and-general-purpose-zksnarks-without-trusted-setup/)
+- [Libra: zero-knowledge GKR 구현·측정](https://eprint.iacr.org/2019/317)
+- [LegoSNARK: commitment를 가진 증명 구성요소의 연결](https://eprint.iacr.org/2019/142)
+- [Bulletproofs: inner-product argument 기반 증명](https://eprint.iacr.org/2017/1066)
+- [FRI: Reed–Solomon codeword proximity IOP](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2018.14)
+- [Brakedown: code 기반 SNARK for R1CS](https://eprint.iacr.org/2021/1043.pdf)

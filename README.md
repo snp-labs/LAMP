@@ -158,3 +158,84 @@ verification times.
 Each CSV output directory also contains `system_info.json`, which records the
 CPU model, logical core count, RAM, OS, architecture, Go version, and timestamp
 for the benchmark run.
+
+## Reproducible comparison tooling
+
+The independent zkMatrix implementation, diagnostic-only zkMaP audit, numeric
+comparison runner, and current source-fidelity notes are under
+[`docs/comparison/IMPLEMENTATION_STATUS.md`](docs/comparison/IMPLEMENTATION_STATUS.md).
+The current comparison target is the official revision `e2d1cae`; historical
+measurements in the archived `../upstream` checkout are preliminary and are not
+current-worktree benchmark results.
+
+A one-command local smoke/runner invocation uses the K7 development profile:
+
+```sh
+python3 scripts/comparison/run.py --config development --scheme both
+```
+
+The reviewed local measurement profiles are `official_squares_local` (K7
+square, ten repetitions for both implementations) and `official_batch_local`
+(zkMatrix batch q=1..10 plus LAMP batch q=2, ten repetitions). They use ten
+threads and retain the local matrix element cap:
+
+```sh
+python3 scripts/comparison/run.py --config official_squares_local --scheme both
+python3 scripts/comparison/run.py --config official_batch_local --scheme both
+```
+
+For the full local square grid through K=10 and the matching LAMP/zkMatrix
+batch q=1..10 grid, use `official_squares_k7_k10_local` and
+`official_batch_q1_q10_local`. Optional square rate profiles use rho=1/4,
+L=189 and rho=1/8, L=155, with ten repetitions each:
+
+```sh
+python3 scripts/comparison/run.py --config official_squares_k7_k10_local --scheme both
+python3 scripts/comparison/run.py --config official_batch_q1_q10_local --scheme both
+python3 scripts/comparison/run.py --config official_square_rho_1_4_local --scheme both
+python3 scripts/comparison/run.py --config official_square_rho_1_8_local --scheme both
+```
+
+The shape-only GPT-2 plan lists the official graph's 36 matmul claims without
+allocating matrices or setting up an SRS:
+
+```sh
+go run ./cmd/lamp_gpt2 --baseline-plan --seq 10
+```
+
+The optional zkMatrix execution path is
+`--baseline zkmatrix_grouped_matmul_claims_only`; it has a 32 CPU and 240 GiB
+usable-memory guard (for a nominal 256 GiB host), defaults to ten repetitions,
+and accepts `--threads`. Its certificate covers the actual matrix products
+only. Both `graph_wiring_certified` and
+`public_input_output_binding_certified` are false, so it is not a full linked
+GPT-2 certificate. Do not run it on a laptop; use plan mode there.
+
+The runner records isolated output, source and binary hashes, host details,
+verified numeric JSONL records, and a manifest. To inspect a non-executing
+server plan, use:
+
+```sh
+python3 scripts/comparison/run.py --config server_square_k7_k13 --scheme both --plan
+python3 scripts/comparison/run.py --config server_batch_q1_q10 --scheme lamp --plan
+```
+
+The server plans specify K=7..13 square runs and LAMP batch q=1..10 with ten
+repetitions and a 32-thread budget. They are plans only; use an adequately
+provisioned host before running them. The paper-parameter profile is named
+`official_paper_parameters`. It checks the latest official K7/rho=1/2/L=309
+constraint count and does not assert a complete paper reproduction. See
+[`docs/comparison/LAMP_PROTOCOL_REVISION_GAP.md`](docs/comparison/LAMP_PROTOCOL_REVISION_GAP.md)
+for the revision-specific audit.
+
+On a host that passes the resource guard, execute the server grids with:
+
+```sh
+python3 scripts/comparison/run.py --config server_square_k7_k13 --scheme both
+python3 scripts/comparison/run.py --config server_batch_q1_q10 --scheme both
+```
+
+Completed shared-desktop measurements (300 verified proofs) and limits are in
+[LOCAL_RESULTS.md](docs/comparison/LOCAL_RESULTS.md). Portable numerical records
+and the distinct measured/future source overlays are in
+[published evidence](benchmark/comparison/published_20260929/README.md).

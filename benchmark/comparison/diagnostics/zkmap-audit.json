@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-09-29T06:14:48Z",
+  "results": [
+    {
+      "name": "Rectangular convolution differs from matrix multiplication",
+      "category": "DEFINITE",
+      "passed": true,
+      "details": {
+        "exact_convolution_assertion": "[34 89 188 341]",
+        "matrix_product_row_major": "[258 310 775 933]",
+        "truncated_convolution": "[34 89 188 341]"
+      },
+      "code": "Section 4.1, p.13",
+      "assertion": "Direct integer arithmetic gives matrix product [258 310 775 933] and truncated row-major convolution [34 89 188 341]."
+    },
+    {
+      "name": "Public-SRS pairing attack, n=2",
+      "category": "CRITICAL",
+      "passed": true,
+      "details": {
+        "A_commitment_nonzero": "true",
+        "B_commitment_nonzero": "true",
+        "C_commitment_nonzero": "true",
+        "appendix_VW_scalar": "7",
+        "appendix_Vay_scalar": "5",
+        "appendix_Vby_scalar": "9",
+        "appendix_e_algorithm2_accepted": "true",
+        "appendix_e_algorithm2_tampered_accepted": "false",
+        "appendix_projection_relation": "Vay and Vby are attacker-chosen public points, not proven projections",
+        "attack_scope": "algebraic exploit of stated equation only; not a full author implementation",
+        "attack_trapdoor_input": "false",
+        "challenge_sha256": "aa51a15fcd0a071ced1688f6f472a3db79f9a702fabb0749166edbc31881f5ed",
+        "challenge_y": "11372684019834421131088760792016097641370813186164692796131036369542860371434",
+        "dimensions": "2 x 2",
+        "invalid_C_neq_AB": "true",
+        "n": "2",
+        "scalar_aeval": "3",
+        "scalar_beval": "5",
+        "scalar_pairing_accepted": "true",
+        "scalar_pairing_tampered_accepted": "false",
+        "scalar_t": "15",
+        "scalar_w": "7",
+        "serialized_public_srs_sha256": "451c29f5f8b56c141b51f8813765dad20d8f9d6acfab768e293031f963286b39"
+      },
+      "code": "Section 4.4 p.16 unnumbered pairing equation; Appendix E Algorithm 2 p.37",
+      "assertion": "Both published check forms accept a false dense matrix statement using public commitments and reject a one-generator Vmu mutation."
+    },
+    {
+      "name": "Public-SRS pairing attack, n=4",
+      "category": "CRITICAL",
+      "passed": true,
+      "details": {
+        "A_commitment_nonzero": "true",
+        "B_commitment_nonzero": "true",
+        "C_commitment_nonzero": "true",
+        "appendix_VW_scalar": "7",
+        "appendix_Vay_scalar": "7",
+        "appendix_Vby_scalar": "11",
+        "appendix_e_algorithm2_accepted": "true",
+        "appendix_e_algorithm2_tampered_accepted": "false",
+        "appendix_projection_relation": "Vay and Vby are attacker-chosen public points, not proven projections",
+        "attack_scope": "algebraic exploit of stated equation only; not a full author implementation",
+        "attack_trapdoor_input": "false",
+        "challenge_sha256": "9a9dca32ccc19594174c991f72a6f2a8085cd5d69ce2f0bbdaf7634592c91177",
+        "challenge_y": "4270240577798132992541693402772620345966416840685142326541845056451095630196",
+        "dimensions": "4 x 4",
+        "invalid_C_neq_AB": "true",
+        "n": "4",
+        "scalar_aeval": "3",
+        "scalar_beval": "5",
+        "scalar_pairing_accepted": "true",
+        "scalar_pairing_tampered_accepted": "false",
+        "scalar_t": "15",
+        "scalar_w": "7",
+        "serialized_public_srs_sha256": "771e7cf1ba12331b31e58d568504bf05ac1147e44b6e16b7483e70f1aa070c9c"
+      },
+      "code": "Section 4.4 p.16 unnumbered pairing equation; Appendix E Algorithm 2 p.37",
+      "assertion": "Both published check forms accept a false dense matrix statement using public commitments and reject a one-generator Vmu mutation."
+    },
+    {
+      "name": "Appendix E interpolation reproduction, n=2",
+      "category": "DIAGNOSTIC",
+      "passed": true,
+      "details": {
+        "appendix_pairing_accepted": "not-run: no polynomial witness for selected interpolation",
+        "honest_C_equals_AB": "true",
+        "interpolation_nodes": "0..n-1",
+        "interpretation": "documented diagnostic choice; paper does not specify interpolation nodes",
+        "mu": "1194788034521957806807995711167279171590560392655413599223991114319993036179",
+        "n": "2",
+        "passed_semantics": "computation completed; not a protocol acceptance claim",
+        "quotient_degree": "1",
+        "remainder": "14101184068831835114881767638158412443666864179158363154492630367053001861762",
+        "remainder_zero": "false",
+        "synthetic_division_identity_holds": "true",
+        "witness_polynomial_exists": "false"
+      },
+      "code": "Appendix E Algorithm 2 lines 11-18, p.37",
+      "assertion": "Using nodes 0..n-1 and ordinary coefficient commitments, report the exact quotient remainder and execute the literal pairing check when a polynomial quotient exists."
+    }
+  ],
+  "critical_count": 2,
+  "definite_count": 1,
+  "all_passed": true,
+  "summary": "2 CRITICAL findings; 1 DEFINITE arithmetic findings; all diagnostics passed=true"
+}

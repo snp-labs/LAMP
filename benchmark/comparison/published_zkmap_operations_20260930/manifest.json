@@ -1,0 +1,3325 @@
+{
+  "kind": "provisional_operation_timing_not_valid_proof",
+  "source_sha256": "fa8a36c384f260c4c7a799ee708fea8badc8d4e663b62defe6d06240a095b793",
+  "source_files": [
+    {
+      "path": "benchmark/comparison_raw.go",
+      "sha256": "e04d5addd353bb8c1df1973f1770a60a6b9eef45f9a791d969f86572421ae025"
+    },
+    {
+      "path": "benchmark/comparison_raw_test.go",
+      "sha256": "efa8bcecce88bc0b4d32bebc2c6ba79d885954c1a8846b657ff6c26c03a4e4fb"
+    },
+    {
+      "path": "benchmark/csv.go",
+      "sha256": "38b18fe905d3486a6ffc4e7b0c66a0cd2f4ae8a9189f18fce4134af145d5a17a"
+    },
+    {
+      "path": "benchmark/csv_test.go",
+      "sha256": "53592ecf3614fa9c6444e940ee7317f9c81b336020b33c2939be25ee78f0d1d3"
+    },
+    {
+      "path": "benchmark/lamp_wire.go",
+      "sha256": "bd5c90008c562cf255ac62a8c5454311df947ba75e619db01aec781f4539b3b7"
+    },
+    {
+      "path": "benchmark/lamp_wire_test.go",
+      "sha256": "4474de4671ad418bd02f925e44b9d7a1ea35372ccf64036e0cfd04a91368316e"
+    },
+    {
+      "path": "benchmark/memory_darwin.go",
+      "sha256": "869a8f3be8f6b4ae8b14749cb2debb3dcd80def15019259a541a2bb077d57d17"
+    },
+    {
+      "path": "benchmark/memory_linux.go",
+      "sha256": "816a0614ca007cc083b4ac7d0668797ccaa4c24979f27c8e6fb44ab7b8bb2c4d"
+    },
+    {
+      "path": "benchmark/memory_other.go",
+      "sha256": "752eab6b5ee1c686fe223b4e2c22dc26beb226152b1decae7ea9a2d7b8f6db6d"
+    },
+    {
+      "path": "benchmark/memory_test.go",
+      "sha256": "9ed5be7825ad7f3d245702e99c046e9c1296885f92fa530f514e3adf9b43e14a"
+    },
+    {
+      "path": "benchmark/system_info.go",
+      "sha256": "89509f7a44c6e1a9617c79f9026691371ecfcf7aaa9b684b17715f46c4139cf6"
+    },
+    {
+      "path": "circuit/freivalds.go",
+      "sha256": "07b377fad853749692132b2ed43b19ad4df567227bc49b4c227312ccd10a00f6"
+    },
+    {
+      "path": "circuit/freivalds_batch.go",
+      "sha256": "e1d564bfa9c337638f8fcbcc7f4f5a5b0b0804e303a00886296df9c203efd188"
+    },
+    {
+      "path": "circuit/freivalds_gpt2.go",
+      "sha256": "449238b24258bfcca2c6b3406849e9865e27fe8a69a30aa8dc138c6884bfa9e7"
+    },
+    {
+      "path": "circuit/helpers.go",
+      "sha256": "0d4dc81a21d5e9ffe453400a1dceb59a5481e6521f1b7e4b5af656928e8d5645"
+    },
+    {
+      "path": "circuit/lamp.go",
+      "sha256": "c3281db3296fc6909412cf60069f6305df6980132209895a220a5be403281dc9"
+    },
+    {
+      "path": "circuit/lamp_batch.go",
+      "sha256": "69fd5892108737a2dfa8a23651a88659b3a3a97907909e8a41a38b19cbbc0381"
+    },
+    {
+      "path": "circuit/lamp_gpt2.go",
+      "sha256": "168e930a0f290cc2b4e84a0bd4ba3d97ccffdc9b92fb63f80e7b79f0691d3b81"
+    },
+    {
+      "path": "circuit/lamp_test.go",
+      "sha256": "e3bbd6b10e0bf507ba864ef38ddacec5d71a3eabb80d0a5e095fde94310d459e"
+    },
+    {
+      "path": "cmd/freivalds/main.go",
+      "sha256": "1144ff3eb03dbeb0aa85b5c9a00f7c62c659adb4f763a30e5b3be7bfe527cc6d"
+    },
+    {
+      "path": "cmd/freivalds_batch/main.go",
+      "sha256": "5d6f431a0d4d5cd56ea5abb152aec3cdcb81015b2bf2eaf3ed049ff508bf58f8"
+    },
+    {
+      "path": "cmd/freivalds_gpt2/main.go",
+      "sha256": "27b6507199a2f60e8c625f26c4c5eb8dd5a0b697be240db0a73b21cf435b9389"
+    },
+    {
+      "path": "cmd/lamp/main.go",
+      "sha256": "fcc7567822bf02945bedf62fdc87385aaf1ba333ce765b937bf148ce604235d7"
+    },
+    {
+      "path": "cmd/lamp/main_test.go",
+      "sha256": "6a14629e656b8590a67ab44043286c786596078bf8561c73239f9605b7367dca"
+    },
+    {
+      "path": "cmd/lamp_batch/main.go",
+      "sha256": "6738fb48c5ebec1c50dfa81aa02f43c9cac68c1935bbba7a7eb28b8746f47659"
+    },
+    {
+      "path": "cmd/lamp_batch/main_test.go",
+      "sha256": "a4b8987c7fac8923f99b9f125b665b5fa554c219d1ebb0a78276aee565cc83c4"
+    },
+    {
+      "path": "cmd/lamp_gpt2/main.go",
+      "sha256": "e2b979f4ea9e6ae3723540547146e3b80104dae092b8e805b01d722454490574"
+    },
+    {
+      "path": "cmd/lamp_gpt2/main_test.go",
+      "sha256": "c507b75aea4fbb042e1266d89952b78ca5a4063a3bf0c7f7fd9b640535869de2"
+    },
+    {
+      "path": "cmd/lamp_gpt2/zkmatrix_baseline.go",
+      "sha256": "dc83b287b8be2efa237fc393b4aac15f038b6cd5c4328a1263780c108f127b9e"
+    },
+    {
+      "path": "cmd/zkmap_audit/main.go",
+      "sha256": "bff777191635076cd9518104e0557b9260cd321015374eada9ca4cff9feea9fa"
+    },
+    {
+      "path": "cmd/zkmap_provisional/main.go",
+      "sha256": "002b35f8548c8b0af0cd15d048d11fd240b83f2821b03068b38a4cd4371bacac"
+    },
+    {
+      "path": "cmd/zkmatrix/main.go",
+      "sha256": "075d9c829912672f839a60957fa521c94e328f8ac8a68d86fd58128998b550ac"
+    },
+    {
+      "path": "cmd/zkmatrix/main_test.go",
+      "sha256": "dc0c714df36f3c8587702fb95cf414ff70eb4953f2449ae38429e1aa59ea7971"
+    },
+    {
+      "path": "cmd/zkmatrix/multiply_test.go",
+      "sha256": "026474a0b8330134ffe353a45e1f0bd95fb8e8db0796eeb1c2f08f79151dacc0"
+    },
+    {
+      "path": "config/env.go",
+      "sha256": "67a233bff7e8454ccf73fc39c4a606e5a885b700fcf053dd4246a5eb93b4034b"
+    },
+    {
+      "path": "crypto/cpLink.go",
+      "sha256": "9c66aaa81e01dded213b8e8b29c05731c2d15d38cddbc0037d7a8785d670b13c"
+    },
+    {
+      "path": "crypto/cpLink_test.go",
+      "sha256": "55fe5dcf25dba331bfe2b9b827e59a584ce44c0f2fe8bdbd31870eea609dbfdd"
+    },
+    {
+      "path": "crypto/hash.go",
+      "sha256": "1f9aadad0478cf4b7b3345c041828da10b11179fd7950b945acba1e0cd8810ae"
+    },
+    {
+      "path": "crypto/hash_test.go",
+      "sha256": "52e2fa3176c1945d2fed4d7705f8ff0786c6cdfd0629632c05e91e6431df1846"
+    },
+    {
+      "path": "crypto/merkle.go",
+      "sha256": "7bf36bfc31da2e32bc79ffdf20cd56906fdb2c258c56f705696481e28eb6a6a7"
+    },
+    {
+      "path": "crypto/merkle_test.go",
+      "sha256": "c945c70a29797873fa001e22308e7d344ac8bfa291dac8350b6a9a1f416613da"
+    },
+    {
+      "path": "crypto/pedersen.go",
+      "sha256": "b69e3e51bfff9d605e31c559fc3b1744d5d5e77331a10ed89c1503dd4fb71572"
+    },
+    {
+      "path": "crypto/pedersen_test.go",
+      "sha256": "b95ecd898027261b9a874cb96a15825f7189c7ddba7488684d747fbd62c4f54e"
+    },
+    {
+      "path": "crypto/rs.go",
+      "sha256": "533fac61e553ff67424ff417e1e5c7781c9795268f4cfc249b560b0a88034810"
+    },
+    {
+      "path": "crypto/rs_test.go",
+      "sha256": "d1e501240cdd01fd82f1db540566e44020d4e839152bc5de9a4937bff7496a6f"
+    },
+    {
+      "path": "crypto/zkmap_audit/audit.go",
+      "sha256": "f61b6b38f5b483700671129b935dea032a61faf3529075ba82ee3cc90b74eb61"
+    },
+    {
+      "path": "crypto/zkmap_audit/audit_test.go",
+      "sha256": "5b6f9c6b9b4ce6fb9e7377a43750cac00c27a4cd2fe32d7e4fc4e892190bfea2"
+    },
+    {
+      "path": "crypto/zkmap_provisional/prover.go",
+      "sha256": "b1ebd11b970f3621cb9a248faba3212f56c51c4ff3621a4b5b1ddbd05c167c75"
+    },
+    {
+      "path": "crypto/zkmap_provisional/prover_test.go",
+      "sha256": "1f43c8f1e2545d00387323482f7f87ca3c4a4ce2066a72342052c425de829aa1"
+    },
+    {
+      "path": "crypto/zkmatrix/acceleration_test.go",
+      "sha256": "9657917f3edfb37e7f8ac4eed63d78d29c40447168ead116af3708a7426b5aed"
+    },
+    {
+      "path": "crypto/zkmatrix/batch.go",
+      "sha256": "38fd9def83c349c091d2d2e23f97a1c4baaa207ef73753b7e57c3a26e29906c1"
+    },
+    {
+      "path": "crypto/zkmatrix/batch_test.go",
+      "sha256": "284dcc0318b77d302173a02c4f796c863d4f1f53a36b3004cc935fbc87b3affc"
+    },
+    {
+      "path": "crypto/zkmatrix/optimized.go",
+      "sha256": "715108d73dca9729fe6b185e3e825e200fd51767c2bb49bf5162e0e445849b26"
+    },
+    {
+      "path": "crypto/zkmatrix/primitives.go",
+      "sha256": "05e14424b8718e02f81af37833091eb128431b5147947e61dee5036b1bc607a4"
+    },
+    {
+      "path": "crypto/zkmatrix/primitives_test.go",
+      "sha256": "af7533d957c4544ab58db137ece5ab932c74a5183691baa0e41c85049ed59469"
+    },
+    {
+      "path": "go.mod",
+      "sha256": "aa91a19fe960e21e521d5da4617c8b328266db0dfcb10fcaba308eaa1afc4bca"
+    },
+    {
+      "path": "go.sum",
+      "sha256": "2d52a0b9f6aa24840b6ada090e2164fe39959660cd824d685d999c49f085237c"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/doc.go",
+      "sha256": "8909ba68a13dfe2902c36b2d9b827f391ff375e6ebb947300de89d544d84837d"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bls12-377/doc.go",
+      "sha256": "2240864f198357a40f9b9c0e9ef9e6ba871c0611a1f61e623d1b119ebc5fed42"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bls12-377/icicle.go",
+      "sha256": "aabb8a088b02a29c48edab978c018af18d0c1f68cda8ec558b1d0f8c14188ff3"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bls12-377/provingkey.go",
+      "sha256": "22a0731c2a4bf0a001d7f7b51fe39f047bd5045e3db58e4d23502d0a8875698f"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bls12-381/doc.go",
+      "sha256": "cffa5e2772505ee299e778d25c4b09e2c15c54bd029cd153ee98dc6d95b64993"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bls12-381/icicle.go",
+      "sha256": "b49a41020b726238e9536d68f6fbb7371ed6ef99b928d15a68b1810a483f671c"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bls12-381/provingkey.go",
+      "sha256": "35fbf6de847903a4954b2da64af3d863b5b0eb282f1fd5fcb04d07ccc0393f54"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bn254/doc.go",
+      "sha256": "78bc20f5871d8086df9c50e7d9c8a08a9608fc31487c60979503a8b33a144ba2"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bn254/icicle.go",
+      "sha256": "76cd1318523f748c5ca515ea6fb34853692e0fde0c19421efd0d4ba11b7848f9"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bn254/provingkey.go",
+      "sha256": "e417f618f0e6335c2bead9bb8d357806e90421a31d656ea803e01aae76fac89b"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bw6-761/doc.go",
+      "sha256": "795668aa63b49b090b9c72226a6a0e2ac4bb4643ca10d46a128a143c5b719a25"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bw6-761/icicle.go",
+      "sha256": "695cb34d878a7f7be5935633ba427b15a923eec0f3d5f64fd1690ddc35898ec1"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/bw6-761/provingkey.go",
+      "sha256": "627bb76451b66b0be9ff61291344088aa0c453ba76335ec8e9b08e3cd8f936a0"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/groth16_all.go",
+      "sha256": "29ab3dda79919eb8ffa3ef574f79cc225d3b9912c1ed250d1930cb91c7e3b67e"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/groth16_icicle.go",
+      "sha256": "b3a9835d28ff096328a8c01de852507cc04a87c690839d4b6be7b6cf27de16c8"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/groth16_noicicle.go",
+      "sha256": "0a592ff40217f1e4e530778b3f99e3375159710fcfd58d1ff75162e9268f3114"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/groth16/marshal_test.go",
+      "sha256": "2e2a8898477c06267b59f3cddae57c4adc1964582261ab035f94868f8de9deaf"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/internal/generator/main.go",
+      "sha256": "ec73b305ea8ba2aa12b154559ae4a638f90dc4601668bcb763d09d7780412260"
+    },
+    {
+      "path": "lib/gnark/backend/accelerated/icicle/opts.go",
+      "sha256": "6baee31034d28de066dc21463c73bd679489003b6a9cbbb2ab0aaacda8d66943"
+    },
+    {
+      "path": "lib/gnark/backend/backend.go",
+      "sha256": "24b139023b4593ba2b23cb9280d7a9c8e99d3cd3c3d457ca1db3ebeeedb3d205"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bellman_test.go",
+      "sha256": "16d2365e041e43238674ab33d271c0d67dd0489e259230b1921a01b8ca679c9e"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/commitment_test.go",
+      "sha256": "a1c83a2bfd21bc923a1feeaf8f8287da8f6d611e671ef2d317b139e9b96b7c06"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/marshal.go",
+      "sha256": "18dc6e22f234ba81a9952d61467a7f006573ce1ca6180ce5664f0a98c16a287f"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/marshal_test.go",
+      "sha256": "876601c2050bbe998cb11a8c1da1680ef5bce8a9334cfd93f332e2f08ceef0b0"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/mpcsetup/lagrange.go",
+      "sha256": "e9a233d78fc8ee87810e7451fb6f7fc80fd7d63f2e4106999de4f1c12abcc86e"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/mpcsetup/marshal.go",
+      "sha256": "9280160d45d3e927259d069faead505dbb41140be51f7ca137eec615b7a29a15"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/mpcsetup/phase1.go",
+      "sha256": "5fa1c0220a2c59a4562677dfc995037033511d698adfe9c23541d74cfd8db5e7"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/mpcsetup/phase2.go",
+      "sha256": "2163b31cd1cd0d9328072491cadcd0ea4d06cac779118ead8567feafed284c46"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/mpcsetup/setup.go",
+      "sha256": "5bc8d65bef60463d25d476df7aebcb3edb85f42d4eb054fb2e4b2997c63f3f50"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/mpcsetup/setup_test.go",
+      "sha256": "741717965ba66fba8dfaac1c96750bb234cb2f7a0616a322b898005497ae58ed"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/prove.go",
+      "sha256": "898068f26da8a4b49f70df14a9c488e20c505f60eef439c9529ee1ec3213cd7a"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/setup.go",
+      "sha256": "fbcbad88695a0475d2d70dbd78204fc61b7382a866164349faf576e0f3d7230d"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-377/verify.go",
+      "sha256": "19cf53310a69e1efb1e91d688c434dc20fcab12cebb53bb2604410c66ac163b1"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/commitment_test.go",
+      "sha256": "2734041999bd97b22960ea8057ff265184474ba71d56fdf67bb16c5de4522e20"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/marshal.go",
+      "sha256": "3562b18cba3c8f7dec4699e3bacb8ea279409cc2aaa7e2a459dda3a9f06e2112"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/marshal_test.go",
+      "sha256": "36279b24538d8eaf7c514c129260ece4b4dec2c8aeb70f133810d9315bd2ba54"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/mpcsetup/lagrange.go",
+      "sha256": "1455c53b703797cfa59ed30614d84c5b8c0788091b834298616f71f91f3d2f6e"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/mpcsetup/marshal.go",
+      "sha256": "a120a48cf82ecabe6438d00a64604fb74f57821b7523d66e77e262f3ed180b65"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/mpcsetup/phase1.go",
+      "sha256": "fd60551f6d7a6701ff95b7eec3a09a5f922aaa592fc3f2dc3ecb53cef2e75bfc"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/mpcsetup/phase2.go",
+      "sha256": "918f6fb91f2f29155c0c3936971926ed191e7b165945ad707dfb0bee8ea6ef51"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/mpcsetup/setup.go",
+      "sha256": "e61eb9b26d9a641679936404187a484d7f3b6db3965abe646ca293fedf502038"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/mpcsetup/setup_test.go",
+      "sha256": "67914b0fe9c16795de5162e14b89bdfa31513446fbad85e9381df2d35344db31"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/prove.go",
+      "sha256": "0fa6e7dad4327848faf1c6ab067e77624cbd3d4d2e048ee11ae8c5a59c20b53a"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/setup.go",
+      "sha256": "f7205079b5b3a142a51cc48bcb3cd5d8b00c98d8085df222b7bdce9021cd957d"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/solidity.go",
+      "sha256": "191a1c5d1239671317ca2f49d832f7d3c68ec1e2d12fb7a42b6b7ad0607c61fa"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bls12-381/verify.go",
+      "sha256": "6bb48c629b4ed05392d5b290253e735b0cf9d303f1141897076cb379898854a2"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/commitment_test.go",
+      "sha256": "d2b91b7f7965be1d504603625c28868133247cad775f069522ac980727a70e40"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/marshal.go",
+      "sha256": "442e6a2132d06972491f048b93f817549959ecbebbad982563eedda130706fc1"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/marshal_test.go",
+      "sha256": "e582c40cf4052cb6def2a39c28cadcffeb739a6e7469b4e19346aa4154b94519"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/mpcsetup/lagrange.go",
+      "sha256": "9a24908f857fb049f43f00dc1b0ea19e9f017155152d35c7c122d23e2fd88fb6"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/mpcsetup/marshal.go",
+      "sha256": "5409d2bf89d8ec79a109a9b480835df6fd1f38d41bd0cc3ab7707a217b74cc38"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/mpcsetup/phase1.go",
+      "sha256": "a5fe610f60a3ca0c183fbb532d20243ac977bf50d59eb102e96f794b68058b46"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/mpcsetup/phase2.go",
+      "sha256": "01bb7be08a4525acb95cf9e49d5d94e7f0b78d68a7a2c2e27d6bb3b8c8ef820e"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/mpcsetup/setup.go",
+      "sha256": "f82f422ec778f65828bf726a4bd9751f0545ed188ba32731526cb043bc73ff23"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/mpcsetup/setup_test.go",
+      "sha256": "b9bf6ba64b3211ef5ef9c84803eefaa2e1df457a53e44dc370bb002b9d508b8e"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/prove.go",
+      "sha256": "6c6b26e49750090e230bf098cbe5b8c16e8889f974455720d188b2e17aa5b9a4"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/setup.go",
+      "sha256": "b6573c3c3916a247e495fa1f82af1eaf82813218f0df7b2158e974baba1202ce"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/solidity.go",
+      "sha256": "6d0c391d00e89e1c42774b82dd84eee46b82d626ff046ce86094b8b7daf45215"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/utils_test.go",
+      "sha256": "18a296cd7ff8bdc415526fbec0bb00b040bcc9ed9a52425956967b4ddee79762"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bn254/verify.go",
+      "sha256": "21bab8049991caba755b40816e3490aa864ecde604ab64be56328f013c67cc03"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/commitment_test.go",
+      "sha256": "c2e5d22698799b68eda4683f4731402665c8d16c21960bff058a0c134339a694"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/marshal.go",
+      "sha256": "8bbcc1ea671d74f2e3932f4bd3177b3a6bb49f096d9688ea842afae878c4dba1"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/marshal_test.go",
+      "sha256": "dac8f678b1ee54e7deb02f2f2b56afa1f1f234d2204af6f86c3eea019b670c6e"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/mpcsetup/lagrange.go",
+      "sha256": "53cc29aa450be75cf9b5ac4b7b07b23c53af90cb55394dfc7a7e271ef4829115"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/mpcsetup/marshal.go",
+      "sha256": "1079de1e30ee82d31d748feada666ca5979dddbabb30421a6fcb2ac40ee79a04"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/mpcsetup/phase1.go",
+      "sha256": "190ceaed8dec01607cff73e368b7e03c26bc1fdcf2892593f1999a6a2b003c44"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/mpcsetup/phase2.go",
+      "sha256": "5639c850c2111dbc5ffacd08190bbc4909c33bd521f7aea29f82edb7387b949a"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/mpcsetup/setup.go",
+      "sha256": "98005723f5480e609cdd13156e67a675acfe1b45984b2616a482cdc64cc77b28"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/mpcsetup/setup_test.go",
+      "sha256": "989202ef6c3190da36ba93f13983086bf38ae84e436c04544f5456d61504c164"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/prove.go",
+      "sha256": "9b30bcd117eecc4a4f51c1f282f51f5bc1d3c3f3b35aa2908d375816e45e2fb0"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/setup.go",
+      "sha256": "90a4089920ce989d2af2c988a4bc4d739216244e0485ed013c111aab9b033ae9"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/bw6-761/verify.go",
+      "sha256": "41e2fe4f1fa7560208c881400d7e3291315ba271c73e9973351826a903a26b43"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/groth16.go",
+      "sha256": "4e7da84b48ee351546797d89b5adb52d4de2f7ccaf31361554ec8a6a66e6b7f8"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/groth16_test.go",
+      "sha256": "7b7e7f0065c762c15c30725be6dc7bfb6647808b0909d75d327554c2b3bcb473"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/internal/test_utils/test_utils.go",
+      "sha256": "9c9a59cc2de49745e5e484659e5627b46666d014ee0b817f3b80bbeedf7de1b5"
+    },
+    {
+      "path": "lib/gnark/backend/groth16/internal/utils.go",
+      "sha256": "a1f42f77c1c36d6683e53e31d0b015ac6507ad11fe624b1ac8505aafcb3e2587"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-377/marshal.go",
+      "sha256": "af9ebdb0727264c82913adf203c9c6a6a4434f8f846a1fd1c03fd7c2343ae361"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-377/marshal_test.go",
+      "sha256": "e1a826c689a250f082a952f7c17e5383e7f2998a8075e995a55f01021339d747"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-377/prove.go",
+      "sha256": "0d5a93047e08e6baab30867c0d8d4c1dd3fee52d46b1dda42972fef9e3325dad"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-377/setup.go",
+      "sha256": "8ac3e14d5bceaccfe19da7d849f861bd396cb858d5eaa5d33f99211ddbc7682e"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-377/verify.go",
+      "sha256": "e21760b2ab8766cf2a27962d9229233395bb420c64db1708d0d68d7049902c84"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-381/marshal.go",
+      "sha256": "4c1275039d0777f2bcad3c2f7ac61ec2bee711e6955c635ed3552756ffb24b88"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-381/marshal_test.go",
+      "sha256": "60351e7d55f829f5e1f5fe1312e426736d5054c379534f663ebf3801a1303f9d"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-381/prove.go",
+      "sha256": "912219fec3542604d8828c3b768c6be7d1b7bf413c80374cd337be9eff3e9c15"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-381/setup.go",
+      "sha256": "584941fb38ee6fdd9268429c9dd716347c484981b54ef027059e4b74bb1e2230"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-381/solidity.go",
+      "sha256": "f7023bccfb6b7af1d666037b7ce6494f1ef9968b1cf4280b2eec0b510a040855"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bls12-381/verify.go",
+      "sha256": "d7b1536f0e755778be431abd623e372e7de1eb9eec158c6942fd3dc279166dbc"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/marshal.go",
+      "sha256": "638ef80ae3c3fbf1047be76419ef9752e8b8f0fdb05964a8515ebfd18b1fa4b3"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/marshal_test.go",
+      "sha256": "b700a23caf28779314c65e2253167c4d6229c24a30d46084a821b2a0f6f0568a"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/prove.go",
+      "sha256": "e147f1b5272a4a1ab5dde57b169f4a02b3bf7b4511dc99fdf96de32b8ca54753"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/setup.go",
+      "sha256": "d22ed6a6f30e8153a8d34bd13e002f4fbfe3632b9b78b31844570b657501b5ef"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/solidity.go",
+      "sha256": "8cd36f84b83bfd12e33fe8e07bbf38400d52740c91af567175f5782dc7e2859f"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/unmarshal.go",
+      "sha256": "49d84813d4a852ecf516bbf5c477529ae4e587cffbdac05745b1b683577e24c7"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bn254/verify.go",
+      "sha256": "5166bf500386bc96fb8f774604513c7bba92dee45a85034a0da2740725561be1"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bw6-761/marshal.go",
+      "sha256": "2d47fbc19ac0e61b8cf8935515de8a185dc0850488eab4cb9119da2beb594edc"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bw6-761/marshal_test.go",
+      "sha256": "41415bb22b2d3ddfc712eda2f0fa3b14e06e9592396f195496dced117d2605cb"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bw6-761/prove.go",
+      "sha256": "4c9110b7e8000f7247a56454ba50270870b2e41f4a9eee31ee369136ef045480"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bw6-761/setup.go",
+      "sha256": "922d9c2dd239891325236f6d506076d0ab7d4d5508b0c9738b0a15d5e0d63daf"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/bw6-761/verify.go",
+      "sha256": "e7070f3781f11d1ea63c61007e12ef8e6cac3a88518391aa6d9f288105f2d695"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/internal/utils.go",
+      "sha256": "a0adb6ad53dd5b44a73e61eb16a6179909078fb907ec65a094556e6c429db0be"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/koalabear/setup.go",
+      "sha256": "c829857c1dfcf8bb5046e86f14dd88abfc0aca09aec82ea7bd4f2490c19a706b"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/plonk.go",
+      "sha256": "a03f94f37d8d1f80f0f8637960c5d426e865046300b3140ed974ec6178b6fb16"
+    },
+    {
+      "path": "lib/gnark/backend/plonk/plonk_test.go",
+      "sha256": "9e79f145e42270cd25db7b0422e918d69761f0a09f8d6d5e5036e6945eb8fb62"
+    },
+    {
+      "path": "lib/gnark/backend/solidity/options_test.go",
+      "sha256": "eec6ac64adb33cdde57d4f826f49fab9e8fef1499214e41dd5dd62ba85a8accf"
+    },
+    {
+      "path": "lib/gnark/backend/solidity/solidity.go",
+      "sha256": "2f445df58bfc95997c923c038d5551c51d306591fe7845322419bc96abbd4ada"
+    },
+    {
+      "path": "lib/gnark/backend/solidity/solidity_test.go",
+      "sha256": "b24e73f2ada23a01c5311d7111fd241c9372bdec8c1aa4795b2ea3ddf5dd68c8"
+    },
+    {
+      "path": "lib/gnark/backend/solidity/verifyingkey.go",
+      "sha256": "d5da5b2818b8aa9478637680e2a3d2a145f17b88cdf030d80389e17d62df1774"
+    },
+    {
+      "path": "lib/gnark/backend/witness/vector.go",
+      "sha256": "a93339f327d90a12337486bd17a59273cf01639bb73db10c45892c6c428a1abe"
+    },
+    {
+      "path": "lib/gnark/backend/witness/witness.go",
+      "sha256": "c4e333f88c2bbf44613faa162aa136b4a367ebc043d5b35adb82c099cd9f3b29"
+    },
+    {
+      "path": "lib/gnark/backend/witness/witness_test.go",
+      "sha256": "8a2ef6c4d84ac91eda3a475bbbf14e709dedc74efc0edd00b8eee7c341053051"
+    },
+    {
+      "path": "lib/gnark/constraint/babybear/coeff.go",
+      "sha256": "c9eae23e8a9ab1dc530dc390aec25fb54feeb65ccfd500ea0c5aaa9aa77c1272"
+    },
+    {
+      "path": "lib/gnark/constraint/babybear/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/babybear/r1cs_test.go",
+      "sha256": "8b40a177a2c77c896678edf5091c782fc7f1791f8aeb43a552f9fe8a8d23b2be"
+    },
+    {
+      "path": "lib/gnark/constraint/babybear/solver.go",
+      "sha256": "5b8bdba2df7a22c530ef89a1f4e099ba38f22d09b4a2fa79bc23711681f7f5b6"
+    },
+    {
+      "path": "lib/gnark/constraint/babybear/system.go",
+      "sha256": "697215a511c7a5068c4bd62390243dbd852f81e29f3fbf78d52e36c86ffbc27a"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-377/coeff.go",
+      "sha256": "62667f7cceeb3b1708fa648e4d8888b2334671119d4dd47c38734e5f8bc68d26"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-377/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-377/r1cs_test.go",
+      "sha256": "f11c9259e807891442d2e25c6124bd35aa7f67f640c8b83ca30f1f9edc49c754"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-377/solver.go",
+      "sha256": "bb9a9d334d1228e0e92a9141e4bd794a0e75d39e788e503b2485c92678d2092e"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-377/system.go",
+      "sha256": "3ea8793546160cd31c1e9054779742a23933e34dd805d4621fa4247aee2dbd36"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-381/coeff.go",
+      "sha256": "98ed5649fc50f432d3d1e96ff72d396f6bcfcae8a8bbaacaf24f53c6b02430ee"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-381/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-381/r1cs_test.go",
+      "sha256": "1a58988b94c22d50c941e1a3e8b8b02c126717c62c2d02a72982d156f2617ae1"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-381/solver.go",
+      "sha256": "aae5188db27fbb6081f9cdb15569a31d4e672df0ca3684417dee12d4f5859685"
+    },
+    {
+      "path": "lib/gnark/constraint/bls12-381/system.go",
+      "sha256": "f14e84831cf9a8f020e6cba0bb840574b414b9fad9bf2ead943d4630a9e05848"
+    },
+    {
+      "path": "lib/gnark/constraint/blueprint.go",
+      "sha256": "0e8205b49f73be4493a4be00a1cd3c73b1baff5b42fc2cd00b9c46629c410ded"
+    },
+    {
+      "path": "lib/gnark/constraint/blueprint_hint.go",
+      "sha256": "0be9e8c01bcf885bc6d78319343e969ce7ad0cca388541f88ed34a61c5b0d89d"
+    },
+    {
+      "path": "lib/gnark/constraint/blueprint_logderivlookup.go",
+      "sha256": "141823764ebafdb9d3a825949850bd6881b684b58825b775ad2ae6140da07fc3"
+    },
+    {
+      "path": "lib/gnark/constraint/blueprint_r1cs.go",
+      "sha256": "b4b339f23c19d08d9612bda6ac2b2929b7efb89bfbf4b2a2280980afb58b7678"
+    },
+    {
+      "path": "lib/gnark/constraint/blueprint_scs.go",
+      "sha256": "3c7bb620dfb84eb5ad8a5cf023452aaf8ee6512dca0f5566cd8116251340eb96"
+    },
+    {
+      "path": "lib/gnark/constraint/bn254/coeff.go",
+      "sha256": "1679dcf76fb07469f5dc9941cda3fcb2ee1ccf1074da187cf95f525da6cab5dc"
+    },
+    {
+      "path": "lib/gnark/constraint/bn254/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/bn254/r1cs_test.go",
+      "sha256": "72714b7af116a40de7f387070efbacc8c163f7bf1afcc977e13339479723af5c"
+    },
+    {
+      "path": "lib/gnark/constraint/bn254/solver.go",
+      "sha256": "a5e10e3d6515b7666e0ff0bf089bef2338f28389cbad1c4ab0cc3a6d5645c91e"
+    },
+    {
+      "path": "lib/gnark/constraint/bn254/system.go",
+      "sha256": "30356cdc462a7fa076d4f82e18c4691f9ae7d608bf9dedbc1eff00978c17027e"
+    },
+    {
+      "path": "lib/gnark/constraint/bw6-761/coeff.go",
+      "sha256": "caee65390794424bc6006be97c02b8fab9b94e5382733c8f02a98558437ee44a"
+    },
+    {
+      "path": "lib/gnark/constraint/bw6-761/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/bw6-761/r1cs_test.go",
+      "sha256": "0bf67f772d1ef806e9824e7a751951ee86c946505bf449132ce47fd8fd66093c"
+    },
+    {
+      "path": "lib/gnark/constraint/bw6-761/solver.go",
+      "sha256": "11a2fb08e6e18e012a0877baaa3377a6065fa0bf12042f52049cac15a7b35f5a"
+    },
+    {
+      "path": "lib/gnark/constraint/bw6-761/system.go",
+      "sha256": "0a93460946eb78daf2276f791955891f04e65e9804b8d9620d476e45b8418a2e"
+    },
+    {
+      "path": "lib/gnark/constraint/commitment.go",
+      "sha256": "b0c8d7f488917b996591db56d7fcab3aafdf3803676dd0cf07c48d0dd03e3fd2"
+    },
+    {
+      "path": "lib/gnark/constraint/core.go",
+      "sha256": "b8ca0ae6e1b81f0c52d921827f2303e3a240212e4d1273a6dba4377e52d315ba"
+    },
+    {
+      "path": "lib/gnark/constraint/debug_info.go",
+      "sha256": "881d025104d6da69587044bb182cf5d336e0e31c443e3691e9d02060277073f2"
+    },
+    {
+      "path": "lib/gnark/constraint/doc.go",
+      "sha256": "c648f609b79447df9f4f93087d8f8b432abf9b32257e6d543f94a422f1c35ae5"
+    },
+    {
+      "path": "lib/gnark/constraint/field.go",
+      "sha256": "577682c7e1217e3f5ba5cc5c625117e6346e0633ecd784ee8a6feee4fa3a266d"
+    },
+    {
+      "path": "lib/gnark/constraint/field_test.go",
+      "sha256": "05572482000898800bc5ed3d5007f9efb623d36dc3f50fa67bb391e21b96f5cd"
+    },
+    {
+      "path": "lib/gnark/constraint/hint.go",
+      "sha256": "3e45cbe89386c9db76f7292496342c9f89d1546694d506f8b7feda3a068cac4f"
+    },
+    {
+      "path": "lib/gnark/constraint/instruction_tree.go",
+      "sha256": "24546a3b8dcbd17784fdbda546d672302f70fed75a9c59477f248690eb0cbdbd"
+    },
+    {
+      "path": "lib/gnark/constraint/koalabear/coeff.go",
+      "sha256": "91004f429c85dadf0d2959aa4b7fd66390aa829495ad2864669c70b696d98b25"
+    },
+    {
+      "path": "lib/gnark/constraint/koalabear/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/koalabear/r1cs_test.go",
+      "sha256": "f3ed9e3b3e5421135355480b8888438a2c1c0d0298d56b00b6a8286ba25516cf"
+    },
+    {
+      "path": "lib/gnark/constraint/koalabear/solver.go",
+      "sha256": "539237e07c2cbcab0f432c7da3c222b23099b8397d8bb21c43d1f1a00005aebe"
+    },
+    {
+      "path": "lib/gnark/constraint/koalabear/system.go",
+      "sha256": "fc04fbc8617c018d656925f7e8377dbe5e10ec978b4156c12b0de7f52a44e7c2"
+    },
+    {
+      "path": "lib/gnark/constraint/level_builder_test.go",
+      "sha256": "033de6e863614c31ae2a35475d42001b4174df9003a1c6a39c5d78f4462f70f3"
+    },
+    {
+      "path": "lib/gnark/constraint/linear_expression.go",
+      "sha256": "a623b23cb90cea4fe4576f9dfa0c49a6703f7e01b41ca6d828ea29a4529461e4"
+    },
+    {
+      "path": "lib/gnark/constraint/log.go",
+      "sha256": "73904a67887f1c5814be29adac9fad526894fdb7ca2be0a3eec3485596fb69a1"
+    },
+    {
+      "path": "lib/gnark/constraint/marshal.go",
+      "sha256": "bfcbd6ec2f6d440c1ead89b68698347b77f8e5526cf2276a0cdb49e1e2b8ee86"
+    },
+    {
+      "path": "lib/gnark/constraint/r1cs.go",
+      "sha256": "b3e1f94a3a42e7e22ee070766c8b26c9f2cacdb4b9e5e70869cdcea92cab318e"
+    },
+    {
+      "path": "lib/gnark/constraint/r1cs_sparse.go",
+      "sha256": "b6a2fbad606ac99513da3fb938827527478bb33be8c3adcc1da23d526548b60a"
+    },
+    {
+      "path": "lib/gnark/constraint/r1cs_sparse_test.go",
+      "sha256": "fa4cd2fb803625f719193678ebe76039935c76eaadc3fffb1c853a349987efa2"
+    },
+    {
+      "path": "lib/gnark/constraint/r1cs_test.go",
+      "sha256": "9c87a1ea0f138322140043a91d7b1cadc04b0a531b0818b1da1df5def0ec281a"
+    },
+    {
+      "path": "lib/gnark/constraint/solver/gkrgates/registry.go",
+      "sha256": "492d3398b20e72054afe1f655432b4c1128b4efdb547b0fb4e43d0c14420c323"
+    },
+    {
+      "path": "lib/gnark/constraint/solver/gkrgates/registry_test.go",
+      "sha256": "3e8cd3e4f86ef62e572712fbb73982320513f6b56eeadfab0058cced7d041fb9"
+    },
+    {
+      "path": "lib/gnark/constraint/solver/hint.go",
+      "sha256": "0a3edaedf24d34ddc87c3621f7b717cb20fd84460bdb2f044f39c335c0ba6042"
+    },
+    {
+      "path": "lib/gnark/constraint/solver/hint_registry.go",
+      "sha256": "27c32cc94a8b5944e3ea8e20af7954c1da04ecce364a9057a52ec5e2a18483a6"
+    },
+    {
+      "path": "lib/gnark/constraint/solver/hint_test.go",
+      "sha256": "56552bbd7a31928f1d8c4a9db0aa55e0cf2a2c6c9abde35a1827f76d368c8cf9"
+    },
+    {
+      "path": "lib/gnark/constraint/solver/options.go",
+      "sha256": "b4764559416d3ef86a5c118bd9fa6f6057d155283d7416b799f8662ac3832c9c"
+    },
+    {
+      "path": "lib/gnark/constraint/string_utils.go",
+      "sha256": "63339f82bd64cf38f9a986013d467524395f7e1a8c88e02d519ed3e71fe1cc31"
+    },
+    {
+      "path": "lib/gnark/constraint/system.go",
+      "sha256": "38ab5c27413338d7dbb43b5c67a42e4ead3fd5aa79fb7a370c63a5e959fabe1b"
+    },
+    {
+      "path": "lib/gnark/constraint/term.go",
+      "sha256": "7a199b60ffcfded19653f23c8e6064828fa4e55ca51b1f4bb8135306c80ef773"
+    },
+    {
+      "path": "lib/gnark/constraint/tinyfield/coeff.go",
+      "sha256": "2c361a78c1ef69f81ba4cb88973b53f40602e21bd91a1f13a75c1f756b2d9dc2"
+    },
+    {
+      "path": "lib/gnark/constraint/tinyfield/marshal.go",
+      "sha256": "cffd07099d00d6eda48b3cbe20829c9e22e5847adc863e0282515abea297090a"
+    },
+    {
+      "path": "lib/gnark/constraint/tinyfield/r1cs_test.go",
+      "sha256": "644c12c8de25041d14edc2debdf90870490d05da5df3e06dad8051c857ad5bf2"
+    },
+    {
+      "path": "lib/gnark/constraint/tinyfield/solver.go",
+      "sha256": "98cf689988ec6061437e592120596a563eed1d3a8ce4a6c59f01ac82be7db4f6"
+    },
+    {
+      "path": "lib/gnark/constraint/tinyfield/system.go",
+      "sha256": "38c46450e4e180e57d31b9eda1a192d613e1e971cece9703e4ac65837e1130aa"
+    },
+    {
+      "path": "lib/gnark/debug/debug.go",
+      "sha256": "1ae8b3bbc793d583f95df5fc56058baa5f23bb15669577a0ff183a97cf165613"
+    },
+    {
+      "path": "lib/gnark/debug/debug_set.go",
+      "sha256": "683b4c506e0b19577f16d7dff0fd169855957c4f1379ff4fdd4c3dc69dda84a3"
+    },
+    {
+      "path": "lib/gnark/debug/debug_unset.go",
+      "sha256": "75b781143fed5d32c06c4f29803d6d827d645f9fe2a8188e0813e4cb8fc70cb6"
+    },
+    {
+      "path": "lib/gnark/debug/symbol_table.go",
+      "sha256": "0ef4e1da3d27bd3e7e5588de6c8f5ca45064de460a02c9af0addfe60206bd52d"
+    },
+    {
+      "path": "lib/gnark/debug_test.go",
+      "sha256": "ed7eb9d15ee90b5fff78de2b97f036be23621d454ffe632208434f7722da88db"
+    },
+    {
+      "path": "lib/gnark/doc.go",
+      "sha256": "4b06e21eb42bcf7d177654ab6a893a9e1eee5dad84282f1244606b7e13425aae"
+    },
+    {
+      "path": "lib/gnark/examples/accelerated_gpu/accelerated_gpu_example_test.go",
+      "sha256": "3f6c618c803b99ebca7b0baabcce424fcfa43705db948015a529291cf1dd6629"
+    },
+    {
+      "path": "lib/gnark/examples/accelerated_gpu/doc.go",
+      "sha256": "8c3701689b6b88cd6fbf75d67950740d5dfda4140c4cdb5370b525c25da0c0fb"
+    },
+    {
+      "path": "lib/gnark/examples/cubic/cubic.go",
+      "sha256": "37a58ce0c6d8c18867c78f6b7b6e173c57b37ab9bc14fd48d4426454c0213524"
+    },
+    {
+      "path": "lib/gnark/examples/cubic/cubic_test.go",
+      "sha256": "603841d8e2023160577b2d01b86435576f34115dfa4f1b4e6c9af31299ddafb8"
+    },
+    {
+      "path": "lib/gnark/examples/doc.go",
+      "sha256": "de8c8f233ab868edd3ba0013a080ba2176bbb05d5af9f5d63dbe6b52d0f7b3de"
+    },
+    {
+      "path": "lib/gnark/examples/emulated/emulated.go",
+      "sha256": "03acebaec2e6bdbb9a58718e75b1cd2ddce2d8fff07c0c7e28cc8150e1d0c3cc"
+    },
+    {
+      "path": "lib/gnark/examples/emulated/emulated_test.go",
+      "sha256": "bb7f6b5a1c08923084ec45d092d08496cf027a128c65bef31b27c7f25edd07b8"
+    },
+    {
+      "path": "lib/gnark/examples/exponentiate/exponentiate.go",
+      "sha256": "d40c21c06bb5c383db985daad16328c9e6f8d351c28c44db689bc62480a85491"
+    },
+    {
+      "path": "lib/gnark/examples/exponentiate/exponentiate_test.go",
+      "sha256": "d9c0bc5bc6ec1aae2cbd76f9c9b979e0de4d1636a6ebc5171c093d2af044361a"
+    },
+    {
+      "path": "lib/gnark/examples/inputpacking/doc.go",
+      "sha256": "d77597f6b1884b0c993db923b99925ea7a2c53ba9c6a868cf45aeca488bac156"
+    },
+    {
+      "path": "lib/gnark/examples/inputpacking/inputpacking_test.go",
+      "sha256": "0163855207cbbccf82a0b39efd7734836d5052c849b49401ab9675b5619bfc24"
+    },
+    {
+      "path": "lib/gnark/examples/mimc/mimc.go",
+      "sha256": "b749753849e3808580fe9cf1b632806b76b2811dcd5472258981a1b8e72d659c"
+    },
+    {
+      "path": "lib/gnark/examples/mimc/mimc_test.go",
+      "sha256": "41e66d5735aa379fb2cba9cde6618bb10bd9d1ded50bed0742851fa7ddb90071"
+    },
+    {
+      "path": "lib/gnark/examples/plonk/main.go",
+      "sha256": "6c4bf384ee5500e8535504b056a218da169d4b8365d84792111745c421d7a1e4"
+    },
+    {
+      "path": "lib/gnark/examples/print_constraints/doc.go",
+      "sha256": "b9cbe833e1e83e94fbe7a1558169c4c56747bb376d141ca58e5a5cf1671b8a27"
+    },
+    {
+      "path": "lib/gnark/examples/print_constraints/print_constraints_r1cs_test.go",
+      "sha256": "94cb1cdbc2a5d59db7b4a84a5fdf353b214f1336b3da214f80bb9d83d67c88eb"
+    },
+    {
+      "path": "lib/gnark/examples/print_constraints/print_constraints_scs_test.go",
+      "sha256": "c7590d85eaecb9cca9d58e6a7d270f8009359db80dadb486db082c2cc32ad5f3"
+    },
+    {
+      "path": "lib/gnark/examples/pubkeyhashing/doc.go",
+      "sha256": "a59b2025afe3844e41dffaeb529143333d88b2f6ad4b7e67e2798deba0c847d0"
+    },
+    {
+      "path": "lib/gnark/examples/pubkeyhashing/pubkeyhashing_test.go",
+      "sha256": "168d30702307440cd39e22cae05bd949cee024700c0ddf960fea4672785cfbf5"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/account.go",
+      "sha256": "d60a38fe5ce495317269e85b3d41c9290cb014ec131f93dd40528a23a3837fc7"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/account_test.go",
+      "sha256": "d525d6ccba91e81ec81dc9f4cf92b132a132054d144d21eb287ae361080bd379"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/circuit.go",
+      "sha256": "cd17a245f4861de16e72dce845b68c3b14e647d0e587e01e7e71cc69a43b2420"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/circuit_test.go",
+      "sha256": "5f5e6dfee660e316941ad7c7ccbefc2a71adb3a91a675e0a1fa409e23189118b"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/error.go",
+      "sha256": "93e6ff14a730558fd58756e776a55374ae2ea526eb4f27902d0641f7e8c9f3f6"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/operator.go",
+      "sha256": "cfc5011cd0c7972f2fd16fdaa8db7915b4ceb0585382974f56b62535a5afa968"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/rollup_test.go",
+      "sha256": "39b79b90cef9a88dff4894bd3a038f19f344b3927b14ec472c3a6258b949e176"
+    },
+    {
+      "path": "lib/gnark/examples/rollup/transfer.go",
+      "sha256": "8262fd0b701b861e10fc63ad135a2bf897600b9e9e26a6b7d7a8fcda28605ec4"
+    },
+    {
+      "path": "lib/gnark/examples/serialization/main.go",
+      "sha256": "8df054fcb2dab090428add56ce9d7eb4baf01dd56070c32c1ae85206782bae67"
+    },
+    {
+      "path": "lib/gnark/examples/sudoku/doc.go",
+      "sha256": "044b218469dededddd935b6e283be9b84e92614ea312d283168737a806d3beb9"
+    },
+    {
+      "path": "lib/gnark/examples/sudoku/sudoku_example_test.go",
+      "sha256": "9d7819be96acfb7ba8ccd61f98d5c205c698987b8de6331e7ba3d019665e4a2f"
+    },
+    {
+      "path": "lib/gnark/examples/witness/doc.go",
+      "sha256": "75e894d97079421000350f09205bfae217a97c62fb8ce7849643655c8d877141"
+    },
+    {
+      "path": "lib/gnark/examples/witness/witness_test.go",
+      "sha256": "c7b9d972615f4a27dcc0a5f4c382ca9181d3b92b0654f89e47f64322e79d3590"
+    },
+    {
+      "path": "lib/gnark/frontend/api.go",
+      "sha256": "1fbae017a2b1b673cbad298f5099f8b6547a674a6fbefbcd8648c8a1c05f5768"
+    },
+    {
+      "path": "lib/gnark/frontend/builder.go",
+      "sha256": "765d05513c83c553db2a7e87d111a934c0d9eccbc5bf7fc1af32ec2806d51d10"
+    },
+    {
+      "path": "lib/gnark/frontend/circuit.go",
+      "sha256": "78953337256820024fbf252aa3a115314f765acb07c79d083b4f351ceebc3940"
+    },
+    {
+      "path": "lib/gnark/frontend/compile.go",
+      "sha256": "907d3021d9e9dd58b759f6ae33551d13bcc6fcb25d3725169ed08b877f2d5f8b"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/coeff_table.go",
+      "sha256": "fc41328fb270aa40a318160d043e13703facebff719b20068a40e418b1b082f0"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/commitment.go",
+      "sha256": "892907423e1557255deae0e38f68cd65feb5a0a840b9f4d37b8efb43152e8b95"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/r1cs/api.go",
+      "sha256": "b9612ded2d9459c99ecb43d63127b165e4acdc7ef1416ddf707253f751b1a604"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/r1cs/api_assertions.go",
+      "sha256": "f28fc4b46eac066155cd231d814768d4f65f1f0605ac698e6481a6383b909043"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/r1cs/builder.go",
+      "sha256": "60bd6b85871d10cfb06afcc1b30eeb0721cc3ca45e78921e6f22692e57aa2d83"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/r1cs/heap.go",
+      "sha256": "ccfcb96e1d6a083f8eeb8ba7acdbe74e2b2956aaeac65844621268cd59c0ad52"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/r1cs/r1cs_test.go",
+      "sha256": "4d46ea3147dfe78c8e55cf97fbad8e617e073b4790970100d98fc1fc69a122de"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/scs/api.go",
+      "sha256": "5e7d0645ea578e132125f7ac45f63760d69d677cec0a6ab079b4190a16275b53"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/scs/api_assertions.go",
+      "sha256": "c7b50ee35b8cbdc5639c61233ad494933505fc32530069f173013018e4ea9519"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/scs/api_test.go",
+      "sha256": "bafb67d6c280723c6bcb70338c4237469367129b19b44971f86d79b7ca664d1e"
+    },
+    {
+      "path": "lib/gnark/frontend/cs/scs/builder.go",
+      "sha256": "a2ce8e2330c4699dc6553e5b3476d058134b41e26cea7a8b336d43715aa66a78"
+    },
+    {
+      "path": "lib/gnark/frontend/internal/expr/linear_expression.go",
+      "sha256": "8d2ef1fd396af10b12ee1b9c9b8547013a2f17e517e572efe9ceb504eb80e95a"
+    },
+    {
+      "path": "lib/gnark/frontend/internal/expr/term.go",
+      "sha256": "0bc18fb14691fb06cfa666dae62717cde974d9533a46bb89ceaa33bd9b3310ad"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/field.go",
+      "sha256": "5c0791c7308818229974b5f5a5292532f9e392a05e927f08d7499e5ab476ad3e"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/internal/reflectwalk/reflectwalk.go",
+      "sha256": "ef758fd91fbf0ec674065e112b5dde7dbdb8aa67f45c5ccf0a1f03e1d1e3f981"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/leaf.go",
+      "sha256": "44cfa50e92375754f7057ab57270b6903a246f3130a87b51c78c4381b0154e34"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/schema.go",
+      "sha256": "2c349f721089945044bbee65f2e3f1a0e5e8a1a8f602206cccad85aaecb0969e"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/schema_test.go",
+      "sha256": "c819199737faa11eab657099761e2f411ec51e4d28b433ccc02e940eea01da5b"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/tags.go",
+      "sha256": "8078ef2ccad7390fe4d043036515171203041a87d2e07ec2b92d00576a9bc206"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/tags_test.go",
+      "sha256": "d6d2eef18965da3f013c91631ccbc71627a051c7b2b8fb9b0e5003209477c537"
+    },
+    {
+      "path": "lib/gnark/frontend/schema/walk.go",
+      "sha256": "6d5207da5fbec9e15b3e430911bbaecd9250a65f28c2834f45706567f605aeea"
+    },
+    {
+      "path": "lib/gnark/frontend/variable.go",
+      "sha256": "301c279840a6e2c0960b81f2c60880e988b4376121abc9f2dc6bac8edf786818"
+    },
+    {
+      "path": "lib/gnark/frontend/witness.go",
+      "sha256": "2674ac7666916424f5ecc97e8eca8ba1461208c603bbde9b21310299e6144618"
+    },
+    {
+      "path": "lib/gnark/integration_test.go",
+      "sha256": "3ed593286c8869e41567116e3c1203ae8eed6761569788939cb18815eb5e92d1"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/add.go",
+      "sha256": "9310d066e71f41cc5281b6926dbbbaea8e2d8abe37ab40d53c80996d30148117"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/and.go",
+      "sha256": "96f0aa781db6040ed089bb44a5ce7fce44b51821582ab1cd54ddbcf20d3a3539"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/assertequal.go",
+      "sha256": "63ae838e2f837d9e7cf9a5c735ba037e408c4e701b45457121fee76c255d52c1"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/assertisdifferent.go",
+      "sha256": "acbea170c30002200c8ce48e9bdc6147ae08d6d6fdd80e4857f79c41877db6a2"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/boolean.go",
+      "sha256": "496074ac6ebb199ea1295a404d0d09e3f4cb9427ddca6858bfe4187c988ecc3e"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/circuits.go",
+      "sha256": "afea56fe17ba933d5964186f91c367c7d562dc3cb80443d8424b32284e37ef6e"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/cmp.go",
+      "sha256": "c4ab8d83e0f6d0c3b2a1cb00b71df35315d6b6a89e67f33b2f1def53c794548c"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/commit.go",
+      "sha256": "1d61f69a852f0d1610507b4e4cd64b32808d2ad623330ae595d630dd6297cb72"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/crumb.go",
+      "sha256": "ae097d1fd0f944abdd09e3ca59ea72a8e88415a427798c5f2cc85e00a16a0c8f"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/determinism.go",
+      "sha256": "54c517a4291297128c07689e7952303dc2ad95b6707b8cec5e0e827bc847a946"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/div.go",
+      "sha256": "4f31e8849c643e2aa8e283aaac3f7639a1c2c2dac4e0ed630e49635f6bb2708b"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/exp.go",
+      "sha256": "6ad66fa4baf3cbbc7974d0c08b0553b439c58455648ef1646345796521faacf8"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/frombinary.go",
+      "sha256": "9159168a1a13f2ed00ecdacbcf6d240091a5914ac69ac594df835a78f893279f"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/hint.go",
+      "sha256": "4df75a3c000b1e104ffebe0d304bb1149ae327d92c5a52af67e0cbb7672efbee"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/inv.go",
+      "sha256": "02407b6abb0ae641b7a90c0e47d18a5596318368092e897ece4094ec6416c6fe"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/iszero.go",
+      "sha256": "fc0a4da8b26ad1451cd072f38a92fad04d6c6642f100d0ab5d801b5f06222de9"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/lookup2.go",
+      "sha256": "4fe92a2978d2fb306cc29eb3035bbc04d560f526a52b3e7c7238577ac7d00e4b"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/mul.go",
+      "sha256": "958c3e38fe8c7f835e5c78048fe72e9a2300d07896a83a466456758568666ec1"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/neg.go",
+      "sha256": "a764360a910c10be66fc11e2b18f3afaed0c66645d0566aa63b08dfebee768e4"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/nocomputation.go",
+      "sha256": "b1106b41be882a16362ef9fa4b0c3fe371cddc7a0f3491525c0a5af2470fe924"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/or.go",
+      "sha256": "f05d7fdfb76843b8ec0679fbadfb7b107b03e411e1bceb407aff924fbbbcc752"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/orxorandmul.go",
+      "sha256": "bdb88c5ec85d639427d19175313c8b2537b96814f13658d13c36201b072f5c20"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/range.go",
+      "sha256": "2e63ebea7f65dcd7c8dfb916290a3184cc354ec6b92943fa052f1a035bbd39ae"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/reference_small.go",
+      "sha256": "ba5dc858a8c4eb130fd2d447f2398dd3b9b001043b432a1c340d8178bcda14ef"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/select.go",
+      "sha256": "8bd93a7176b07075c9716c68520d4f6601b58972f56f0063628b412f74c638b5"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/sub.go",
+      "sha256": "626253a6571e605eb3d92546e03dafd149a08b4c9bdb678841199cc974af9806"
+    },
+    {
+      "path": "lib/gnark/internal/backend/circuits/xor.go",
+      "sha256": "bb30da6e8ff14cb9bc0b511e1f5f4fd2c9a1ffa807b8ae7d1c069e280308af05"
+    },
+    {
+      "path": "lib/gnark/internal/backend/ioutils/intcomp.go",
+      "sha256": "9299543f044af3a61528b78103c3f776614cbd3f70de78a20547432c573780dc"
+    },
+    {
+      "path": "lib/gnark/internal/backend/ioutils/intcomp_test.go",
+      "sha256": "7307d01ddc8d45968c3f477103d928be0601a4ef4c2a3d54934d0d2c62a51d17"
+    },
+    {
+      "path": "lib/gnark/internal/backend/ioutils/wrappers.go",
+      "sha256": "38746d2e17ba664612f7b4be5d4946b35132188ca1e54f8384d47f0c668960a5"
+    },
+    {
+      "path": "lib/gnark/internal/circuitdefer/defer.go",
+      "sha256": "59ce046d92c7b4cabee7dba054d8c8c62939a6a2e465dcaf25bbdb07d898a097"
+    },
+    {
+      "path": "lib/gnark/internal/frontendtype/frontendtype.go",
+      "sha256": "415367b1c2781c60dfd21fa93d209dbd049976d1047a76526901766fa092e551"
+    },
+    {
+      "path": "lib/gnark/internal/generator/backend/main.go",
+      "sha256": "8470d0aa4d56eaccf5734e14818a8c0ada4311e51f2720c3bed909e6409811b5"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/blueprint.go",
+      "sha256": "226a25b71a76714a7881752f930d5e66a7ca68607a6823f1bb47c7adf57afff2"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/gate_testing.go",
+      "sha256": "04f64f2c071f1ac001682d45fe0496d671b43b8a3651145397c3dfb091d45672"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/gkr.go",
+      "sha256": "dae09d560710533b4636750d5d9ac3851b56ce8267a9a3c9f113e1f25d39ca70"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/gkr_test.go",
+      "sha256": "97ea377bf17b585cd666ae45a80e4cd4b137ac4adf693d3ac3907b9820126901"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/sumcheck.go",
+      "sha256": "be9443646966ede244baab7a5aefa96ff660168bc28c9a194fc1ecd18ef5c645"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/sumcheck_test.go",
+      "sha256": "f591f4122c7dbe7f015fae06f3fe5aa71ada285545593839012d60c2d5de789c"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-377/test_vector_utils_test.go",
+      "sha256": "59bbafc30c805c3b64accad2a1f9bfe8efd481f0424747e8b4a186680e8e7157"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/blueprint.go",
+      "sha256": "551b6ea59ee25ae659bc3cb901ee58566535dd2e069b790f8bc97671bc3c8706"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/gate_testing.go",
+      "sha256": "df4260abedec01903c1224068c3fd12f1a15e37b57b6e272e506b126d3a7b3f7"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/gkr.go",
+      "sha256": "142514b890857d9acb68e1bff4a99930e20771a6d074d7ada9201bb8be1fa5b7"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/gkr_test.go",
+      "sha256": "782174b3f123fb8b5fcf135bcf1e4b5606957d4cd5c1bd4e0ed3232613e15b05"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/sumcheck.go",
+      "sha256": "b14b1707db6bf601050bd8421d52d80984f85c22a45da4b1726c8eec650d9854"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/sumcheck_test.go",
+      "sha256": "bff95b2d1753af5ad656fbac93cf67315231e4b8735d7e358fe901c148116fde"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bls12-381/test_vector_utils_test.go",
+      "sha256": "892ea4196ec28ad74bf216ca03a771a2c1c352d28955699bd5a6d5889581c154"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/blueprint.go",
+      "sha256": "950eed8a0eb18b50e4e7179bba354f2a42d2b60f9b0755a80ef636a414a0f5db"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/gate_testing.go",
+      "sha256": "b99dd6c565684b0ea260155219c0d89dbd52af3458182a5288fe705af2b17549"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/gkr.go",
+      "sha256": "a3a9b562c57ac6f3e11eface7c5f6dffc9b9cf88d4be18283b3a4aeb09a7a84d"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/gkr_test.go",
+      "sha256": "715e8ad2c005380cae6b0f4f4c0345ec875d47de23c961a592abad4827c70a06"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/sumcheck.go",
+      "sha256": "9f560f15ac4a41211a7a333a8ba9e6b31ea9e9c2c22ad4a5646bc43ffb5614f6"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/sumcheck_test.go",
+      "sha256": "ab59398fa354f53d43d7edae897dc169f942561b421d90fd0be1fed5e761288e"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bn254/test_vector_utils_test.go",
+      "sha256": "43fc35cb3aac6d47c17404cc5901aeac3f4440eae4463d46d06cab2fc015b775"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/blueprint.go",
+      "sha256": "58849b71d287363cb78bb21f59308e5f5b9d176592944b711b4c77f8fdab7d08"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/gate_testing.go",
+      "sha256": "4ec9a7816910fc7b335f7738be6fedbbc5479f784fbb8f43e063a82474fa033f"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/gkr.go",
+      "sha256": "72212aa889b0d7e039342069c299c4d60760be388433a7323fd5a51d5f953422"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/gkr_test.go",
+      "sha256": "269916aa19ec34e8ca7d86d575c49a8b71ff1574753704865f1f43c8ebca49b4"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/sumcheck.go",
+      "sha256": "0de1a8a7455ac97ca188f68c8ba50328d42de6f6824adc7788101d5ff3320422"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/sumcheck_test.go",
+      "sha256": "2fccb024a972056211b46f484362bb5a038bc6374f0424475a021f31fc12f405"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/bw6-761/test_vector_utils_test.go",
+      "sha256": "1d0b447cfbeb718486e0acbe181cc84698dc94802717afd75f49ed5c42b50938"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkr.go",
+      "sha256": "3ab415ed25b69dad1dd94e173e4fcdf17eeec5ec34ea8f93b0841a75a2a6cd06"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkr_test.go",
+      "sha256": "303faf8a697cf653efca297b3fdbb20d079bb07515092b06f00405b93e7d29bf"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkrtesting/gkrtesting.go",
+      "sha256": "7b915e7bec7b81f7f62ec3260a3ba3a5762815effd6d102cb2139471195c7cbd"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkrtesting/gkrtesting_test.go",
+      "sha256": "be63caa16cb98d22052039980e81634d1aa3a8ef0f011374c455b681cebc0496"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkrtypes/compiledgate.go",
+      "sha256": "af4e9821c9d84884bf007bda9689c5be6d74c45162ba4ec09bd4d041a623878b"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkrtypes/compiledgate_test.go",
+      "sha256": "315ef9fcc960db92fd7af6f9f6a3a04fc50b9614aa4619fa11ffa2017350696f"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkrtypes/topological_sort_test.go",
+      "sha256": "4467086cb0407445eb5f67c4672795bd09b96d54a3d2656006cbb9ae81a4cd8f"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/gkrtypes/types.go",
+      "sha256": "4b61e30dbbbb2087fd9363b13745e271220a729f7d5b869fca3727c7a47bc98b"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/small_rational/gkr.go",
+      "sha256": "cfb02c40ccdac8abfb1e08292f6ef47168df5633237a4ccbec3de0ddd9da368d"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/small_rational/sumcheck.go",
+      "sha256": "18fd8259298d58ca0a6724e2f27c17149c3838ce08daf1adb6901052ba0e53f5"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/small_rational/sumcheck_test.go",
+      "sha256": "c57e8bb57ad2fb2c5a795cbca5cc86b2d285119df4f6c3c1b9b8ab82be0f0632"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/small_rational/sumcheck_test_vector_gen.go",
+      "sha256": "48ed9626707e805482c728d0801656172e798e2af5627fd848a7378d3d4096ab"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/small_rational/test_vector_gen.go",
+      "sha256": "149f31a66dba1f652d48461ab49db566856d0065222ed25f52cb3f55bed7f10c"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/small_rational/test_vector_utils.go",
+      "sha256": "9b295f291232bf0521b44bf0b98a8cbe200166b6dc02eab19e1ede3b2506659a"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/sumcheck.go",
+      "sha256": "f20267e8a6ea1ae68ee94b5fbb9f6b7595817d73ed23c8afc9a3e9faa171fd19"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/test_vectors/generate.go",
+      "sha256": "96afc930667bd14b4fd8c0ae1294ae6702356f4d80a4d0ea211e7d1c6954b01b"
+    },
+    {
+      "path": "lib/gnark/internal/gkr/utils_test.go",
+      "sha256": "7e1d722bb28e79a6c40065d81c6ac4fb89adce6723e6ef39357fc03da10db5aa"
+    },
+    {
+      "path": "lib/gnark/internal/hints/hints.go",
+      "sha256": "cddffbfe5ed022b9b72fc4dd10ee2a06ad4fcd364b4b1eab54445bcd7de69d8f"
+    },
+    {
+      "path": "lib/gnark/internal/kvstore/kvstore.go",
+      "sha256": "1043921d4f1fc42bcecd564f345896e3277fac761c2438e55529a6e8c1c16039"
+    },
+    {
+      "path": "lib/gnark/internal/kvstore/kvstore_test.go",
+      "sha256": "8ac26a71002a89f0fad75de9dcfc45b5bae9c6a477076074fe3bbb6588628730"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/doc.go",
+      "sha256": "f520f53c3d456bb93a44781697efe963101887a3891e34f7de42566abb0ac402"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/issue1045/issue_1045_test.go",
+      "sha256": "87288e9b599b4ec4fee62c85a61f6a6e67e1d88ab86c68ccf4f0ff86bf388b89"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/issue1048/issue1048_test.go",
+      "sha256": "4775837f779c4fa1eb43f41939671fb44bb47e7b3d3de057edf053abb48082ac"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/issue1227/issue_1227_test.go",
+      "sha256": "3cc72e2d7aa32c00155da4eec29f20436b03573ed4a18b3d5b296060931776ef"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/issue1246/issue1246_test.go",
+      "sha256": "7f9d10766ca412f20857cf2103f0aec27dea4394acf3ba2a4cf27971ce2293df"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/issue_836_test.go",
+      "sha256": "86793f9733d802b055f2170eca89db4e58731e9cd40043defff557dd4690f8f6"
+    },
+    {
+      "path": "lib/gnark/internal/regression_tests/issue_897_test.go",
+      "sha256": "44d245d1d69465ebd496da50d25ece9e761eb9ee825820d1002273a2460e5e9d"
+    },
+    {
+      "path": "lib/gnark/internal/security_tests/advisory-9xcg/advisory_test.go",
+      "sha256": "c160167221e11e26d9d2d300717c27072022c742e9e12f8b4d63f6b79e71c11c"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/polynomial/doc.go",
+      "sha256": "28635951834ac8254599df3a33cdba609e716b039ce5769ce6eff91a809f842e"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/polynomial/multilin.go",
+      "sha256": "219eee375843e035a7fcf18c392ae898767feae5456e14423c62941e48420acc"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/polynomial/polynomial.go",
+      "sha256": "8cfb2230b13aea596d43b6d8b01f5783975e8cfc069f1e638e520ec296d9b3b5"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/polynomial/pool.go",
+      "sha256": "57749c9e9dfa3a263b57df8dd867de2b5e11482b77db9d46feab60c9c7911be3"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/small-rational.go",
+      "sha256": "85b75ed3327207c9743378823286c32cdc4819c005c1a51287c16f493db2fc5f"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/small_rational_test.go",
+      "sha256": "ed73524a5c66fd6dd24f32f83bdd4647743ef1ba64a5e22e74daf6a4823027a8"
+    },
+    {
+      "path": "lib/gnark/internal/small_rational/vector.go",
+      "sha256": "6a450e4ac36629b338589caf5eaa9bdfe6b96ad07b0f558c3ab1c936fd700212"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/circuits_test.go",
+      "sha256": "95f58de8f490aff6499f7198e457ddab40a92005de83390680add2041c9712a3"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/smallfield_assert.go",
+      "sha256": "d37c3ea0c17bae60243dae093c712cbefad86a1621a4d81527df6689f9ab682e"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/doc.go",
+      "sha256": "4a7bf1c22baf2f0187af479baf67d75b0a6dea74ed5d2c981708d4a17e0bf61e"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/element.go",
+      "sha256": "ae54d228659c9a30140a150e915d5a6ef5aa2784ee9fd8a60c5b488ed3c6878e"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/element_purego.go",
+      "sha256": "f4ed0e0ac7d684dd2182ee7e0153af6bb2c70e0e376932e1d4f5f50e42a38370"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/element_test.go",
+      "sha256": "8912f543703b664b8b28692101875177ef173014e51c80fa7e83b810c65ab193"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/vector.go",
+      "sha256": "48686c5b0c03e93eda87cac286fea61cf222713bee587992ab82908ef9182402"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/vector_purego.go",
+      "sha256": "cb9d7d6f940c64307ea4eead50a4d149b9821ed73d4c13508a342f57b56ba64a"
+    },
+    {
+      "path": "lib/gnark/internal/smallfields/tinyfield/vector_test.go",
+      "sha256": "6a570f360ac674d4f8d9904d2bc8b4dae77428da4c765941a036ede6fdd28a05"
+    },
+    {
+      "path": "lib/gnark/internal/stats/generate/main.go",
+      "sha256": "40c72f76d1781ea91e4b5cd467d7a02b2cc8f71822457f59120215578aa1bffa"
+    },
+    {
+      "path": "lib/gnark/internal/stats/snippet.go",
+      "sha256": "7f992088402dcdc52d64ca5327127e0bdb953f4826263fa13f8bd8520c4275fd"
+    },
+    {
+      "path": "lib/gnark/internal/stats/stats.go",
+      "sha256": "2fdfe07a1564abf65f3867eb7b7c9094e1aad2f0b93c7c546a66127228038968"
+    },
+    {
+      "path": "lib/gnark/internal/stats/stats_test.go",
+      "sha256": "4cb990a1c5d0b98bf11eb11ec1975508fb62c3d96142c09891061f860e868c09"
+    },
+    {
+      "path": "lib/gnark/internal/utils/algo_utils.go",
+      "sha256": "163c9f520b107906c14e45230196e4246d4953e1752c99abad3e34d3a661dc63"
+    },
+    {
+      "path": "lib/gnark/internal/utils/algo_utils_test.go",
+      "sha256": "06ddb6d13a13e38613fb25fe6335f6bc81c28fdda63a23ce5f6c9371b00b3a46"
+    },
+    {
+      "path": "lib/gnark/internal/utils/convert.go",
+      "sha256": "ef58408af4c1258a76e3c6c3ec890157894ebbaf4e1b28dda0da9b3b2854926d"
+    },
+    {
+      "path": "lib/gnark/internal/utils/convert_test.go",
+      "sha256": "28be848a681b9211d1fc599e273506b970c1339ed18f93cf15b843ca34c2327d"
+    },
+    {
+      "path": "lib/gnark/internal/utils/field_to_curve.go",
+      "sha256": "7f3b7b7cd736a4bb0f87e793d0fd74471c8cb8f5c821e5594d189784673c0363"
+    },
+    {
+      "path": "lib/gnark/internal/utils/heap.go",
+      "sha256": "d3974241c681970f90ea32f45be3c3c142a93662303872917b0621f3a79ba411"
+    },
+    {
+      "path": "lib/gnark/internal/utils/parallelize.go",
+      "sha256": "b8eb93c5394afa0ea2244358d9bd51a2e786b59d3833d9bf76253adc83cc49ec"
+    },
+    {
+      "path": "lib/gnark/internal/utils/search.go",
+      "sha256": "ba8429c57959f642231a266a302af6591e025a96c28fb53635141f659db3afc4"
+    },
+    {
+      "path": "lib/gnark/internal/utils/slices.go",
+      "sha256": "1383150da5f74e227d79c1ca9cd1f81ea4280f6d77648f79fb3149d3e7c29652"
+    },
+    {
+      "path": "lib/gnark/internal/utils/slices_test.go",
+      "sha256": "4a51c1761e6e8ad616b62a4ba12ca6720ba867b6caaf59eeca3dc19ec0e937ae"
+    },
+    {
+      "path": "lib/gnark/internal/utils/test_utils/test_utils.go",
+      "sha256": "5b0177595afb442760c840306021a5d5f2553abd68b8982b64cb64bb4ef564b4"
+    },
+    {
+      "path": "lib/gnark/internal/widecommitter/widecommitter.go",
+      "sha256": "784f3e51d0c2c871f67c0329061eafe471bfaf4fcdcb88125b32f442ec307a99"
+    },
+    {
+      "path": "lib/gnark/io/bytes.go",
+      "sha256": "874469117b081ca2cd81fa5a0b6acd9848338551bbd00a7d3b55e8ceb482a9ac"
+    },
+    {
+      "path": "lib/gnark/io/io.go",
+      "sha256": "a897f0becc1af5a6e8176913620852a44b9bd8fb8b894170074fce9b3454d50f"
+    },
+    {
+      "path": "lib/gnark/io/roundtrip.go",
+      "sha256": "f7391ef8318703237f01297b698c962ae8f8b76133b87f057006fa8c314504d0"
+    },
+    {
+      "path": "lib/gnark/logger/logger.go",
+      "sha256": "63fbaa33e99782f774eac67d393c96e87a4711aebe3fef3a644b75a82ef71fd9"
+    },
+    {
+      "path": "lib/gnark/profile/internal/graph/dotgraph.go",
+      "sha256": "63057dc3cd503b79aac9eca2478d2c3785f2b3525112638573eb1b92bb1891c8"
+    },
+    {
+      "path": "lib/gnark/profile/internal/graph/graph.go",
+      "sha256": "09ec26e400bb2746ad792f875d4992514a069d3501a598e9510f33125b3fbad6"
+    },
+    {
+      "path": "lib/gnark/profile/internal/measurement/measurement.go",
+      "sha256": "04a6158252cfeb7b7ed38fb35e97baeb20fa25b746768e317aeaaf195c8382f5"
+    },
+    {
+      "path": "lib/gnark/profile/internal/report/report.go",
+      "sha256": "2af948e0535838d6ee43407035c3edc30356fed3db895951d53abe3bfd398513"
+    },
+    {
+      "path": "lib/gnark/profile/operation_test.go",
+      "sha256": "cf12f7b3ff1ee3a6fe875c2e777ca5bf005118fe4faa08da313c37bd6f41217d"
+    },
+    {
+      "path": "lib/gnark/profile/profile.go",
+      "sha256": "6d6471c32810503557cd4443c9c33023de19bc288a7d1c6b745fdeb0d51bd794"
+    },
+    {
+      "path": "lib/gnark/profile/profile_test.go",
+      "sha256": "6e5718854f1b71a67082f728e73036344806b1fc93bbd6fa0aa1138b08c93b16"
+    },
+    {
+      "path": "lib/gnark/profile/profile_worker.go",
+      "sha256": "96cd44a293e222281b0f17353f63d15c8d7ae59d0915a02b10bb006c4eaae49b"
+    },
+    {
+      "path": "lib/gnark/std/accumulator/merkle/verify.go",
+      "sha256": "b228014acb98d246c8e485836bd225bf1b6aee9a959f3f5b22ded81c1b9514d3"
+    },
+    {
+      "path": "lib/gnark/std/accumulator/merkle/verify_test.go",
+      "sha256": "01e6f47f9e25c9e783b9822964c867c7284ad7d3abc655383d98a2e663658439"
+    },
+    {
+      "path": "lib/gnark/std/algebra/algopts/algopts.go",
+      "sha256": "4a2e13b1b21af45bdc96664731e404883753b5cdd3b6f61fa04a4c40f82bcca1"
+    },
+    {
+      "path": "lib/gnark/std/algebra/defaults.go",
+      "sha256": "74778ee98ce44f14173a2930ebf4abf45d6d632efb1f4d3770932cca2ccd41be"
+    },
+    {
+      "path": "lib/gnark/std/algebra/doc.go",
+      "sha256": "a4a9589a5b00527c6df032a18ced88d632fb9552268c403d1df86e6bcffeb172"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/doc.go",
+      "sha256": "8a374be01a4713edf0743a9a28cfb54106063c71dd73b4d0ce8968616a2296c5"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/e12.go",
+      "sha256": "792185b7c9dc3a3657c92419a365a7b123ba4f9a00053137959d5f3287e19bd0"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/e12_pairing.go",
+      "sha256": "e4fb6ab57a3802abda86cbfb313d80627395afaa7f0f59e1cba7510300ec077e"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/e12_test.go",
+      "sha256": "eefe289e891837f904226a8ffd86e07735e0439944345e2f1ef40c783d1ae0f6"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/e2.go",
+      "sha256": "797e8511b77c4a0455862593a3346d0d3f12b373b3eac25e3eb879138e2f17ef"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/e2_test.go",
+      "sha256": "c6f0eabf37238074615e4d7618bc2372412e536cab9ddf311a5c7027bc120030"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bls12381/hints.go",
+      "sha256": "648ce867d1a3a70cd70ebee495fee3f39cde807ecb94a480e5afb9c978a75b62"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/doc.go",
+      "sha256": "83c0fb5683c5111e932fc5ecfab9dd3f215ad93e6b911ed020e11c36aa3d01bf"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/e12.go",
+      "sha256": "1af05e6a796297ec95ad9c5e5580b15f90b3c0f4ee9511b5ef63052f84680372"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/e12_pairing.go",
+      "sha256": "1c3f2c20da35dfa26d750a14fc5116a2ec0713a3d4ae7fd2dc8c9f51c0c88966"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/e12_test.go",
+      "sha256": "1bcdc3f2d4e90cd7608e78306892babc4d65219cda701ca4cc5546da8d8482e9"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/e2.go",
+      "sha256": "ada6bd94de58faffbc14187066159897576aa6ab654f831b5dc13505f3b6655f"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/e2_test.go",
+      "sha256": "c17be1d9183e3bb20748c678dfde81ade2817f9dbb0dddba9eade1a6556bbff9"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bn254/hints.go",
+      "sha256": "83593dcc98a9912dbc06b43d8aff91ae1b98bb0ace5622796416aa44d6392ffe"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bw6761/doc.go",
+      "sha256": "427c5889efff7bd8e8ee1503449a45b716fce75668dd76865f57fa98cefb5577"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bw6761/e6.go",
+      "sha256": "0e3ed990d61521f382db9c2d6db4a8edd69064b7440a729ab65cb1dd9fd83e15"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bw6761/e6_pairing.go",
+      "sha256": "203bbecb78ca2cc19a13a6d41f039b9d519f5b829da939bc61e5fc07b79fdfbe"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bw6761/e6_test.go",
+      "sha256": "bf1c28acae402bde3a3f8161e5d4a06325cca621ec39d19574f1b17b7221fc45"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/fields_bw6761/hints.go",
+      "sha256": "af50e02cc902ef732f287192f69fd7054aea66f574b25544beade7f7e084b11d"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/doc.go",
+      "sha256": "edc7f7819bd905ee1b86208c9dcd6c6e674ad9251a61cc6c374a2ee6bab0fd8b"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/doc_test.go",
+      "sha256": "30ad7ff7f4323cca59e51c586691b195bf0fd4e56f9b1aaa079c3b99b427bac8"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/g1.go",
+      "sha256": "410d214dbece834a6d35c4fe123f7dbb4f5c42067e52068c92862160db5a1cd6"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/g1_test.go",
+      "sha256": "4f9928e427908dda81579325a2d242b6a818f29742e46f8ce1114280b5dd246c"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/g2.go",
+      "sha256": "2460541e6db07eaa90c136198f50e442bcea5c29d953899bde783196390c2ffa"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/g2_test.go",
+      "sha256": "9852acf4eb1bb859d96eac60b95eef4849854bc42cfc7db8cc5af1c18b95aa01"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/hints.go",
+      "sha256": "bfbf393cd006122acc4e53fd35972bd27c7880ec13619e316b4ff45038ba3602"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/map_to_g1.go",
+      "sha256": "cd1963ad2326fc90cf5d357109d29325c8cfde0878e0761d86cb6a19df5e3f25"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/map_to_g1_test.go",
+      "sha256": "b2b1563707f8a835f62c0d62e7d0cc4993aad27aeee7004ab05e783f3c877fdc"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/map_to_g2.go",
+      "sha256": "ee6a894aa20c3d58d87c754c807d5f170da6bce8546729d30e9f8066d8ac2f57"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/map_to_g2_test.go",
+      "sha256": "3110f830ceff847039d8b50fe03fa3a84be97c4e244afb9bc3d2207a6dd76fbc"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/marshal.go",
+      "sha256": "b92538b2b87f830ffc0a4128ff82545a2391a8105ac87c2fca635f4c38991031"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/marshal_test.go",
+      "sha256": "30638ad9aa6458b438b35097fe72ed602df14e041931495caf4bd1e1507c1854"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/pairing.go",
+      "sha256": "d4f07f1cb975df33c988d5165fd86d922471d21fb2500c8653b2e5c445b0da35"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/pairing_test.go",
+      "sha256": "83772bca557e28bd8130a4b8467839613713f0a64588b536121a94066f1304eb"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bls12381/precomputations.go",
+      "sha256": "e9f36485e56ab52c5073596169d9f9cab9df911c0a66f24ccf53a41a6aecbf96"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/doc.go",
+      "sha256": "ba646200dcf183738f7591db6fb5c3ee9f7083ef6efcb385f3ac29f23b4cf338"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/doc_test.go",
+      "sha256": "f555a932d0e38bd91cfff9db803e7c7d614928f5c5b38a1bbb27d42149038699"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/g1.go",
+      "sha256": "27e26e63a34eb96d976bc2c508233a52c35d6f6dd42f6842693c867f639d5be7"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/g2.go",
+      "sha256": "44ac15e0589fa717f849487d8e152274f6484372a44ca1c7547dbde4fe0b11f4"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/g2_test.go",
+      "sha256": "3b6a6321ad9cae1cabf3c9eb15354f1f3a1e474292e1031f34c2cb41ab13c987"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/hints.go",
+      "sha256": "963da774f506143690d85fabd71c2a75b824894b92960a6e086b49308fa4cd14"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/pairing.go",
+      "sha256": "11c8ebe60e62547ca7c4973cfb4c33d5698900bc413430f2daa05b03c1f133ff"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/pairing_test.go",
+      "sha256": "35b69a9195f8437f79db97d27b007fc7257fce2cfdb122194e181f9181b0a780"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bn254/precomputations.go",
+      "sha256": "092b1fbd48e812bde27015088dd1d6101c9b557b93132b7dab756d627364e0a4"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/doc.go",
+      "sha256": "3d56fe7456921462a81bbb9302ecc44937a80274e001e98e3b96b9992eb3cc13"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/doc_test.go",
+      "sha256": "279d711f16b2c3725ccca43280e476ff3366d7bc1cb9a970231d872b8d52c277"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/g1.go",
+      "sha256": "9600514e76ece7577b3af0a88a169abbd1e552f6a4e8a38b289e361cffccd5e9"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/g2.go",
+      "sha256": "de7d077ae1996ea2fda4c843e5d7d7fe4744afaf0626d699e16017fa9ca3539d"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/hints.go",
+      "sha256": "8532c6c88e0e03cf4992a9419f7ec3f26f3fc424a13f30ad66fcd5d7db6fa87f"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/pairing.go",
+      "sha256": "e4a143d4c765784e7169b7dc5b5dbbaf80b963904116fd907ea055306739a05e"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/pairing_test.go",
+      "sha256": "5616225b7d7eb16847fbcb80d62b7fa6835211e7bc324db7a6f6d931211bb5ca"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_bw6761/precomputations.go",
+      "sha256": "85b5650e75f4602bda0c7bf8ee0c330962690c8e3c77446ea6615939edb31f7d"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/doc.go",
+      "sha256": "f7196ae3f8f183b3e1cd1309f4aec615546f740f1da317eb6b39c81d81ec7545"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/doc_test.go",
+      "sha256": "2997a6dba700cb1c350e9cf36be343ba52d15130e85a17e90563f4ab1a340910"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/hints.go",
+      "sha256": "fff1b7857c1db5928eb340d99410e54dd6054c8c2d5d736d6c5123bb728cddd6"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/params.go",
+      "sha256": "ca1f85a9f55cbe90c441f28b4f56defa2086c24ef764a5440b9e3e6da38205dc"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/params_compute.go",
+      "sha256": "438f7160c9fcf70125ebf2dc898d9bcc2efde963e7859c0056477a811f3d48d1"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/point.go",
+      "sha256": "feb9288a31abf9e6e75a0fe0b732c12b16d86dc6ae5814926b54941c38e7d97c"
+    },
+    {
+      "path": "lib/gnark/std/algebra/emulated/sw_emulated/point_test.go",
+      "sha256": "6116806477a04597227f24e68e4243072a0488374ea9bc32f5f1c94c9ad806d3"
+    },
+    {
+      "path": "lib/gnark/std/algebra/interfaces.go",
+      "sha256": "3eaaee27ef92a1336a942e198ddcffeb8aaf03e3b176ea7d504ce1005d50dbec"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/doc.go",
+      "sha256": "af8ee08edebe438ee605b1b811c01a2405be6ee9eaecd718e738486a6e2e2ee5"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e12.go",
+      "sha256": "8ff24120f2a9badac7f1395cda5eee295e07c68e1a48cb5529c9a126331ff5a1"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e12_pairing.go",
+      "sha256": "bf3d7619dc748743af58e10c24978fd346f08fd207ffbbb9a257fe97fddb32e0"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e12_test.go",
+      "sha256": "5816bb31057b5ac7c20683bd18a0d2ef8745fa4d63d9a43baddf1ccb7c00c5f5"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e2.go",
+      "sha256": "dcfd73c85226f84baa82fcceb487e6d756596fdd50cdd653aa4ed48d4c3955a9"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e2_test.go",
+      "sha256": "e0b8ab9c4619e7fd71ad8b0d4ccf022d32a7cab559e810f46a179f503513911a"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e6.go",
+      "sha256": "6136618fd21d2982872745095b39b9639bba88a7635ac796141f1653102d282c"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/e6_test.go",
+      "sha256": "ace35e1ab41ff3b19201c264516803e551600c90180333aeb5ac52ffb788fd83"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/hints.go",
+      "sha256": "aaf050c40f7df0d7b1da1425c0e8c12dba3d5b890940a362354a0becb6d06ae2"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/torus6.go",
+      "sha256": "fd8fc695889c0761825d20ce9cfe26a4f5ac3900d4b796157d384213666b7dc2"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/fields_bls12377/torus6_test.go",
+      "sha256": "0d65a806c933625199af9da3a034f3853a33294357e5952f59629b28328aa49e"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/doc.go",
+      "sha256": "93697d1bd9b9339a3ca9002163a65a8636c2b209aa115caf373fc7f09a75e9fc"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/g1.go",
+      "sha256": "c1043bfc010e256dc33127585c5abe301125f6822b4c6bae8b4b648e977e0d0c"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/g1_test.go",
+      "sha256": "a33e33749547a699a21aaeb5d35175decb7b6b4a2ed97ff752aed972ed044569"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/g2.go",
+      "sha256": "f36cadc741d61a46b2a1a73b36e10ef0c44cf2b8416b5036603ec4abe592ac57"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/g2_test.go",
+      "sha256": "ce73d2c131d44541e13e54572bd8724905c2da934ae0abe6274a1a5d767f8526"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/hints.go",
+      "sha256": "3abbcea471c47c748afbaa92bd86ba865dda8922b19f5e2cddcf929642147a3a"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/inner.go",
+      "sha256": "374b1b4ba85219c497a5486bbc87c8a6fd8370e4ad18e870b56594d60f968c6e"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/inner_compute.go",
+      "sha256": "774e640298b178837d342ddb5a6c5c33b393a5347bcf0026832232a027ed6cb3"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/pairing.go",
+      "sha256": "78a2ea5d811199a43955f9ae6c8c3a00558dd60cf41dc809c7a0533209dd6d0f"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/pairing2.go",
+      "sha256": "9575f873afc8535a696881812d1555d5e8e3ff0e5c965d726e4fc8d84531f502"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/pairing2_test.go",
+      "sha256": "6ee1c691bb5a4243bcc552e04879a1febd517b5ad37acca7c1510266d321a8ed"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/pairing_test.go",
+      "sha256": "2d370f7205c272694890c0e6fdbdc0cca24e2d44e970157597a5ab126a9a2eaf"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/pairing_torus.go",
+      "sha256": "0f6f69c19f2fadf0f20d2a0995bfd199670b5cc074227d36f6571df9a1560bdc"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_bls12377/precomputations.go",
+      "sha256": "024f6421eef6e435ed511b90bed7a0f1deb84710a4152863e4eecf291f8a8f9c"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/doc.go",
+      "sha256": "5a2eb3df3f67a09039bc16a3dca79b29326f737aaa87ebbda6b8df266ddfd949"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/g1.go",
+      "sha256": "96cf983d0632d92b7bed31722d6b6ce009547708cf94328e4d192fc70dbe2884"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/g1_test.go",
+      "sha256": "8075843d02fe7ff6b406260a6e9360d1efcf2b8c87717833eb699f036a61d8fb"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/hints.go",
+      "sha256": "bad2ae5519685df80ea5f85a14b68d12cb5068f9bd7736ba801a67fee7e17c4d"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/inner.go",
+      "sha256": "62834495ba0b409f3a04099ba3cd53678c3930c7f7707cd20d2156da877ebc69"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/inner_compute.go",
+      "sha256": "d21e83e56af987e5dd52c3041f72a0431d31696ac4c7394f158dd99f1b3e0f44"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/sw_grumpkin/wrapper.go",
+      "sha256": "472d1021e0d3b1c0476391ddd008bd3f4a1988268b4af12b6489da45f9aec168"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/twistededwards/curve.go",
+      "sha256": "ef0d78a85ec02c9378f4a4b46c3dcca6ac5cc2a828c18a68acd866d49f83d1f9"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/twistededwards/curve_test.go",
+      "sha256": "969153ee76bb0ed22435801fa1d290783445a8feeb078a499e4a0d1916f7d60a"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/twistededwards/doc.go",
+      "sha256": "578aad9a937f4f6af4a9620c40d6bc1411bde751546b55e6a0c40a9ec24c80ae"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/twistededwards/hints.go",
+      "sha256": "4bffdb6011c4619c04e5bf6a1f33777c4e80d040747c440ff6cd803ed3835b9f"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/twistededwards/point.go",
+      "sha256": "c9d0253711bdd9b308d49c662a8af3e5fc02632356d2fa78733284b1e007aa46"
+    },
+    {
+      "path": "lib/gnark/std/algebra/native/twistededwards/twistededwards.go",
+      "sha256": "05cb21734ba4adf298d830061e9773c580185c29e4eb7d601531b7c1d288f34f"
+    },
+    {
+      "path": "lib/gnark/std/commitments/fri/fri.go",
+      "sha256": "99618de4e81bdb6f13774a4a4ae1055e404dda7e8d2eadc8b3e7f2209afe952f"
+    },
+    {
+      "path": "lib/gnark/std/commitments/fri/fri_test.go",
+      "sha256": "6231aafb06ff5f1ab9e328076c7793df549ed45110c672f1793842a2247fde59"
+    },
+    {
+      "path": "lib/gnark/std/commitments/fri/utils.go",
+      "sha256": "24c4d18fcfd13a14a3763bffda98bdad9c94d9155931e279ee7c8612987a6426"
+    },
+    {
+      "path": "lib/gnark/std/commitments/kzg/native_doc_test.go",
+      "sha256": "35edee0a1d8bc863d314765fe7fd47d2acc137899fab348aa1d8582202d317e0"
+    },
+    {
+      "path": "lib/gnark/std/commitments/kzg/nonnative_doc_test.go",
+      "sha256": "bd9e4a0e5faed35ee7330d254a7c2737da321151849e42fdc958a4a944716211"
+    },
+    {
+      "path": "lib/gnark/std/commitments/kzg/verifier.go",
+      "sha256": "ab52e6fd5a74f4d676f094ee953da76ac459574b646799a438b9817619216d73"
+    },
+    {
+      "path": "lib/gnark/std/commitments/kzg/verifier_test.go",
+      "sha256": "9f238f6f1045b8f097435d751ba3ea1a8265bcfa60455a5e0ecdb3cc19729d45"
+    },
+    {
+      "path": "lib/gnark/std/commitments/pedersen/assignment.go",
+      "sha256": "ca1adcdb6f016ffe39d3ab085abe98d1767798fb59619e1600bd051366e62057"
+    },
+    {
+      "path": "lib/gnark/std/commitments/pedersen/opts.go",
+      "sha256": "4df5bee4e26504f24c0e3502cf9f52fb5df0c7e4724334e6132af16948f757ca"
+    },
+    {
+      "path": "lib/gnark/std/commitments/pedersen/verifier.go",
+      "sha256": "c77f5495da141f4b89952622f41e30280c0438233d77b6f4194678afe06b64b3"
+    },
+    {
+      "path": "lib/gnark/std/compress/internal/io.go",
+      "sha256": "a273a591bd142493cd48fc0dc31982eecaea779db894fae8bb635b81c75a3076"
+    },
+    {
+      "path": "lib/gnark/std/compress/internal/io_test.go",
+      "sha256": "c2c98a5d221861befd00a7b764d19a144faa0ff29ae4ae08e6506bae6a9d640b"
+    },
+    {
+      "path": "lib/gnark/std/compress/internal/plonk/plonk.go",
+      "sha256": "da4ab1ac1c150492ca39a7af7b75399e7d30b735da973c9e46d52fee806fea54"
+    },
+    {
+      "path": "lib/gnark/std/compress/internal/plonk/plonk_test.go",
+      "sha256": "cca53b15c7c91ad606855cbbf2cd2f2119e1575616ab25d39fb5da8c2f1bd508"
+    },
+    {
+      "path": "lib/gnark/std/compress/io.go",
+      "sha256": "b5d2f52f73e9a06922cbcf8522b61e7a7592e5b5ad9cbabf47d2ec631fec9747"
+    },
+    {
+      "path": "lib/gnark/std/compress/io_test.go",
+      "sha256": "9abae0908a5cec267016e4b2532e5e271004ea2e8e7863ef34623a1ffe1548e2"
+    },
+    {
+      "path": "lib/gnark/std/compress/lzss/large-tests/main.go",
+      "sha256": "4ff538554f726b8741b1fab84a2601dfc7a8b9eb6ff9daaf89911e00046d1395"
+    },
+    {
+      "path": "lib/gnark/std/compress/lzss/snark.go",
+      "sha256": "ec51e4e282fa3a88ba554d36e44e0a67d806f2419afe3ab1a08245d4275f374b"
+    },
+    {
+      "path": "lib/gnark/std/compress/lzss/snark_test.go",
+      "sha256": "41f98e5bc07a4c0e4f2c21a61c3e854367df7d72e0d666b2de426b1bb15af223"
+    },
+    {
+      "path": "lib/gnark/std/compress/lzss/snark_testing.go",
+      "sha256": "68467723748f99f97ee5f70fab5e1b648983ecbb52cee2d6133405fadb353b5b"
+    },
+    {
+      "path": "lib/gnark/std/conversion/conversion.go",
+      "sha256": "eb59c02c90fb032d514c8fafbea57f2fc797bdf8e278db671ac2bc36a6d13b5e"
+    },
+    {
+      "path": "lib/gnark/std/conversion/conversion_test.go",
+      "sha256": "67acebf859481389469cc45dc392dc3313de2305b352722b4a004f8fc63961bc"
+    },
+    {
+      "path": "lib/gnark/std/conversion/hints.go",
+      "sha256": "3785731b10bc04d2ce581ed5820b3fbea6f47493642592c10d5bf0a6230a3ffb"
+    },
+    {
+      "path": "lib/gnark/std/doc.go",
+      "sha256": "f179540315d610779e2f2c0fec8ae04138e1bbfc59b1541dc24ea21af2ad9ac4"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/01-ecrecover.go",
+      "sha256": "ab62a02fca04352419c60cac48948b102c06368151740d2c9b375f8fcfe8cbef"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/01-ecrecover_test.go",
+      "sha256": "741e35ba912c2f904ba18fdb83fefe950220c9eb514cdfe30f1951daf2f71ca9"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/02-sha256.go",
+      "sha256": "aa08cd6d358b8039044ef2320029fc4d13d78c9d8c312fa6823fbb747c0d0dcf"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/04-id.go",
+      "sha256": "ce9df764579af1e5fc20f3e723f2a548388bb2c6166c2f843eb8066a0428f42f"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/05-expmod.go",
+      "sha256": "59964e210273952c3803a43b14fdacb5938c00b0225581dc9a494ea3a60242d7"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/05-expmod_test.go",
+      "sha256": "440fccd7bcfe22f4eb4a6d7c458e78bc1f1e1211e3ecac48417b33d44394d98a"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/06-bnadd.go",
+      "sha256": "7fa25a889871d20a936bce53dc7bd95d6f70c327654443d8e96044ad598b4fd4"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/07-bnmul.go",
+      "sha256": "26c9018b421f7feb3d537d815858e79506541ded740e6e9956f3a5b5de782682"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/08-bnpairing.go",
+      "sha256": "8c3d1633f34c20831a25ba10b2286eda93ce88e8f64f437eb346ed8f7168ad9c"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/10-kzg_point_evaluation.go",
+      "sha256": "ec6b5657aee1f5d2687e0df8d0764236f5605bd4f9b3d417ba238abf1f37924d"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/10-kzg_point_evaluation128_test.go",
+      "sha256": "42aa074948dbd6276df19166bbba9740a59cd1545ec1c2b8978eee8a6dafb742"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/10-kzg_point_evaluation_test.go",
+      "sha256": "845e0daa60ea7d22d171df9daf0cc7f18b3401d750875b6577cf1a28e24e5740"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/11-blsg1add.go",
+      "sha256": "a4cf444bc5d231faf442438c924c236e803202add6c927dd2880fec9b1a691ed"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/12-blsg1msm.go",
+      "sha256": "49ef65a9046ab9e6837f0a56c7fb20326004be7398f1003356b819f4a962f818"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/13-blsg2add.go",
+      "sha256": "c4876dee3efa204d82851036bb48d672dbee80253b24a7bfb4f55d0d0dc24691"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/14-blsg2msm.go",
+      "sha256": "d292a3877a72b652320a8d4a7286d88e556a639d64d1182a66d51ca00e34587c"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/15-blspairing.go",
+      "sha256": "7ea488ab4a4616570e13d62621b9b39ea1cb9146a271baa2b284067c440aed42"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/16-blsmaptog1.go",
+      "sha256": "b7fc5df57e47f40420cad8e57f296c79720aa1d1c6e3294568866fdfc0713c8d"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/17-blsmaptog2.go",
+      "sha256": "1e327383757cb36355ebde34e8cec40f87e3d167f522b8403b2ae0be6185becc"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/256-p256verify.go",
+      "sha256": "64e7f2f95d292310e88536e0409cc1205696e9287f76aa0ac601a08b6d9ca540"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/256-p256verify_test.go",
+      "sha256": "a62c20a2e811adc1033a2ca818f3e90c5f656c06cbcc9d4fc254d3954114acbb"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/bls_test.go",
+      "sha256": "efca4ec808fe7a6180c4d02ab81906b8e2a081dbda3185bcec255f2289f47896"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/bn_test.go",
+      "sha256": "1c46f030475fd717e7864220a5a7982793105b8b4410520067b235f306a7a176"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/doc.go",
+      "sha256": "756fefa2ab70d649d910ba9bbdb4ab105d2e08bee2e890a1fa64a891fd5540a2"
+    },
+    {
+      "path": "lib/gnark/std/evmprecompiles/hints.go",
+      "sha256": "367b4b0d929a765fb28c392e007919d422fedd7c896ec6e38ff66554ca619bf0"
+    },
+    {
+      "path": "lib/gnark/std/fiat-shamir/settings.go",
+      "sha256": "df73d026dbd02cbd35f3ddb87bcb5b77d8dc7017e1b0132a36c22072e7b93508"
+    },
+    {
+      "path": "lib/gnark/std/fiat-shamir/transcript.go",
+      "sha256": "697540f0ace79a405bc5d01af9ae7a12339802113c8b5cd8c849b58a615a2fc1"
+    },
+    {
+      "path": "lib/gnark/std/fiat-shamir/transcript_test.go",
+      "sha256": "92722cf1fa343b566707a159cf9baf9dbbd4dae3467889e7bd8b4d1ba8c8ca8f"
+    },
+    {
+      "path": "lib/gnark/std/gkrapi/api.go",
+      "sha256": "2a42a3c524f0f407248c873a4ad7ac0697c25977f3b3939743d9c7e1028dcce6"
+    },
+    {
+      "path": "lib/gnark/std/gkrapi/api_test.go",
+      "sha256": "2b20ceaaadd2c7e1ab198892d7e490c7a664fa5653ed6a40ffa7ff83062b6612"
+    },
+    {
+      "path": "lib/gnark/std/gkrapi/compile.go",
+      "sha256": "f487fbde0ec2e0dad9d96d5764445964d40ff0733f2b5afca2dfce065cab5691"
+    },
+    {
+      "path": "lib/gnark/std/gkrapi/example_test.go",
+      "sha256": "e2b75839099bee7e1f0b2d60ea9ad5cd6dab353681b690360ad172baf3ca6689"
+    },
+    {
+      "path": "lib/gnark/std/gkrapi/gkr/types.go",
+      "sha256": "f082304e614bd5eb1c80b3b226bc4d0aba5ae45152d5b1f37a0ed201ce04e590"
+    },
+    {
+      "path": "lib/gnark/std/gkrapi/serialization_test.go",
+      "sha256": "14680f18fc982b7b3d54fb6a8ab277d813450168cca7436922f15af863de04d3"
+    },
+    {
+      "path": "lib/gnark/std/hash/all/allhashes.go",
+      "sha256": "8e4186e34d14fb27a1c4ba91a7a0352ac9c4df2c233c76c9557bfca9abbdc9fb"
+    },
+    {
+      "path": "lib/gnark/std/hash/expand/doc.go",
+      "sha256": "240e36474b654b729dddc9fb895d85a6812e2207d87c2d5c690118526ef32689"
+    },
+    {
+      "path": "lib/gnark/std/hash/expand/expand.go",
+      "sha256": "5fc848d11513edcd3c4fed9fb62df100753e277c8aaceb011edddf49f88923ab"
+    },
+    {
+      "path": "lib/gnark/std/hash/expand/expand_test.go",
+      "sha256": "ed1553a6ee5a39556d567711aa6153d51182fae401792d7e63227a69d01f4989"
+    },
+    {
+      "path": "lib/gnark/std/hash/hash.go",
+      "sha256": "6b0e313347c2bcebc5cd3c822cc01a47f1ea2ad4540989ee856c778f13f41e97"
+    },
+    {
+      "path": "lib/gnark/std/hash/mimc/doc.go",
+      "sha256": "22546a8e95af0594aa44a42a201843296ce285549987e83f4c6fdfa9aa392023"
+    },
+    {
+      "path": "lib/gnark/std/hash/mimc/gkr-mimc/gkr-mimc.go",
+      "sha256": "7ae4b217bbbb074b7a8a74bf851b137fd7c05f26eee6d97417269a93a9d6483a"
+    },
+    {
+      "path": "lib/gnark/std/hash/mimc/gkr-mimc/gkr-mimc_test.go",
+      "sha256": "fac1d900d8c35d2831216fc63f3b30a224b7012d057308331b1fb7128e897b8c"
+    },
+    {
+      "path": "lib/gnark/std/hash/mimc/mimc.go",
+      "sha256": "0e70115b5edf26a84fa07832851c242e1449ff6d96e62fc428131f8f052d8018"
+    },
+    {
+      "path": "lib/gnark/std/hash/poseidon2/gkr-poseidon2/gkr-poseidon2.go",
+      "sha256": "25f4cbc8eb12deda3a2bf34263a60bd144041aab8672eb81c9f15cafeb2062a8"
+    },
+    {
+      "path": "lib/gnark/std/hash/poseidon2/poseidon2.go",
+      "sha256": "6fd45756ebf1e2d2f7c0a8fd694dbd24123c45efa7cffe1e019f32acd6949b9c"
+    },
+    {
+      "path": "lib/gnark/std/hash/poseidon2/poseidon2_test.go",
+      "sha256": "6252a5022452a73303522bbbe0cc191a2dcbb12a148ebf82861d53984d0c3ed2"
+    },
+    {
+      "path": "lib/gnark/std/hash/registry.go",
+      "sha256": "e901ab155517e9ac3004edd82f7a0b47d5af8cdec5a6e44290c86d7c0b7f566b"
+    },
+    {
+      "path": "lib/gnark/std/hash/ripemd160/ripemd160.go",
+      "sha256": "db09c2b788acc34a0fbb4aee2e33503d194f30c095e4d047c8fbf208ab674e46"
+    },
+    {
+      "path": "lib/gnark/std/hash/ripemd160/ripemd160_test.go",
+      "sha256": "71b4d7b3fe70b633b532b6b8ca909088f80ca1e41550e5f6b0a2bf54323c604d"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha2/sha2.go",
+      "sha256": "20e45d5532c01cfe10253efb83ffec95ef3caaaa246d17de52782a73cb0da8b6"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha2/sha2_test.go",
+      "sha256": "c583edf7d3bd858b0a9d081ed44069825664ca9397b314f802ba4856896e4574"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha3/doc.go",
+      "sha256": "43c2945e3c644a21f9abaeb53376a58d900ae9fe891d0e502324b190f8bf2ca1"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha3/hashes.go",
+      "sha256": "d63a533e369cf84c3f094ad75b4647d89027a8583a2d330da7e91380b9909a11"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha3/hints.go",
+      "sha256": "39d67883638da1b4138e90dca5a177c9e7f9dc1a1acf77fb3850aec23e8063f1"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha3/sha3.go",
+      "sha256": "62bf09a616b8284ce8df7b0539aeaa366656e465dc327978edb7eec55bcc5ffb"
+    },
+    {
+      "path": "lib/gnark/std/hash/sha3/sha3_test.go",
+      "sha256": "395fc586b58793badb62cfa27b3f8b231d3854c9eada9c64547c5f39498d87ee"
+    },
+    {
+      "path": "lib/gnark/std/hints.go",
+      "sha256": "ed3c02868667f682546a0755fd3ebb4115b5ac4253dba018b028bf28bc8961c1"
+    },
+    {
+      "path": "lib/gnark/std/hints_test.go",
+      "sha256": "63e9b11e2b45cad63627432b6419d9f4bce407d3eebaf3abbc7f6228833342b0"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/default_extensions.go",
+      "sha256": "983bfb50b102376c9a7ba52929ee4b24d593af01fb638b8225fecf3ea0b7067e"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/fieldextension.go",
+      "sha256": "911195288ec91e386524d1ad97c1ab1c2808a2155f05541aa811d627666a7e1c"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/fieldextension_test.go",
+      "sha256": "b7733dd19547a16ab167fb2ef5f93362bc63c6a8abd044d52b3c5ed51b6ae53d"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/hints.go",
+      "sha256": "6efe3dad746e40833ce1225b61e005af8883d531d648605257975979f530d993"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/koalabear_ext.go",
+      "sha256": "5913ac1d3818e9e919e689ec1a94f9806c23e61908a5969ca1688fde2a5e6b7a"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/koalabear_ext_test.go",
+      "sha256": "c5426f672145156183a63335f4128cf4202a45405265ba94361fe9a350281fdc"
+    },
+    {
+      "path": "lib/gnark/std/internal/fieldextension/option.go",
+      "sha256": "90e553c8aac9e83ebed8e85d8a483eba331ddf286c548ce1aa8c73d11ee1bb6f"
+    },
+    {
+      "path": "lib/gnark/std/internal/limbcomposition/composition.go",
+      "sha256": "17eed96b0c46551da91f52cc3180e2d93d7199d3123613ccc01222ce7774aa74"
+    },
+    {
+      "path": "lib/gnark/std/internal/limbcomposition/composition_test.go",
+      "sha256": "8682cfb78b2aa10aea977afc927696cc8964dd034be5a15ae655e4e25ffd4c64"
+    },
+    {
+      "path": "lib/gnark/std/internal/logderivarg/logderivarg.go",
+      "sha256": "4527e4bfa0606059c690bd1bf4cbbcd6012131836dce53322d0591ebf29cc09c"
+    },
+    {
+      "path": "lib/gnark/std/internal/logderivprecomp/logderivprecomp.go",
+      "sha256": "5e232fe0371f50dfd310afccdcf5646eb6fcef9a5ad7e8b707de5dbc372126db"
+    },
+    {
+      "path": "lib/gnark/std/internal/logderivprecomp/logderivprecomp_test.go",
+      "sha256": "05792729c6535a4f32e3dfabd8ef012fa6168e340c2f066b4e5ba336378b3fbc"
+    },
+    {
+      "path": "lib/gnark/std/internal/mimc/encrypt.go",
+      "sha256": "e24240be22e87f8a50cfd7d97bc26ac2f764822b69457b04b969fe5f07eb76be"
+    },
+    {
+      "path": "lib/gnark/std/internal/mimc/mimc.go",
+      "sha256": "13b193ab51bce6d5615a99c06af3e414fb57184021c886ab40e2f753a81b4186"
+    },
+    {
+      "path": "lib/gnark/std/internal/mimc/mimc_test.go",
+      "sha256": "240b8710a356e7ca7a20fb5df350d62f4f607c2937804663aa2204c8dc9972ec"
+    },
+    {
+      "path": "lib/gnark/std/lookup/logderivlookup/doc_test.go",
+      "sha256": "a3d2914f0272536af23d33b40f97535453b6fa5babeeb4bdbe117790a157c6f6"
+    },
+    {
+      "path": "lib/gnark/std/lookup/logderivlookup/logderivlookup.go",
+      "sha256": "4d52326b9b8a41985d2111128c38e3687d49c078f234dcc65f8d09ed47cbbca6"
+    },
+    {
+      "path": "lib/gnark/std/lookup/logderivlookup/logderivlookup_test.go",
+      "sha256": "e1b31eb15501e4418b272a22ed483773ad0bf73d2666cbaa33938c95fd6605ab"
+    },
+    {
+      "path": "lib/gnark/std/math/bits/conversion.go",
+      "sha256": "fce65f0e724a6d1af0a809591b7d1c47e9666b1e8d94877ab0db7d63449ceddf"
+    },
+    {
+      "path": "lib/gnark/std/math/bits/conversion_binary.go",
+      "sha256": "d07af6b060a106da918528c58dd8040dc33d021dbe14b3af0d5405a0927b3b8f"
+    },
+    {
+      "path": "lib/gnark/std/math/bits/conversion_ternary.go",
+      "sha256": "0281e29f4e671d629a0a126408d19c3235cf8d73f643e476370be2638f560a0c"
+    },
+    {
+      "path": "lib/gnark/std/math/bits/conversion_test.go",
+      "sha256": "a7ed1ab7abbde91b67355979b069f5c14c18d8028fbb1d7ba8a345cc79d32523"
+    },
+    {
+      "path": "lib/gnark/std/math/bits/hints.go",
+      "sha256": "48a7e39ff3d7c130e25dbb9aabbabcd477333b774198c74af0f5f1b4dc897e26"
+    },
+    {
+      "path": "lib/gnark/std/math/bits/intf_constcheck.go",
+      "sha256": "fbd35ddca97cbc0aa0a22d36fa6c3220d068770bdd64d94beb9d8942f053b087"
+    },
+    {
+      "path": "lib/gnark/std/math/bitslice/hints.go",
+      "sha256": "7d7bd44e9225e570ee2988c86ffea3fae89120f47d1c0d0bad21d747f5663344"
+    },
+    {
+      "path": "lib/gnark/std/math/bitslice/opts.go",
+      "sha256": "1826c993093b1d478384ab6626f1fdd74c01fce11ef2f3572f0b5d93279fa0b6"
+    },
+    {
+      "path": "lib/gnark/std/math/bitslice/partition.go",
+      "sha256": "06c2b191a151122db937aa3688ef32bb140ba236aa466348d27f5f2941d063eb"
+    },
+    {
+      "path": "lib/gnark/std/math/bitslice/partition_test.go",
+      "sha256": "c19abe2ab19d3378d872acbd139d6457434805c38065f355d35c40c932adad2e"
+    },
+    {
+      "path": "lib/gnark/std/math/cmp/bounded.go",
+      "sha256": "88c4f9d4516252f551a21a097a9f5b9ab425145f2d6d47c1a011966dcd7e6f05"
+    },
+    {
+      "path": "lib/gnark/std/math/cmp/bounded_test.go",
+      "sha256": "e44ad44a542cb8632310c824806522a13a67fb361f190cb4d961f3df18fed0c5"
+    },
+    {
+      "path": "lib/gnark/std/math/cmp/doc_isless_test.go",
+      "sha256": "f06692f5c47537d9ae4bd4b8ad01dde91b9cf7e11b82e3f208382f88050b13db"
+    },
+    {
+      "path": "lib/gnark/std/math/cmp/generic.go",
+      "sha256": "00a7c40827170fb39fda6a25cd80d0e12371014f64bc48c27f75b3db5fbb4e2d"
+    },
+    {
+      "path": "lib/gnark/std/math/cmp/generic_test.go",
+      "sha256": "e06cdd7bf8a0dfd4c07b6d1434e439f7b54a45f5ed75855b65f925c734344090"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/custommod.go",
+      "sha256": "44b5a336ddc78af366153d30871a8d537e398a20cb205be4086355f20e0892dc"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/custommod_test.go",
+      "sha256": "c351f830de2f9794af70d0abdd4b3e2a4883f634244d47dfc5b2ebdc823515ed"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/doc.go",
+      "sha256": "5d424ae84fa1d8522a214f5f2b738641aa14d730de56d92d7bc03f7b71c1ab2d"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/doc_example_field_test.go",
+      "sha256": "fb69114e3a3ba1dc991ac70e157be4cad61ebb3f7bb42f0e0d1bcbe7ca32011f"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/element.go",
+      "sha256": "11476f805b1d3df1b6124c57d4f930cc4ab3928e064db0aa617e02144eb2d162"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/element_test.go",
+      "sha256": "8f7424f23e37daed7d1c5a36dbf464a6db45fc471840037a9953910945b9e624"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/emparams/emparams.go",
+      "sha256": "21fe7b592e5439c3e291da2c0b3c26e1baf36e0b97947971bf942a98b41b58d1"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field.go",
+      "sha256": "a31fe1c8bfe510d1163519286b99c6d7a8e3a9866dbc48fdf0ce14b3307fd3b8"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_assert.go",
+      "sha256": "2db4928f8b4471bfdd52316119ea23d5d5b5e914f95234e48d0f8908b9e7bfb2"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_assert_test.go",
+      "sha256": "146d9defd7ee6e9e9a8d820122b1b70f4e6b48665c10d5e23ad0d2713c25b432"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_binary.go",
+      "sha256": "1f3fb25f21e06c3da7dd3efc9b06c952f94865be3a2e0f259e54ad4a05125769"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_hint.go",
+      "sha256": "52df3619f44e7ef2146d9f5e05e8245d528b839e3c47ab590bda6bad71c9aa52"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_hint_example_test.go",
+      "sha256": "fe8b0a46ca21ab70279b9d3ee5ccb9955c616469d91c893301ed35a83099e1dc"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_hint_test.go",
+      "sha256": "468acc5494276c9f002ddc1ad9aff2bb14bd709dffacd212dedf1b2722680bd5"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_mul.go",
+      "sha256": "565d2a9e1433c9498b08d5045db0424daeeeb7d3a234409aadc8874365562cc0"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_ops.go",
+      "sha256": "50a95f117394504668da1013d889ff3dbe3c15cc43cba1ad404e20bbc86318b7"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_reduce.go",
+      "sha256": "8a99cb68eaca04e9b9ff210b90287ec8cefb6dae365711d9d17f39fdc4b782c6"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_smallmul.go",
+      "sha256": "faa8cb777c5a76144df3036409dacc3e065260488f3fa5e8a66244039dbe4a66"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/field_test.go",
+      "sha256": "1ab64b82598a25a565c14beff20098da52fba161e81d61e3f475d89335667bed"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/hints.go",
+      "sha256": "79a0136b2a4b1aa2aca40ce91339eaa4df9fbe1b24cc832388508c0df4e9dfaa"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/params.go",
+      "sha256": "67bfb8a4166398795c2a3ee6fccd3e5b1923f4e3055f7dc09bf135478881c67f"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/regression_test.go",
+      "sha256": "a19b17d5da05e03ba3b2eb9cd457ec7ec4a2ee9df204c8683721f2d05907f407"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/smallfield_test.go",
+      "sha256": "e3e0d12c336c55bef9dbda192cb709c8aa7d0cbd149803b132d1b774bfe36e81"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/subtraction_padding.go",
+      "sha256": "478e3c717c9c3a7ab55e84267b1b13c87f91c7ccb6e56616e0c0a826edba8c17"
+    },
+    {
+      "path": "lib/gnark/std/math/emulated/subtraction_padding_test.go",
+      "sha256": "1a72149eee9e240b3bd984a33813c4729ecae84fe4a0ac34c28bfda5b64814ed"
+    },
+    {
+      "path": "lib/gnark/std/math/polynomial/doc.go",
+      "sha256": "43590a1e8214f417f0966d3067eb09c11dbb1cb174dcde62c4349ae3d5522a1f"
+    },
+    {
+      "path": "lib/gnark/std/math/polynomial/polynomial.go",
+      "sha256": "af79a0029e76787242541818210c824c8dd534adf0a7f99f237bfcda1fb223a3"
+    },
+    {
+      "path": "lib/gnark/std/math/polynomial/polynomial_oldeval_test.go",
+      "sha256": "1e0dc21ee65a5e9064216984f92985ddf3503fad952f50b906e49568ae171874"
+    },
+    {
+      "path": "lib/gnark/std/math/polynomial/polynomial_test.go",
+      "sha256": "de877dd32a1e4e0d1c1ae32bd6c2213ad23bde0694fcfbe87140e42c42096452"
+    },
+    {
+      "path": "lib/gnark/std/math/uints/bytes.go",
+      "sha256": "98d60b3834c9ae7856139e1928f986f42d8e0975a221498b2c8595c3057d32dd"
+    },
+    {
+      "path": "lib/gnark/std/math/uints/hints.go",
+      "sha256": "3ce2fbe7467bfd4d45a8a6b4ec46d405a77572029e7d4e39592fe6a8d15a683e"
+    },
+    {
+      "path": "lib/gnark/std/math/uints/uint8.go",
+      "sha256": "1c423a931ff28794cf0320594189232b1a31563873e5e0774b01c5e1a26a5fdd"
+    },
+    {
+      "path": "lib/gnark/std/math/uints/uint8_test.go",
+      "sha256": "b51a80a334cc8538bce6e7941948ef093b10604c0648ac2d4ff6dc2cae38bd4a"
+    },
+    {
+      "path": "lib/gnark/std/multicommit/doc_test.go",
+      "sha256": "8c1468dcb6223415c268461362407eb4539a7dbe7289e452326c932f86a86859"
+    },
+    {
+      "path": "lib/gnark/std/multicommit/nativecommit.go",
+      "sha256": "9343ff7a46afb1380c0772cbcdafda6b9afbf776a6a5103a1845a77f7afcd48b"
+    },
+    {
+      "path": "lib/gnark/std/multicommit/nativecommit_test.go",
+      "sha256": "3fa6181c25b408b180879972c5912322ac1a2abe7e0b9fbf7c82eb4fbedfe477"
+    },
+    {
+      "path": "lib/gnark/std/permutation/gkr-mimc/gkr-mimc.go",
+      "sha256": "a0eb84a8fc0d0789e7fb09ce96e4e95d34b9378f45739b712d74d45f50ffdaa9"
+    },
+    {
+      "path": "lib/gnark/std/permutation/gkr-mimc/gkr-mimc_test.go",
+      "sha256": "715d6df95c2f012dc3089cfe7da816beb00d04cfc04cbd86f62702790a7a339d"
+    },
+    {
+      "path": "lib/gnark/std/permutation/keccakf/keccak_test.go",
+      "sha256": "0bda372663ce681762bc879a4835281ff9289b0313c133748086a3d5bf3b99f0"
+    },
+    {
+      "path": "lib/gnark/std/permutation/keccakf/keccakf.go",
+      "sha256": "2eb5c3d1b8b2fd846bc332451ccde818864fa3d745d7fd06a7115e2e22a62447"
+    },
+    {
+      "path": "lib/gnark/std/permutation/keccakf/keccakf_native_test.go",
+      "sha256": "77d67926789c1c2b74365ffafbcb68ce15472704968cc3f9116565267b4c1768"
+    },
+    {
+      "path": "lib/gnark/std/permutation/poseidon2/gkr-poseidon2/gkr-poseidon2.go",
+      "sha256": "a25f685916dba2644654c726fd9b8f7ab185b27ac9c96f0bf668f8f9dcf7d92f"
+    },
+    {
+      "path": "lib/gnark/std/permutation/poseidon2/gkr-poseidon2/gkr-poseidon2_test.go",
+      "sha256": "862b2ef788edf4a20305f4ab5ef2a595e0e7883d067ea8093c35eb8bef062f45"
+    },
+    {
+      "path": "lib/gnark/std/permutation/poseidon2/poseidon2.go",
+      "sha256": "7e45e4db372b4da820b40d3b596a02fb661acfb7f75b39a4eae00dc8ea3b6826"
+    },
+    {
+      "path": "lib/gnark/std/permutation/poseidon2/poseidon2_test.go",
+      "sha256": "452a8eff52df0b16f4e940d4a53179eb0489e0103f4a57f5f94f0ae76dff65d1"
+    },
+    {
+      "path": "lib/gnark/std/permutation/ripemd160/ripemd160block.go",
+      "sha256": "ca3ab80864ae1dd62cc07dd4b56cddfe793859dbbdcaa775e832ae0bb0611ead"
+    },
+    {
+      "path": "lib/gnark/std/permutation/ripemd160/ripemd160block_native_test.go",
+      "sha256": "2da12182979a8ef5ff4f724848374838ed9319ed18304747cefda5bab0c94b42"
+    },
+    {
+      "path": "lib/gnark/std/permutation/ripemd160/ripemd160block_test.go",
+      "sha256": "8172093a47456701ba56efba2a9f8676426c728d551fcee0ba32ca41465e5f64"
+    },
+    {
+      "path": "lib/gnark/std/permutation/sha2/sha2block.go",
+      "sha256": "fd63e2c2fb06a8aa641f9e06e2983299af5a48768d4459769113595faf28b775"
+    },
+    {
+      "path": "lib/gnark/std/permutation/sha2/sha2block_test.go",
+      "sha256": "749a32a4c35509db8be1f95cd710aec228528ae43769296031a460d931902c76"
+    },
+    {
+      "path": "lib/gnark/std/polynomial/polynomial.go",
+      "sha256": "0e06fe4b40115ab30a9ca5c3bc12c976f1d75120d2440402eaf83defab59df43"
+    },
+    {
+      "path": "lib/gnark/std/polynomial/polynomial_test.go",
+      "sha256": "02ad4c5d5333c4a2109ab436f1f09b5476aea9eac1a1c6458383b3e64d398dc7"
+    },
+    {
+      "path": "lib/gnark/std/rangecheck/rangecheck.go",
+      "sha256": "2d5af597c66855c1d6a1143d1ec8b9ec023d370250732cc9910a14cffc4fb8e4"
+    },
+    {
+      "path": "lib/gnark/std/rangecheck/rangecheck_commit.go",
+      "sha256": "e71065da52414846eac56718bd4135d913f985ebb3b9e0445ac7a508245b1732"
+    },
+    {
+      "path": "lib/gnark/std/rangecheck/rangecheck_plain.go",
+      "sha256": "03182c4c1b20cad9aae93957af2b673ed4390611e108a1a5f5904a0027aa5035"
+    },
+    {
+      "path": "lib/gnark/std/rangecheck/rangecheck_test.go",
+      "sha256": "a8faf1f8ae1f9dca84166055e6e3e352e88c1a770deed70b255c29c4296d06f9"
+    },
+    {
+      "path": "lib/gnark/std/recursion/doc.go",
+      "sha256": "df0b2a8c0ae96add82e173c10d2453c30101571065d3d597e80102ab36049cdf"
+    },
+    {
+      "path": "lib/gnark/std/recursion/groth16/doc.go",
+      "sha256": "24e65204e5bbeebd3e246d13277b3fea49516a646119182e8c762fcbe4ab1e95"
+    },
+    {
+      "path": "lib/gnark/std/recursion/groth16/native_doc_test.go",
+      "sha256": "c9bcdf352de66b5eb3711347d5744e2eb6e31f5114c548df4ba01da6d5a6f5de"
+    },
+    {
+      "path": "lib/gnark/std/recursion/groth16/nonnative_doc_test.go",
+      "sha256": "2803620e9ac1f3fba3e3f83f8d9f6c91ff4f9a895fd026af51660a6917770838"
+    },
+    {
+      "path": "lib/gnark/std/recursion/groth16/opts.go",
+      "sha256": "b27fd4931f4f277285182058a93158e4875ce9a82227a41bc3bbe81b274b4df3"
+    },
+    {
+      "path": "lib/gnark/std/recursion/groth16/verifier.go",
+      "sha256": "51d24d8c907682e000a4d87f48b06086b10054bd4f2624f248468d9483b35f65"
+    },
+    {
+      "path": "lib/gnark/std/recursion/groth16/verifier_test.go",
+      "sha256": "4ffd1580fbc2f7025ff797de60ba4adac32817c2ef59bcd7a0506a735ecef923"
+    },
+    {
+      "path": "lib/gnark/std/recursion/plonk/doc.go",
+      "sha256": "65d02a0e0902dc5268c3c0435976655908b4bbd675448e025286eb1019fa1c31"
+    },
+    {
+      "path": "lib/gnark/std/recursion/plonk/native_doc_test.go",
+      "sha256": "8419d183c544fd837d7ac7ea9d3fc8f07840d12a5180503a07bd1983202235f0"
+    },
+    {
+      "path": "lib/gnark/std/recursion/plonk/nonnative_doc_test.go",
+      "sha256": "5d8344f8fda212b84e9f7b0abb595cb5db6a7cb50f65f70851d9cc3f90439fd0"
+    },
+    {
+      "path": "lib/gnark/std/recursion/plonk/opts.go",
+      "sha256": "c4a3992684af9d12c49c6e11380d837be8f983bfed025d74cc40292ec226ac12"
+    },
+    {
+      "path": "lib/gnark/std/recursion/plonk/verifier.go",
+      "sha256": "1997f3c9b53a021742375a683b5ccd67de67e1de4fde4e89ec44ab85d81ac9c7"
+    },
+    {
+      "path": "lib/gnark/std/recursion/plonk/verifier_test.go",
+      "sha256": "469f4e468ba575fecc0030eb010cfd6d57d9cc10609fdf66daa60a702bbce11c"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/arithengine.go",
+      "sha256": "869c6f2e7f291cb7ca3426076d44e1a43d30ce223b89a966dd0524be96e3545b"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/challenge.go",
+      "sha256": "45e1120cc7b8cd14fa278904e40d9ab019f321845cf734fb5bfd3d2da36fb013"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/claim_intf.go",
+      "sha256": "ccdc4cc4a00c1589d4c98d56e593ccc5d55265bd01a6f5a9a1aae2355c1fe5ff"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/claimable_gate.go",
+      "sha256": "21ae36b4cb9e7ba50b1df5ac8e6476fa4c388e7d2f83884ab1da7aede6cb7239"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/claimable_multilinear.go",
+      "sha256": "0717da468f33ee255f5400203c2ab14b0bc575664322c845637dfe30114a7759"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/doc.go",
+      "sha256": "f00843faf7822142bf215707ec8eaab5e9ffbeaf8be8c31c12a12a38ff50b206"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/polynomial.go",
+      "sha256": "134e2d0bc7ca01e94cb86df083b70773e2dd660c3aa23fb89eead341a16b1099"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/proof.go",
+      "sha256": "7c23ba2d880ec7de233cd14f5484763eaba99df185fd5bd7f23fc4ee8450a920"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/prover.go",
+      "sha256": "0e4ab8ca7bc8e469bd5ebeefa747bfa70090feb445339615e460c8dbb9e0854d"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/scalarmul_gates_test.go",
+      "sha256": "29af21a2a270978c0b4c4b0df2f7719b4263f97a39dbd04c45737b92756603a1"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/sumcheck_test.go",
+      "sha256": "f401b715ec858bcdc4d7486a3677724a19c2849c96b4673ebbb50ef042aad373"
+    },
+    {
+      "path": "lib/gnark/std/recursion/sumcheck/verifier.go",
+      "sha256": "42420695394c12c1568fcb2bb4a02572bad8ceac8e9a4935979915d9f1337b49"
+    },
+    {
+      "path": "lib/gnark/std/recursion/wrapped_hash.go",
+      "sha256": "fee9705919ecafa7df88ac31b27827d2894bc734a19dd22444782586bbe7e37d"
+    },
+    {
+      "path": "lib/gnark/std/recursion/wrapped_hash_test.go",
+      "sha256": "b21d7d8c2d18827315f97b37ae0b87a5832264256dc6868f406bdcfd889b4882"
+    },
+    {
+      "path": "lib/gnark/std/selector/doc_map_test.go",
+      "sha256": "10a805ddeddde04a6e7cbe83372cbd7a8c2c242200076767ace995edbdadcf98"
+    },
+    {
+      "path": "lib/gnark/std/selector/doc_mux_test.go",
+      "sha256": "b350f5c23999e0b235bd3c55052a6aa951f53d97d1d2379a46659402204a7792"
+    },
+    {
+      "path": "lib/gnark/std/selector/doc_partition_test.go",
+      "sha256": "9a66c8f0b850db44133e1b28c43712598642b6e986b6be46ba5c0a57f9cb3a6b"
+    },
+    {
+      "path": "lib/gnark/std/selector/multiplexer.go",
+      "sha256": "c4386ef592f106220e8bce407112c81dcba73ef8bb1ba8a9a2ee86894c4f45d8"
+    },
+    {
+      "path": "lib/gnark/std/selector/multiplexer_test.go",
+      "sha256": "4c2016be3b8bc5c03fe1b01e628ea4b1f1b9cbe4cf9b917bcc6684cc5bdd9088"
+    },
+    {
+      "path": "lib/gnark/std/selector/mux.go",
+      "sha256": "149e56f8e309e57d430d8998580dabc695b9037aed82cbd97776ef901e2fbb2d"
+    },
+    {
+      "path": "lib/gnark/std/selector/mux_test.go",
+      "sha256": "181153a45f9f9681b1851c09cada2f9b84f4fd5bfe998e9684d2c139e133af1f"
+    },
+    {
+      "path": "lib/gnark/std/selector/slice.go",
+      "sha256": "37f039e352500993ff1187944cf3c5416e2bb02477589f953307a1db8c95529b"
+    },
+    {
+      "path": "lib/gnark/std/selector/slice_test.go",
+      "sha256": "36323bce44af3ffcbb48e9cbfaa82ceb1cc47a7630c91ed5e3ccce0828b18f7a"
+    },
+    {
+      "path": "lib/gnark/std/signature/bls/bls_g1.go",
+      "sha256": "82f87e696e9d2b255b88e401d931de4aff1f56ae738ec36ca644ac2bd060f88d"
+    },
+    {
+      "path": "lib/gnark/std/signature/bls/blssig_test.go",
+      "sha256": "a6e2a7209b62c52271911afc7204642f2873ee75376c4fb9183f4f0da39df46a"
+    },
+    {
+      "path": "lib/gnark/std/signature/bls/doc.go",
+      "sha256": "7cd3a33b10c207dcd8e7c501ef172f5733de3637c78372a09117a9f944281a09"
+    },
+    {
+      "path": "lib/gnark/std/signature/ecdsa/doc.go",
+      "sha256": "a335bd042ff1077714bb25917a879f3e7a1f891212c909da28328f7d0a79dab7"
+    },
+    {
+      "path": "lib/gnark/std/signature/ecdsa/ecdsa.go",
+      "sha256": "63e3183b703eda476403e440e123e68ba86fce10100cbf924f06594d7ef3a64f"
+    },
+    {
+      "path": "lib/gnark/std/signature/ecdsa/ecdsa_secpr_test.go",
+      "sha256": "f3671e16b97a6a11935a67bb960e0864755691fde23973cd626bec3a71125d4a"
+    },
+    {
+      "path": "lib/gnark/std/signature/ecdsa/ecdsa_test.go",
+      "sha256": "f0245d6e29c699b9f7d639cab9c58ca192cbcc1bd08ac4db713a7def3a51b8eb"
+    },
+    {
+      "path": "lib/gnark/std/signature/eddsa/doc.go",
+      "sha256": "e794067184b4596e15e51a3cc567524bd2cc1e4f631f369e7884e04fb0610540"
+    },
+    {
+      "path": "lib/gnark/std/signature/eddsa/eddsa.go",
+      "sha256": "f9f1c1747648d56e6a6549c6ba6a159ee36f48e14b4ade31a556719a6f16d59d"
+    },
+    {
+      "path": "lib/gnark/std/signature/eddsa/eddsa_test.go",
+      "sha256": "4286806c40594802161056737a880d2a43a082a1daf32d211161969681e0bbb2"
+    },
+    {
+      "path": "lib/gnark/test/assert.go",
+      "sha256": "877120e61c4610b298ad2d158278cac5ce494e1c7164e2f3c32dd1f4e618de95"
+    },
+    {
+      "path": "lib/gnark/test/assert_checkcircuit.go",
+      "sha256": "d51c56add719b18b680db571107ecb5808eacf5ce8b3e060f8b9176b0549fc0d"
+    },
+    {
+      "path": "lib/gnark/test/assert_fuzz.go",
+      "sha256": "9bfa98dd285da62bbea2687ccd3265f05dc81a4eba203ae6ce7a7272491849e6"
+    },
+    {
+      "path": "lib/gnark/test/assert_mismatch_test.go",
+      "sha256": "e5b2b1cfe5b9b2da3d90927ab1a4d55ab6e2ab52091eeace34d262cbc1ac11f3"
+    },
+    {
+      "path": "lib/gnark/test/assert_options.go",
+      "sha256": "b70414d3b02f1c4b91aad70af61cd953b407fee3acbc579fd65b30e745636f2d"
+    },
+    {
+      "path": "lib/gnark/test/assert_profile.go",
+      "sha256": "f3e9eea04fe398e2778dab3685bc4bdf3bdccd0111fd44837dae23c53a137508"
+    },
+    {
+      "path": "lib/gnark/test/assert_solidity.go",
+      "sha256": "44aa72814036d2333cdcc636c12fb28ce5ecb6a1d76ab7f8239983a254bb08e0"
+    },
+    {
+      "path": "lib/gnark/test/blueprint_solver.go",
+      "sha256": "42fde8083de15ceb7cfdc2a8d1a62a8cc2e207a9faf96860e931b5b92abbfa94"
+    },
+    {
+      "path": "lib/gnark/test/blueprint_solver_test.go",
+      "sha256": "4fc5462f54fd287958f53670b4f4fc9da6cb80424ade7c1e42f7d8def7598d82"
+    },
+    {
+      "path": "lib/gnark/test/commitments_test.go",
+      "sha256": "cd1d8e03e70a9be7eab79b41f8ed24f00b1b3a404bf9eb145afec2edd413aeae"
+    },
+    {
+      "path": "lib/gnark/test/doc.go",
+      "sha256": "66f34c0ab9f5532d657f965669f391351fbbd7148da0b7ecba3c06873d717caf"
+    },
+    {
+      "path": "lib/gnark/test/end_to_end.go",
+      "sha256": "df4117caa08b67106107f4dbd0b5cce156a4774a57ae87237e8ffd8dde63527c"
+    },
+    {
+      "path": "lib/gnark/test/engine.go",
+      "sha256": "77de7affac13bafa857d2c13a857321e2f519c8a761c79f5626379eb4ee94d43"
+    },
+    {
+      "path": "lib/gnark/test/engine_test.go",
+      "sha256": "d0633a70d9b9e306507a2156dd3cfa972e8447599b05fd9f33378b13236a2a30"
+    },
+    {
+      "path": "lib/gnark/test/flag_prover_checks.go",
+      "sha256": "936f01b47f88a09926d862eacf065b90e1c7fa490a85480a042971ab7392f74c"
+    },
+    {
+      "path": "lib/gnark/test/flag_release_checks.go",
+      "sha256": "c434eb06231da4966aa8c0b76b4598c844e8c425ba5d06b5a211e25122445f30"
+    },
+    {
+      "path": "lib/gnark/test/flag_smallfield.go",
+      "sha256": "c9ebebb8688a0f5f72628970aca17fae80f4fe88f288f3a606fc366eccc11603"
+    },
+    {
+      "path": "lib/gnark/test/flag_smallfield_unset.go",
+      "sha256": "44c9daba817f6bc0370f68d5d1807ced1acd87ce59bf880a01a332991a413032"
+    },
+    {
+      "path": "lib/gnark/test/flag_solccheck.go",
+      "sha256": "8279d33ad1359c480847cc99f78653c765cce273632a9c8e1ac047cc484f3036"
+    },
+    {
+      "path": "lib/gnark/test/flag_solccheck_unset.go",
+      "sha256": "3d8c05a4597beb9ddfb6cdffef162254b29aa0273fca0e6513bce4d0c8d3e18f"
+    },
+    {
+      "path": "lib/gnark/test/flag_unset.go",
+      "sha256": "69dca74d2917e3d62a44877ed2ed324fcc13121bb7498d40be9ae1934faa2c69"
+    },
+    {
+      "path": "lib/gnark/test/solver_test.go",
+      "sha256": "c5eb6d374931a641aa869baa71409ad4860563e16d9bf7d04939a3083b4844ee"
+    },
+    {
+      "path": "lib/gnark/test/unsafekzg/kzgsrs.go",
+      "sha256": "7a903b6c661939d003b38fe1b99dcd5f54211d6c32ba7e36d0c992dec89ea063"
+    },
+    {
+      "path": "lib/gnark/test/unsafekzg/options.go",
+      "sha256": "20dd30853cbdcff50ddff15880c8de78ddfcc87c7e501bb871b2d7c79d550f14"
+    },
+    {
+      "path": "lib/gnark/version_test.go",
+      "sha256": "945238f3808ae1cc5e7ebe4477159eaf6cc2c0882e692127493155aff9758a00"
+    },
+    {
+      "path": "matrix/matrix.go",
+      "sha256": "c50f622e52c822ad38f3a30139eeabb10bb1e6f7d845d2242c3c3384d87e5eec"
+    },
+    {
+      "path": "protocol/prover.go",
+      "sha256": "81f31eb98468becee7188d81181da77471ab07f8914443bfefcdd397f620d768"
+    },
+    {
+      "path": "protocol/transcript.go",
+      "sha256": "236996707459e185404909d0eb8f30295346bebe76ea01be8c8ea23f6d5ab2c9"
+    },
+    {
+      "path": "protocol/transcript_test.go",
+      "sha256": "807e582a1cf1f7a560c78c776ec889bcd834de00cf8231a3bc05b4710f85d51f"
+    },
+    {
+      "path": "protocol/verifier.go",
+      "sha256": "cba31e4c052b23a4a4cabdd0bcdcd8dfc4318fd57d0b8631b3aa967aa933ba30"
+    }
+  ],
+  "git_commit": "23dac21c1d504a70400e3379497fc47891445f7e",
+  "git_diff": "",
+  "binary_sha256": "2b9584bfdd6a58c0d728d8766425c4d5d2d545b627adc1a6ce1cfaf829d9d622",
+  "go": "go version go1.26.2 darwin/arm64",
+  "host": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "cpu": "Apple M1 Pro",
+  "memory_bytes": "34359738368",
+  "started_utc": "2026-09-29T14:46:25.369146+00:00",
+  "commands": [
+    {
+      "n": 128,
+      "mode": "integers",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "128",
+        "-mode",
+        "integers",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n128_integers.jsonl"
+      ],
+      "raw": "n128_integers.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 1.259379499591887,
+      "rows": 10,
+      "raw_sha256": "e2f4389e9661ec265540f30a6b4e518a4b079c7ccb0b53670a49c61e55e6ab6e"
+    },
+    {
+      "n": 128,
+      "mode": "fft",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "128",
+        "-mode",
+        "fft",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n128_fft.jsonl"
+      ],
+      "raw": "n128_fft.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8696717089042068,
+      "rows": 10,
+      "raw_sha256": "d350376562767414e26ee1439613b013b5e3f51e7769c1a1a095b9875e37f59d"
+    },
+    {
+      "n": 256,
+      "mode": "integers",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "256",
+        "-mode",
+        "integers",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n256_integers.jsonl"
+      ],
+      "raw": "n256_integers.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 3.390437333844602,
+      "rows": 10,
+      "raw_sha256": "01eb1faa02c6af5d3db44c9b31be979381b62215d5a95fa904fd2e08edd3113e"
+    },
+    {
+      "n": 256,
+      "mode": "fft",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "256",
+        "-mode",
+        "fft",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n256_fft.jsonl"
+      ],
+      "raw": "n256_fft.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 3.117028707638383,
+      "rows": 10,
+      "raw_sha256": "d5f819e23525463a38c59e4a9cffab4f831b157552ed71ae5a1a5fe6d1468803"
+    },
+    {
+      "n": 512,
+      "mode": "integers",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "512",
+        "-mode",
+        "integers",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n512_integers.jsonl"
+      ],
+      "raw": "n512_integers.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 14.840121749788523,
+      "rows": 10,
+      "raw_sha256": "c16ac669559487a1a9159afb41c5db071e0f0e26a232d93d6c647e8b709d0c2d"
+    },
+    {
+      "n": 512,
+      "mode": "fft",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "512",
+        "-mode",
+        "fft",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n512_fft.jsonl"
+      ],
+      "raw": "n512_fft.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 15.225072499364614,
+      "rows": 10,
+      "raw_sha256": "84fc4f8e1af7b26ca21ef0fa20ab80d7ca0ba0d8e20bba88527146ea44d63c15"
+    },
+    {
+      "n": 1024,
+      "mode": "integers",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "1024",
+        "-mode",
+        "integers",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n1024_integers.jsonl"
+      ],
+      "raw": "n1024_integers.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 77.0359960841015,
+      "rows": 10,
+      "raw_sha256": "ce935e9b9b29ecf78624a83ce3ff1663bca848223f56b5eb0c531d01bf9d0b58"
+    },
+    {
+      "n": 1024,
+      "mode": "fft",
+      "command": [
+        "<built-binary>",
+        "-n",
+        "1024",
+        "-mode",
+        "fft",
+        "-repetitions",
+        "10",
+        "-threads",
+        "10",
+        "-output",
+        "n1024_fft.jsonl"
+      ],
+      "raw": "n1024_fft.jsonl",
+      "status": "completed_operation_attempts",
+      "exit_code": 0,
+      "elapsed_seconds": 73.83633012510836,
+      "rows": 10,
+      "raw_sha256": "0d1c323ab19db1d823ea848c6295a344ef5a770af1eb3d10b18a13891220eda4"
+    }
+  ],
+  "finished_utc": "2026-09-29T14:49:34.964528+00:00"
+}

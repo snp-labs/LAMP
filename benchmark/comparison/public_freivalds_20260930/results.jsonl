@@ -1,0 +1,4 @@
+{"dimension":1024,"batch_q":1,"generation_seconds":0.7715255,"product_seconds":3.48159275,"verification_seconds":0.200534875,"tamper_rejected":true,"public_input_bytes":100663296,"peak_memory_bytes":148701184,"go_version":"go1.26.2"}
+{"dimension":1024,"batch_q":4,"generation_seconds":3.105589124,"product_seconds":16.628051334,"verification_seconds":0.848851084,"tamper_rejected":true,"public_input_bytes":402653184,"peak_memory_bytes":218726400,"go_version":"go1.26.2"}
+{"dimension":1024,"batch_q":10,"generation_seconds":7.743570123,"product_seconds":38.598210125,"verification_seconds":2.1669813340000004,"tamper_rejected":true,"public_input_bytes":1006632960,"peak_memory_bytes":226869248,"go_version":"go1.26.2"}
+{"dimension":2048,"batch_q":1,"generation_seconds":3.10129575,"product_seconds":35.347521917,"verification_seconds":1.487190375,"tamper_rejected":true,"public_input_bytes":402653184,"peak_memory_bytes":522567680,"go_version":"go1.26.2"}

@@ -1,0 +1,10 @@
+🔥 [LAMP ZK Protocol] logK=7, K=128, N=256, L=309, linker=qa_link, merkle=multi
+=== 🔍 Compiling Circuit for Constraints ===
+14:09:30 INF compiling circuit
+14:09:30 INF parsed circuit inputs nbPublic=315 nbSecret=120735
+14:09:30 INF building constraint builder nbConstraints=167065
+✅ Circuit compiled successfully! Total Constraints: 167065
+💾 Result saved to CSV: LAMP Protocol: logK=7, rho=1/2, linker=qa_link, merkle=multi, L=309, constraints=167065
+
+
+🎉 All LAMP ZK tasks finished!

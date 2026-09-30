@@ -1,0 +1,85 @@
+zkmap_provisional: n=1024, repetitions=10, mode=integers, threads=10
+Output: /Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/zkmap_operations_20260930_run1/n1024_integers.jsonl
+
+Preparing prover (setup and preprocessing)...
+Setup/preprocessing complete: 9.317s
+
+Attempt 1/10...
+  Attempt 1 complete. Online: 2.204s, Total: 7.048s
+    Challenge Y: cdc7f524163b650d (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 2/10...
+  Attempt 2 complete. Online: 2.329s, Total: 7.384s
+    Challenge Y: f9953618f8098d57 (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 3/10...
+  Attempt 3 complete. Online: 1.899s, Total: 6.641s
+    Challenge Y: 662f34f503c5aba0 (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 4/10...
+  Attempt 4 complete. Online: 2.029s, Total: 6.524s
+    Challenge Y: 64444ea8005f00b3 (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 5/10...
+  Attempt 5 complete. Online: 1.935s, Total: 6.575s
+    Challenge Y: 5accdc4d175692cf (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 6/10...
+  Attempt 6 complete. Online: 1.915s, Total: 6.692s
+    Challenge Y: f2942f8aa09cc8cb (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 7/10...
+  Attempt 7 complete. Online: 2.039s, Total: 6.563s
+    Challenge Y: 723e58cbc57b5de2 (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 8/10...
+  Attempt 8 complete. Online: 2.065s, Total: 7.282s
+    Challenge Y: ddd301e836aa6b4a (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 9/10...
+  Attempt 9 complete. Online: 2.021s, Total: 6.582s
+    Challenge Y: 1decc829ccfe7efc (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Attempt 10/10...
+  Attempt 10 complete. Online: 1.893s, Total: 6.387s
+    Challenge Y: 9266ea708bbffed3 (first 16 chars)
+    Mode: integers, Remainder zero: false, Witness exists: false
+    Pairing accepted: false, Mu dot consistent: true
+
+Results: 10/10 successful attempts written to /Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/zkmap_operations_20260930_run1/n1024_integers.jsonl
+       77.03 real       480.72 user         7.52 sys
+           836141056  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              104904  page reclaims
+                  10  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+               21874  signals received
+               12049  voluntary context switches
+             1215491  involuntary context switches
+       4045736381404  instructions retired
+       1407503926845  cycles elapsed
+           841516136  peak memory footprint

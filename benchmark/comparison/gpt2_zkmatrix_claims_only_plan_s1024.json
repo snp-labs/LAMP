@@ -1,0 +1,138 @@
+{
+  "execution_status": "planned_only",
+  "workload": "official_gpt2_graph_matmul_claims_only",
+  "certificate": "grouped_zkmatrix_matmul_claims_only",
+  "graph_wiring_certified": false,
+  "public_input_output_binding_certified": false,
+  "sequence_length": 1024,
+  "claims": 36,
+  "verified_claims": 0,
+  "groups": [
+    {
+      "rows": 1024,
+      "inner": 64,
+      "columns": 1024,
+      "claims": 16,
+      "claim_ids": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31
+      ],
+      "claim_tags": [
+        "score_00",
+        "score_01",
+        "score_02",
+        "score_03",
+        "score_04",
+        "score_05",
+        "score_06",
+        "score_07",
+        "score_08",
+        "score_09",
+        "score_10",
+        "score_11",
+        "score_12",
+        "score_13",
+        "score_14",
+        "score_15"
+      ]
+    },
+    {
+      "rows": 1024,
+      "inner": 1024,
+      "columns": 64,
+      "claims": 16,
+      "claim_ids": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32
+      ],
+      "claim_tags": [
+        "value_00",
+        "value_01",
+        "value_02",
+        "value_03",
+        "value_04",
+        "value_05",
+        "value_06",
+        "value_07",
+        "value_08",
+        "value_09",
+        "value_10",
+        "value_11",
+        "value_12",
+        "value_13",
+        "value_14",
+        "value_15"
+      ]
+    },
+    {
+      "rows": 1024,
+      "inner": 1024,
+      "columns": 1024,
+      "claims": 1,
+      "claim_ids": [
+        33
+      ],
+      "claim_tags": [
+        "attn_out"
+      ]
+    },
+    {
+      "rows": 1024,
+      "inner": 1024,
+      "columns": 4096,
+      "claims": 2,
+      "claim_ids": [
+        0,
+        34
+      ],
+      "claim_tags": [
+        "qkv_proj",
+        "mlp_up"
+      ]
+    },
+    {
+      "rows": 1024,
+      "inner": 4096,
+      "columns": 1024,
+      "claims": 1,
+      "claim_ids": [
+        35
+      ],
+      "claim_tags": [
+        "mlp_down"
+      ]
+    }
+  ],
+  "matrix_compute_seconds_excluded_from_prover": 0,
+  "setup_seconds_total_shared_once": 0,
+  "data_provenance": "official GPT-2 medium shape generator; no matrix values generated and no SRS setup performed",
+  "srs_size_definition": "compressed point bytes for 2 G1 power arrays plus 3 G2 anchors; excludes the fixed hiding point and codec/framing bytes"
+}

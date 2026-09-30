@@ -1,0 +1,30 @@
+{
+  "case": "rho_1_4",
+  "command": [
+    "/Users/hyunokoh/Develop/Projects/Lamp/upstream-current/benchmark/comparison/large_k11_m1pro_20260930_pilot/bin/lamp",
+    "-K",
+    "11",
+    "-rho",
+    "1/4",
+    "-L",
+    "189",
+    "-all=false",
+    "-compile=false",
+    "-OnlyCompile=false"
+  ],
+  "binary_sha256": "084ae86ea1c59057a812fc93869018ef991136d2772af23746b2f511eecc5a80",
+  "git_head": "751a1c435c5bcc71baedee4b13517fc0a1f7388d",
+  "go": "go version go1.26.2 darwin/arm64",
+  "host": "Apple M1 Pro 10cpu 32GiB macOS",
+  "started_utc": "2026-09-29T19:29:49.784873+00:00",
+  "rss_ceiling_kib": 16777216,
+  "timeout_seconds": 1200,
+  "status": "completed",
+  "exit_code": 0,
+  "limit_hit": null,
+  "elapsed_seconds": 283.320126125589,
+  "peak_polled_rss_kib": 4113008,
+  "finished_utc": "2026-09-29T19:34:33.033327+00:00",
+  "peak_resident_bytes_time_l": 4212178944,
+  "peak_resident_source": "stderr.log /usr/bin/time -l maximum resident set size"
+}

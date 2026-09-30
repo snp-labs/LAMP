@@ -6,7 +6,9 @@ import (
 	"fmt"
 	"log"
 	"math"
+	"os"
 	"path/filepath"
+	"runtime"
 	"sync"
 	"time"
 
@@ -22,6 +24,7 @@ import (
 	"github.com/consensys/gnark-crypto/ecc/bn254/fr"
 	"github.com/consensys/gnark-crypto/ecc/bn254/fr/fft"
 	"github.com/consensys/gnark/backend/groth16"
+	groth16bn254 "github.com/consensys/gnark/backend/groth16/bn254"
 	"github.com/consensys/gnark/frontend"
 	"github.com/consensys/gnark/frontend/cs/r1cs"
 )
@@ -190,6 +193,7 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 	abcBlocks := buildABCBlocks(products, N, K)
 	leavesABC, blABC := crypto.BatchPedersenCommitBlinded(abcBlocks, ckABC)
 	treeABC, rootABC := crypto.BuildMerkleTreeFromGroupElements(leavesABC, depth)
+	comparisonMatrixCommitTime := time.Since(startMatCommit).Seconds()
 
 	cmABC := crypto.HashElementsMiMC(rootABC)
 	challengeR := deriveLAMPBATCHChallenge(cmABC, labelChallengeR)
@@ -250,15 +254,19 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 	totalCommitTime := encodingTime + commitTime
 
 	fmt.Println("=== Circuit Setup & Prove ===")
+	onlinePausedSetup := 0.0
 	startDomainSetup := time.Now()
 	rootsK, weightsK, rootsN, weightsN := buildDomains(K, N)
 	protocolSetupTime += time.Since(startDomainSetup).Seconds()
 
 	emptyCircuit := newLAMPBATCHCircuit(K, N, batch, L, rootsK, weightsK, rootsN, weightsN)
+	compileStart := time.Now()
 	r1csSystem, err := frontend.Compile(field, r1cs.NewBuilder, emptyCircuit)
 	if err != nil {
 		log.Fatalf("❌ Compilation failed: %v", err)
 	}
+	circuitCompileTime := time.Since(compileStart).Seconds()
+	onlinePausedSetup += time.Since(startDomainSetup).Seconds()
 	nbConstraints := r1csSystem.GetNbConstraints()
 
 	startSetup := time.Now()
@@ -267,6 +275,7 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 		log.Fatalf("❌ Groth16 setup failed: %v", err)
 	}
 	circuitSetupTime += time.Since(startSetup).Seconds()
+	onlinePausedSetup += time.Since(startSetup).Seconds()
 
 	assignment := newLAMPBATCHCircuit(K, N, batch, L, rootsK, weightsK, rootsN, weightsN)
 	assignment.RootABC = rootABC
@@ -283,6 +292,7 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 	proverWithPK := protocol.NewProver(pk, ckABC, encoder)
 	verifier := protocol.NewVerifier(vk, ckABC, proverWithPK.CK2)
 	protocolSetupTime += time.Since(startProtocolBindSetup).Seconds()
+	onlinePausedSetup += time.Since(startProtocolBindSetup).Seconds()
 
 	const (
 		columnCommitIndex = iota
@@ -307,6 +317,7 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 		log.Fatalf("❌ Scalar QA-link setup failed: %v", err)
 	}
 	cpLinkSetupTime += time.Since(startCPLinkSetup).Seconds()
+	onlinePausedSetup += time.Since(startCPLinkSetup).Seconds()
 	setupTime := protocolSetupTime + circuitSetupTime + cpLinkSetupTime
 
 	fmt.Println("=== 3. Generating Proof ===")
@@ -355,6 +366,7 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 		log.Fatalf("❌ Scalar QA-link proof failed: %v", err)
 	}
 	cpLinkProveTime := time.Since(startCPLinkProve).Seconds()
+	fullOnlineProveTime := time.Since(startMatCommit).Seconds() - onlinePausedSetup
 
 	publicWitness, err := proofWitness.Public()
 	if err != nil {
@@ -416,6 +428,36 @@ func runExperiment(logK int, rhoStr string, L int, batch int, onlyCompile bool) 
 
 	cpLinkProofSize := crypto.QALinkProofSizeBytes(columnLinkProof) + crypto.QALinkProofSizeBytes(scalarLinkProof)
 	totalProofSize := groth16ProofSize + merkleProofSize + cpLinkProofSize
+	if rawPath := os.Getenv("LAMP_COMPARISON_RAW_JSONL"); rawPath != "" {
+		payload := benchmark.LAMPCanonicalPayload{Groth16: circuitProof, ABCLeaves: columnExternalCommitments, XYZLeaves: scalarExternalCommitments, ABCMerkle: mmpABC.Siblings, XYZMerkle: mmpXYZ.Siblings, QALinks: []bn254.G1Affine{columnLinkProof.Pi, scalarLinkProof.Pi}}
+		blob, wireErr := payload.MarshalBinary()
+		if wireErr != nil {
+			log.Fatalf("LAMP batch canonical payload encode: %v", wireErr)
+		}
+		decoded, wireErr := benchmark.UnmarshalLAMPCanonicalPayload(blob)
+		if wireErr != nil {
+			log.Fatalf("LAMP batch canonical payload decode: %v", wireErr)
+		}
+		decodedProof, ok := decoded.Groth16.(*groth16bn254.Proof)
+		if !ok || len(decodedProof.Commitments) <= scalarCommitIndex || len(decoded.QALinks) != 2 {
+			log.Fatal("decoded LAMP batch commitments or QA-links unavailable")
+		}
+		if wireErr = groth16.Verify(decoded.Groth16, vk, publicWitness); wireErr != nil {
+			log.Fatalf("decoded Groth16 proof rejected: %v", wireErr)
+		}
+		if !verifier.VerifyMultiMembership(rootABC, decoded.ABCLeaves, indices, crypto.MerkleMultiProof{Siblings: decoded.ABCMerkle}, depth) || !verifier.VerifyMultiMembership(rootXYZ, decoded.XYZLeaves, indices, crypto.MerkleMultiProof{Siblings: decoded.XYZMerkle}, depth) {
+			log.Fatal("decoded LAMP batch Merkle proof rejected")
+		}
+		decodedLinks := []crypto.QALinkVerification{{SnarkCommit: decodedProof.Commitments[columnCommitIndex], ExternalCommits: decoded.ABCLeaves, Proof: crypto.QALinkProof{Pi: decoded.QALinks[0]}, VK: columnLinkVK}, {SnarkCommit: decodedProof.Commitments[scalarCommitIndex], ExternalCommits: decoded.XYZLeaves, Proof: crypto.QALinkProof{Pi: decoded.QALinks[1]}, VK: scalarLinkVK}}
+		if !crypto.VerifyQALinksBatched(decodedLinks, lampBatchLinkContext([]fr.Element{rootABC, rootXYZ}, indices, batch, K, N, L)...) {
+			log.Fatal("decoded LAMP batch QA-link proof rejected")
+		}
+		payloadSize, originalSize := len(blob), totalProofSize
+		raw := map[string]any{"schema_version": 1, "scheme": "lamp", "variant": "qa_link/multi", "workload": "batch", "protocol_path": "batch", "batch_q": batch, "sampling_profile": "official_GenerateIndices_with_replacement", "protocol_fidelity": "official_revision_e2d1cae_public_protocol", "dimensions": map[string]int{"log_k": logK, "K": K, "N": N}, "query_count": L, "distinct_query_count": distinctBatchQueryCount(indices), "verification_succeeded": true, "timings_seconds": map[string]float64{"prove": fullOnlineProveTime, "full_online_prove": fullOnlineProveTime, "matrix_commit": comparisonMatrixCommitTime, "precommitted_online_prove": fullOnlineProveTime - comparisonMatrixCommitTime, "original_reported_totalprove": totalProveTime, "official_reported_totalcommit": totalCommitTime, "official_abc_commit_through_challenges": matrixTotalCommitTime, "verify": totalVerifyTime, "setup": setupTime, "circuit_compile": circuitCompileTime, "matrix_compute": matrixComputeTime, "matrix_encoding": matrixEncodingTime, "matrix_commit_ex_encoding": matCommitTime, "vector_fold_encoding_commit": vectorTotalCommitTime}, "original_reported_proof_bytes": originalSize, "compressed_payload_bytes": payloadSize, "statement_bytes": 64, "statement_size_definition": "two public BN254 scalar roots, 32 bytes each; dimensions are metadata, derived indices/challenges are omitted", "proof_size_definition": "original reported bytes use uncompressed G1 sizes; LCP1 payload is compressed and decoded/reverified, excluding public roots, keys and witness", "timing_accounting_profile": "commit-inclusive online, setup and compile paused; assignment/NewWitness included", "proof_accounting_profile": "LCP1 compressed canonical proof payload; public statement and keys excluded", "host": map[string]string{"goos": runtime.GOOS, "goarch": runtime.GOARCH, "go_version": runtime.Version(), "runtime_num_cpu": fmt.Sprint(runtime.NumCPU())}}
+		if err := benchmark.AppendComparisonRawJSONL(rawPath, raw); err != nil {
+			log.Fatalf("write raw LAMP batch comparison record: %v", err)
+		}
+	}
 
 	fmt.Printf("📊 Proof Sizes -> Groth16: %d B, Merkle: %d B, CPLink: %d B | Total: %d B\n",
 		groth16ProofSize, merkleProofSize, cpLinkProofSize, totalProofSize)
@@ -683,4 +725,12 @@ func uint64Element(value uint64) fr.Element {
 	var out fr.Element
 	out.SetUint64(value)
 	return out
+}
+
+func distinctBatchQueryCount(indices []int) int {
+	seen := make(map[int]struct{}, len(indices))
+	for _, idx := range indices {
+		seen[idx] = struct{}{}
+	}
+	return len(seen)
 }
