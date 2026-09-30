@@ -1,5 +1,11 @@
 # Groth16 없는 LAMP 비교와 대체 백엔드 조사 (2026-09-30)
 
+## LAMP의 핵심과 구현체의 경계
+
+LAMP의 핵심은 **선형 ECC로 행렬의 행을 부호화한 뒤, Freivalds형 무작위 접힘과 사후 표본 질의로 `AB=C`를 확인하는 방식**이다. 부호화된 행렬 열과 중간 codeword를 질의 전에 고정하고, 표본 위치에서 fold 등식과 중간 벡터의 codeword 일관성을 검사해야 한다. 이 순서와 soundness 목표가 유지되면 Pedersen leaf, Merkle tree, Groth16, CP-link는 다른 구현으로 교체할 수 있다. 논문 §5.1–5.5의 composite relation은 산술 검사와 commitment/opening 검사를 분리해 서술한다.
+
+현재의 Merkle+Pedersen+Groth16+CP-link는 그 composite relation을 만족시키는 **한 가지 구성**이다. `Groth16` 호출만 다른 SNARK로 바꿀 수 없다는 아래 설명은 현행 *코드의 인터페이스*에 관한 것이며, LAMP의 ECC sampling 원리가 Groth16을 요구한다는 뜻이 아니다. 새로운 commitment/IOP로 sampled opening과 관계 증명을 함께 구성하면 CP-link 자체가 필요 없을 수 있다.
+
 ## 결론과 비교 범위
 
 현재 **완전한 LAMP 증명을 Groth16 없이 생성·검증하는 구현은 없다.** 따라서 기존 LAMP 측정값에서 Groth16 시간만 빼서 zkMatrix와 비교할 수 없다. 그 숫자는 회로가 맡았던 관계의 증명 비용을 누락한다. Groth16이 없는 완전한 committed-matrix 증명으로 검증된 것은 [zkMatrix 독립 구현](ZKMATRIX_FIDELITY_CHECKLIST.md)이며, LAMP와의 같은 매개변수 전체 프로토콜 비교는 [대형 행렬](LARGE_MATRIX_PILOT_KO.md)과 [배치](BATCH_K10_PILOT_KO.md)에 있다.
@@ -14,8 +20,10 @@ LAMP 회로의 세 번의 `frontend.Committer.Commit`은 sampled A/B/C 열, samp
 
 | 후보 | 현재 실험 가능성 | 같은 LAMP 명제를 완성하려면 |
 |---|---|---|
-| KZG + PLONK | gnark SCS와 PLONK으로 원래 회로를 컴파일·증명·검증하는 진단 코드를 작성했다. 작은 사례에서 실패가 재현된다. | PLONK/KZG 내부 witness commitment를 외부 Pedersen commitment에 안전하게 연결하는 새 commit-and-prove 구성, 결함 원인 수정, soundness/ZK 분석. KZG 자체는 SNARK가 아니다. |
-| IPA 기반 SNARK | zkMatrix는 IPA 기반의 **행렬곱 전용** 증명으로 실제 전체 비교를 완료했다. | LAMP의 hash, lookup, RS, sampled fold 전체를 위한 IPA 기반 일반 회로 SNARK와 Pedersen 연결 증명 또는 전용 프로토콜이 필요하다. 투명한 setup 가능성과 proof/verifier 비용을 함께 재야 한다. |
+| KZG 기반 ECC sampling | gnark PLONK/KZG로 **현행 회로만** 증명하는 진단 코드를 작성했으며 작은 사례의 검증 실패가 재현된다. 이 진단은 전용 KZG 구성의 측정이 아니다. | 부호화 행렬과 중간 codeword를 KZG에 묶고 sampled opening·fold·RS 관계를 직접 검증하는 전용 구성을 설계할 수 있다. 현행 Groth16을 유지한다면 별도 witness-link가 필요하고, 전용 구성이라면 이를 함께 설계해 CP-link를 없앨 수 있다. Hiding, SRS, batched opening 비용을 포함한다. |
+| IPA 기반 ECC sampling | zkMatrix는 IPA 기반의 **행렬곱 전용** 증명으로 실제 전체 비교를 완료했다. | Pedersen 계열 commitment의 선형 opening/inner-product 증명으로 sampled fold를 직접 처리하고, RS 일관성과 사전 commitment binding을 증명하는 LAMP 전용 구성이 가능하다. Proof/verifier 비용과 zero knowledge를 재야 한다. |
+| Merkle + FRI | LAMP의 RS codeword 일관성 검사와 구조적으로 맞닿아 있지만 아직 완전한 LAMP 변형은 없다. | FRI의 저차수 근접성 검사에 sampled fold, 행렬곱 등식, 사전 commitment binding과 ZK masking을 결합해야 한다. FRI도 Merkle opening을 쓰므로 proof 크기는 별도로 재야 한다. |
+| Brakedown류 | Hash/code 기반의 R1CS SNARK 또는 PCS를 참고할 수 있다. | Brakedown의 자체 error-correcting code와 LAMP ECC sampling의 관계를 다시 설계해야 한다. 기본 구성이 LAMP의 zero knowledge를 자동으로 제공하지 않으므로 ZK 구성 비용도 포함해야 한다. |
 | Sumcheck 기반 | 다항식 관계를 새로 표현하면 RS·fold 검사를 batch하기에 유망하다. | multilinear witness commitment, lookup/hash 관계, Fiat–Shamir, ZK masking, 공개 commitment 연결을 모두 설계해야 한다. Sumcheck 단독으로는 숨겨진 witness를 묶지 않는다. |
 | GKR 기반 | 층 구조가 규칙적인 연산에서는 후보가 된다. | LAMP 회로를 layered arithmetic circuit으로 다시 만들고 입력 commitment와 GKR 출력을 연결해야 한다. 일반 gnark GKR API가 현재 LAMP Groth16 proof의 drop-in backend인 것은 아니다. |
 
@@ -57,10 +65,10 @@ Apple M1 Pro, macOS arm64, 10 logical CPUs, Go 1.26.2, BN254. `K=128`은 행렬 
 
 ## 우선순위
 
-1. PLONK의 간헐적 verifier 실패를 결정적 seed로 재현하고 회로/solver/prover/verifier 중 원인을 찾는다.
-2. PLONK KZG 내부 commitment와 기존 외부 Pedersen commitment의 메시지 동일성을 증명하는 별도 link를 설계·검증한다. 이 단계가 끝나기 전에는 성능 우위를 주장하지 않는다.
-3. 같은 매개변수의 q=1 및 q>1에서 setup, 입력 commitment, link, proof, verifier, memory, proof 크기를 모두 재고 zkMatrix와 비교한다.
-4. IPA/sumcheck/GKR은 별도 protocol 설계가 필요한 연구선으로 두되, 먼저 matrix commitment가 지배적인 n=2048/4096과 배치 q=4/10에서 비용 모델을 검증한다.
+1. 논문 §5의 ECC sampling relation을 backend 독립적인 명세와 테스트로 분리한다. 특히 commitment가 먼저 고정되고 challenge와 표본이 나중에 정해지는 순서, 중간 codeword 일관성, 같은 값에 대한 opening, hiding을 유지한다.
+2. **동일한 ECC sampling relation**을 증명하는 세 계열을 비교한다: (a) 전역 또는 다항식 KZG commitment와 batched opening/관계 증명, (b) Merkle oracle와 FRI 또는 Brakedown류 code-based IOP, (c) Pedersen/IPA 기반 선형 관계 증명. 각 계열에서 외부 입력 binding과 zero knowledge가 완성되기 전에는 전체 LAMP 성능으로 부르지 않는다.
+3. 현행 PLONK 구성요소의 간헐적 verifier 실패는 별도로 재현·수정한다. 이는 KZG 기반 LAMP의 가능성 자체를 부정하지 않으며, 현재 코드 경로의 실측값을 유효한 전체 프로토콜로 사용할 수 없다는 의미다.
+4. n=1024/2048/4096, q=1 및 배치 q>1에서 setup, 입력 commitment, online proof, verification, memory, 전체 proof 크기를 같은 보안 목표와 sampling parameter로 잰다. 행렬 크기와 배치 수 모두에서 병목이 바뀌므로 둘 다 필요하다.
 
 ### 1차 자료
 
@@ -69,3 +77,5 @@ Apple M1 Pro, macOS arm64, 10 logical CPUs, Go 1.26.2, BN254. `K=128`은 행렬 
 - [Libra: zero-knowledge GKR 구현·측정](https://eprint.iacr.org/2019/317)
 - [LegoSNARK: commitment를 가진 증명 구성요소의 연결](https://eprint.iacr.org/2019/142)
 - [Bulletproofs: inner-product argument 기반 증명](https://eprint.iacr.org/2017/1066)
+- [FRI: Reed–Solomon codeword proximity IOP](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2018.14)
+- [Brakedown: code 기반 SNARK for R1CS](https://eprint.iacr.org/2021/1043.pdf)
