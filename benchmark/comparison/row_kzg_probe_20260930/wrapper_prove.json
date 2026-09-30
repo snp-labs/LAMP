@@ -1,0 +1,1 @@
+{"compile_seconds":1.7039175,"constraints":589227,"groth16_prove_seconds":3.720918541,"groth16_setup_seconds":58.489187334,"groth16_verify_seconds":0.002081917,"schema":"one_bn254_kzg_verifier_in_bn254_groth16_lower_bound_v1","scope":"single_kzg_opening_only_not_matrix_protocol","verified":true}

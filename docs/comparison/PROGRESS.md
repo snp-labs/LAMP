@@ -1,6 +1,6 @@
 # Comparison progress
 
-Updated 2026-09-29 for official commit `e2d1cae`.
+Baseline updated 2026-09-29 for official commit `e2d1cae`; prototype update 2026-09-30.
 
 ## Completed
 
@@ -60,3 +60,9 @@ has been substituted into the local result tables.
 ## 2026-09-30 provisional operation estimate
 
 Claude Haiku 4.5 implemented a separate zkMaP Appendix E operation workload, followed by root review/corrections. [80 measured operation attempts and limitations](ZKMAP_PROVISIONAL_TIMING.md) are published. Both node assumptions have nonzero remainders in all attempts; zero valid witnesses. This completes the requested provisional estimate, not the sound zkMaP baseline or full Linux Section 7 reproduction.
+
+## 2026-09-30 proof-system exploration
+
+[Vertical RS sparse-opening pilot](COLUMN_RS_SAMPLING_PILOT_KO.md) shows the full-column data reduction but also a concrete soundness gap: a single vertical grid challenge at rate 1/2 can miss an invalid relation with probability about 1/2, and the `xᵀB` inner product remains unproved. It is not a complete LAMP replacement.
+
+[Full-field row-KZG/Freivalds pilot](ROW_KZG_FULL_FIELD_PILOT_KO.md) implements and checks two complete non-ZK matrix-product arguments for a different row-commitment statement. The direct commitment variant takes 51.462 seconds to commit and prove a 4096×4096 case and has a 131,080-byte inner proof; the 393,224-byte statement and SRS are separate. An outer Groth16 wrapper and its proof time remain unmeasured. These results are exploratory and are not inserted into the Shepherd comparison table.
