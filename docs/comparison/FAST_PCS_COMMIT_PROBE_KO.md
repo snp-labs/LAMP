@@ -36,3 +36,5 @@ go test ./crypto ./cmd/lamp_commit_probe
 해시 커밋을 실제 LAMP에 사용하려면 질의된 열을 공개하는 대신, 사전에 고정된 비공개 A/B/C와 중간 codeword가 표본 위치에서 네 가지 접힘 등식과 RS 관계를 만족함을 증명해야 한다. 검증자가 행렬 commitment를 받은 뒤 접힘 난수를 만들고, 중간값 commitment를 받은 뒤 표본 인덱스를 만드는 순서도 보존해야 한다. 검증자가 해시 root만 보고 공개된 열을 검사하는 이 프로브에는 그 증명이 없다.
 
 후속 백엔드 후보는 [DeepFold](https://www.usenix.org/conference/usenixsecurity25/presentation/guo-yanpei) 계열의 영지식 RS 기반 PCS와 sumcheck 관계 증명이다. 원 논문의 DeepFold matrix multiplication 증명은 LAMP의 ECC 표본 관계와 다르므로 통째로 사용하거나 논문 수치를 LAMP 성능으로 옮겨서는 안 된다. 저자 공개 구현의 BN254 경로도 완료 여부를 별도로 검증해야 한다. 집계 SNARK를 적용한다면 `기본 증명 시간 + 집계 증명 시간`을 온라인 비용으로 보고한다.
+
+저자의 [DeepFold-HyperPlonk 공개 아티팩트](https://doi.org/10.5281/zenodo.14725129)를 확인했다. 포함된 BN254 필드 모듈의 `inv_2`는 미구현이고 DeepFold 벤치마크는 Goldilocks64를 사용한다. 따라서 이 아티팩트를 현재 BN254 LAMP에 단순 연결하여 완전한 영지식 증명을 얻을 수 없다. 독립적인 PCS 검증뿐 아니라 LAMP 샘플 관계·외부 입력 바인딩·challenge 순서에 대한 구현 및 악의적 prover 테스트가 필요하다.
