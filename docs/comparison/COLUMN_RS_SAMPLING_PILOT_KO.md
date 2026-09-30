@@ -1,5 +1,7 @@
 # 열 방향 ECC와 소수 행 opening: 구현 및 판정
 
+**연구 브랜치 전용:** 원래 목표는 LAMP의 표본 열 전체 witness를 줄이는 것이다. KZG 행렬곱 대안은 이 목표의 구현이 아니다. 소수 opening만으로는 `xᵀB`를 결정할 수 없다는 반례와 Groth16 연결의 조건을 [후속 판정](SPARSE_COLUMN_LAMP_GAP_KO.md)에 정리했다.
+
 2026-09-30. 사용자가 제안한 열 방향 RS 부호화와 소수 행 위치 검사 방식을 `crypto/columnrs.go`, `crypto/column_grid_oracle.go`, `cmd/lamp_column_probe`로 시험했다. 결과 원본과 재현 명령은 [실험 README](../../benchmark/comparison/column_grid_probe_20260930/README.md)에 있다. 저렴한 Claude Haiku로 초기 RS 부호화 파일을 작성한 뒤, 테스트를 정리하고 Merkle opening과 벤치마크를 추가했다.
 
 ## 무엇이 가능한가

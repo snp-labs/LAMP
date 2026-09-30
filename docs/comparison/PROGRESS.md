@@ -60,3 +60,7 @@ has been substituted into the local result tables.
 ## 2026-09-30 provisional operation estimate
 
 Claude Haiku 4.5 implemented a separate zkMaP Appendix E operation workload, followed by root review/corrections. [80 measured operation attempts and limitations](ZKMAP_PROVISIONAL_TIMING.md) are published. Both node assumptions have nonzero remainders in all attempts; zero valid witnesses. This completes the requested provisional estimate, not the sound zkMaP baseline or full Linux Section 7 reproduction.
+
+## 2026-09-30 sparse-column research correction
+
+The intended LAMP optimization is to replace each full sampled ABC column in Groth16 with a few authenticated vertical RS evaluations, not to replace LAMP with a row-KZG matrix protocol. The isolated `research/sparse-column-openings` branch records the precise [soundness and implementation gaps](SPARSE_COLUMN_LAMP_GAP_KO.md). A constructive test shows that fewer than K vertical evaluations cannot determine the generic `xᵀB` term, even if low degree is perfectly established. The default LAMP implementation and paper comparison are unchanged.
