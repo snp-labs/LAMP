@@ -53,9 +53,19 @@ func main() {
 	compileFlag := flag.Bool("compile", config.GetBool("LAMP_ONLY_COMPILE", false), "Only compile the circuit to get constraints")
 	onlyCompileFlag := flag.Bool("OnlyCompile", config.GetBool("LAMP_ONLY_COMPILE", false), "Alias for -compile")
 	plonkProbeFlag := flag.Bool("plonk-probe", config.GetBool("LAMP_PLONK_PROBE", false), "Run COMPONENT-ONLY KZG/PLONK backend probe (test-only)")
+	kzgLinkProbeFlag := flag.Bool("kzg-link-probe", false, "Run isolated original-LAMP ECC circuit with in-Groth16 KZG column links (research only)")
 	flag.Parse()
 
 	onlyCompile := *compileFlag || *onlyCompileFlag
+	if *kzgLinkProbeFlag {
+		if *rhoFlag != "1/2" || *logKFlag < 2 || *logKFlag > 3 || *LFlag < 1 || *LFlag > 4 {
+			log.Fatal("research KZG link probe requires rho=1/2, logK in [2,3], L in [1,4]")
+		}
+		if err := runKZGLinkProbe(*logKFlag, *LFlag); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
 
 	if *plonkProbeFlag {
 		fmt.Println("🔬 COMPONENT-ONLY PLONK Backend Probe (test-only, not a production replacement)")

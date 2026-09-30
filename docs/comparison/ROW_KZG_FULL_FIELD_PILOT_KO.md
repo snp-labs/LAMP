@@ -1,5 +1,7 @@
 # 전체 필드 KZG/Freivalds 대안과 외부 Groth16 비용
 
+**연구 브랜치 전용.** 이 구현과 측정은 LAMP 메인 프로토콜이나 논문용 비교 결과에 반영하지 않는다. 원래 LAMP 회로에 KZG 커밋먼트 연결을 실제로 추가한 별도 실험은 [Groth16 연결 파일럿](LAMP_KZG_GROTH16_LINK_PILOT_KO.md)에 기록한다.
+
 2026-09-30. 열 방향 RS 코드의 한 행만 표본으로 뽑는 방식은 부호율 1/2에서 최악의 오류 확률이 약 1/2이다. 이 문제를 피하면서 남은 `xᵀB` 관계까지 실제로 검증하기 위해 **별도의 비영지식 행 KZG/Freivalds 프로토콜**을 구현했다. 이는 기존 LAMP 논문의 표본 열 프로토콜을 그대로 교체한 구현이 아니다. 코드: `crypto/kzgrow`, `cmd/lamp_kzg_row_probe`. 원자료와 재현 명령은 [실험 README](../../benchmark/comparison/row_kzg_probe_20260930/README.md)에 둔다.
 
 ## 검증 관계

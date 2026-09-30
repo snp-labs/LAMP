@@ -1,0 +1,30 @@
+{
+  "K": 4,
+  "N": 8,
+  "branch_scope": "research_only_not_main_lamp",
+  "constraints": 686813,
+  "go_version": "go1.26.2",
+  "goarch": "arm64",
+  "goos": "darwin",
+  "groth16_proof_bytes": 292,
+  "indices": [
+    7
+  ],
+  "log_k": 2,
+  "merkle_proof_bytes": 192,
+  "queries": 1,
+  "sampled_digest_bytes_compressed": 64,
+  "schema": "lamp_original_ecc_in_groth16_kzg_link_research_v1",
+  "tampered_kzg_digest_rejected": true,
+  "timings_seconds": {
+    "abc_kzg_commit_and_merkle": 0.002310417,
+    "circuit_compile": 1.9954474580000001,
+    "groth16_and_external_verify": 0.002898834,
+    "groth16_setup": 62.396039833,
+    "groth16_witness_and_prove": 3.250087958,
+    "matrix_encoding": 0.000214375,
+    "srs_setup": 0.001085583,
+    "xyz_kzg_commit_and_merkle": 0.001332625
+  },
+  "verified": true
+}

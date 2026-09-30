@@ -1,0 +1,8 @@
+13:46:01 INF compiling circuit
+13:46:01 INF parsed circuit inputs nbPublic=23 nbSecret=51
+13:46:03 INF building constraint builder nbConstraints=686813
+13:47:06 DBG constraint system solver done nbConstraints=686813 took=591.383292
+13:47:08 DBG prover done acceleration=none backend=groth16 curve=bn254 nbConstraints=686813 took=2654.230125
+13:47:08 DBG verifier done backend=groth16 curve=bn254 took=2.67175
+13:47:09 ERR error="constraint #677960 is not satisfied: 7619932457985287007097593163491063754602010880242627474802491130781024320007 ⋅ 1 != 3954169654563397257935764226464016609776137547043234978666639198932908809974" nbConstraints=686813
+{"K":4,"N":8,"branch_scope":"research_only_not_main_lamp","constraints":686813,"go_version":"go1.26.2","goarch":"arm64","goos":"darwin","groth16_proof_bytes":292,"indices":[7],"log_k":2,"merkle_proof_bytes":192,"queries":1,"sampled_digest_bytes_compressed":64,"schema":"lamp_original_ecc_in_groth16_kzg_link_research_v1","tampered_kzg_digest_rejected":true,"timings_seconds":{"abc_kzg_commit_and_merkle":0.002310417,"circuit_compile":1.9954474580000001,"groth16_and_external_verify":0.002898834,"groth16_setup":62.396039833,"groth16_witness_and_prove":3.250087958,"matrix_encoding":0.000214375,"srs_setup":0.001085583,"xyz_kzg_commit_and_merkle":0.001332625},"verified":true}
