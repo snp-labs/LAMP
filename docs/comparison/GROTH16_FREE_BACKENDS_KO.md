@@ -40,7 +40,20 @@ Apple M1 Pro, macOS arm64, 10 logical CPUs, Go 1.26.2, BN254. `K=128`은 행렬 
 
 ## Groth16 없는 직접 검증의 의미
 
-검증자에게 A/B/C 및 중간값을 공개해 Freivalds 또는 직접 행렬곱을 검사하면 Groth16 없이 빠른 기준값을 얻을 수 있지만 공개 정보와 검증 비용이 달라진다. sampled encoded columns를 공개하는 방식은 LAMP의 행렬 비공개 보장을 유지하지 않는다. 따라서 그런 실행은 **public-input reference**로만 보고, committed-matrix ZK protocol의 같은 보안 목표를 만족하는 zkMatrix와 한 열에 놓지 않는다. Groth16 없는 실제 전체 protocol 비교를 원하면 먼저 새 backend의 cross-commitment link와 ZK 증명을 완성해야 한다.
+검증자에게 A/B/C 및 중간값을 공개해 Freivalds 또는 직접 행렬곱을 검사하면 Groth16 없이 빠른 기준값을 얻을 수 있지만 공개 정보와 검증 비용이 달라진다. 아래 **100.7 MB는 A/B/C 세 행렬 전체를 보내는 별도 기준값**이다. LAMP의 commitment와 opening 통신량을 뜻하지 않는다. sampled encoded columns를 공개하는 방식도 LAMP의 행렬 비공개 보장을 유지하지 않는다. 따라서 이런 실행은 **public-input reference**로만 보고, committed-matrix ZK protocol의 같은 보안 목표를 만족하는 zkMatrix와 한 열에 놓지 않는다. Groth16 없는 실제 전체 protocol 비교를 원하면 먼저 새 backend의 cross-commitment link와 ZK 증명을 완성해야 한다.
+
+예컨대 n=1024, `rho=1/2`, `L=309`에서 LAMP의 sampled A/B/C encoded columns 값을 Pedersen commitment의 **일반적인 공개 opening**으로 내보내면 값만 `309 × 3 × 1024 × 32 = 30,375,936`바이트(약 30.4 MB)다. RS 관계까지 검증자가 직접 확인하도록 세 fold 메시지와 세 codeword의 모든 field 값을 공개하면 `(3×1024 + 3×2048)×32 = 294,912`바이트가 추가된다. blinding, Merkle authentication, commitment group points, 인덱스 등의 통신은 별도다. 중복 질의를 합치면 sampled column 값의 수를 줄일 수 있지만, 이것도 **실측 proof 크기가 아니라 한 가지 공개 opening 설계의 원시 값 크기 계산**이다. Pedersen opening은 값을 노출하므로 zero knowledge가 깨진다. 값은 숨기고 compact IPA/KZG opening proof만 보내려면 해당 fold, RS, lookup, 외부 commitment 관계를 증명하는 새 프로토콜이 필요하다.
+
+이를 수치로 확인하기 위해 `cmd/public_freivalds`는 검증자가 **세 행렬 전체**를 입력받아 임의의 field 벡터 `r`로 `rᵀAB = rᵀC`를 확인한다. 거짓 곱에 대한 한 라운드의 수용 확률은 최대 `1/|Fr|`다. 프로그램은 정직한 곱을 확인하고 C의 한 원소를 바꾼 음성 사례도 거부한다. 입력 생성과 `C=AB` 계산은 검증 시간에서 분리했다. 전송·직렬화 시간은 제외했다. 입력 크기는 field element당 32바이트로 계산했다. 독립된 q개 행렬곱을 순차 검증하며 별도 proof나 setup은 없다.
+
+| 공개 행렬 기준 | 검증 시간 (초) | 공개 입력 (MB, 10진) | 같은 크기의 기존 ZK protocol verifier (참고) |
+|---|---:|---:|---|
+| n=1024, q=1 | 0.201 | 100.7 | LAMP 190ms, zkMatrix 11ms |
+| n=1024, q=4 | 0.849 | 402.7 | LAMP 172ms, zkMatrix 19ms |
+| n=1024, q=10 | 2.167 | 1,006.6 | LAMP 232ms, zkMatrix 31ms |
+| n=2048, q=1 | 1.487 | 402.7 | LAMP 170ms, zkMatrix 12ms |
+
+공개 입력을 받는 기준값은 verifier 계산만 봐도 q에 따라 증가한다. 반면 [기존 배치 파일럿](BATCH_K10_PILOT_KO.md)의 ZK verifier는 proof와 짧은 공개 statement를 받는다. 같은 표의 검증 시간은 수치적 규모를 가늠하기 위한 참고값이며 보안·통신 요구가 다른 방식을 같은 protocol로 평가하지 않는다.
 
 ## 우선순위
 
