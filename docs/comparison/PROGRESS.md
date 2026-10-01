@@ -68,3 +68,7 @@ The intended LAMP optimization is to replace each full sampled ABC column in Gro
 ## 2026-09-30 sparse FRI/Groth16 research pilot
 
 The isolated branch now contains a KZG-free [hybrid prototype](SPARSE_FRI_GROTH16_PILOT_KO.md): sparse native FRI openings for sampled A/C columns, full authenticated B columns for generic inner products, and a Groth16 circuit preserving LAMP's sampled folds and horizontal RS checks. In-process proofs verified at K=4,8,256,1024; a deliberately corrupted C row failed proving. The large runs use only one vertical and one horizontal query, so neither their timing nor their proof size is comparable to the secure LAMP/zkMatrix table. A formal FRI/composition soundness analysis and a standalone proof codec are outstanding. The official LAMP implementation and published comparison remain unchanged.
+
+## 2026-10-01 backend redesign research pilot
+
+An isolated [direct hash and KZG fold experiment](LAMP_BACKEND_REDESIGN_PILOT_KO.md) removes the original Pedersen/Groth16/QA-link pipeline in two distinct ways. Both paths verify honest square products at K=128..4096 and reject a corrupted C row in a targeted test. The direct path retains RS column sampling but reveals opened columns; the KZG path replaces RS sampling with homomorphic row-polynomial evaluation proofs. Their proof/statement sizes, setup assumptions, and security goals differ. Neither path has zero knowledge, an outer SNARK wrapper, or a complete soundness argument, so these measurements do not replace the official paper comparison.
